@@ -1,0 +1,30 @@
+2016.11.17.14:43:24:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 021IMnpW0VbQTX1SsNqW0PDspW0IMnpp,state: qr_book}
+2016.11.17.14:43:24:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base}
+2016.11.17.14:43:33:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{}
+2016.11.17.14:43:33:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{}
+2016.11.17.14:43:46:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 021ft9rC1vCso00KN0tC1dFbrC1ft9rz,state: qr_book}
+2016.11.17.14:43:46:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base}
+2016.11.17.14:43:56:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{}
+2016.11.17.14:43:56:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{}
+2016.11.17.14:48:17:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 001mmmdU1L2oIS0g5GcU13O0dU1mmmd2,state: qr_book}
+2016.11.17.14:48:17:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
+2016.11.17.14:50:21:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{}
+2016.11.17.14:50:21:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{}
+2016.11.17.14:50:24:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 031tsmkW0XvGZX1APNiW0qD1kW0tsmkR,state: qr_book}
+2016.11.17.14:50:24:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
+2016.11.17.15:03:23:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 031xeH9E07Ylag2hcl7E0Ee2aE0xeH9G,state: qr_book}
+2016.11.17.15:03:23:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base}
+2016.11.17.15:40:02:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 0010kOKu0nRJke1RPdMu0pSWKu00kOKQ,state: qr_book}
+2016.11.17.15:40:02:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base}
+2016.11.17.15:40:48:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 0113sdco1H8psm0IKJco1G0gco13sdcP,state: qr_book}
+2016.11.17.15:40:48:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
+2016.11.17.15:41:19:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 041W4ypD0jdZcf2q5XnD0DIwpD0W4ypN,state: qr_book}
+2016.11.17.15:41:19:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
+2016.11.17.15:43:00:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 011hRpF60RxnFI18o1F60manF60hRpFK,state: qr_book}
+2016.11.17.15:43:00:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
+2016.11.17.15:54:09:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 031i8Srk0Btqem18tYrk0l3Srk0i8SrC,state: qr_book}
+2016.11.17.15:54:09:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
+2016.11.17.16:03:09:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 021sak3S1loYv812zI5S1xph3S1sak3I,state: qr_book}
+2016.11.17.16:03:09:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
+2016.11.17.16:07:09:D:\WebTest\PhpTest\gnc_qr\wechat\index.php20:{code: 021z9T000GXx7C1gk6100ApE000z9T0Z,state: qr_book}
+2016.11.17.16:07:09:D:\WebTest\PhpTest\gnc_qr\wechat\index.php21:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}}
