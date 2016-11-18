@@ -9,13 +9,15 @@ session_start();
 //createButtonTemp();
 
 
-if(isset($_GET['oauth'])){
+if(isset($_GET['oauth'])&&!isset($_SESSION['openId'])){
     //getparam:oauth&diract
     $diract=isset($_GET['diract'])?$_GET['diract'] : 'none';
     $oauth=new oauth($_GET['oauth'],$diract);
     $_SESSION['oauthType']=$_GET['oauth'];
     $oauth->getOauth();
     exit;
+}elseif(isset($_SESSION['openId'])){
+    header('location:../mobile/controller.php?module='.$diract);
 }
 mylog(getArrayInf($_GET));
 mylog(getArrayInf($_SESSION));
@@ -30,12 +32,12 @@ if(isset($_GET['state'])&&isset($_SESSION['oauthType'])){
             $_SESSION['userInf']=getUnionId($_SESSION['openId']);
         }
         switch($_GET['state']){
-            case 'qr_book':
-                header('location:../mobile/controller.php?qr_book=1');
+            case 'none':
+//                header('location: ../mobile/controller.php?card_mall');
+                exit;
                 break;
             default:
-//                mylog('default');
-                header('location: ../mobile/controller.php?card_mall=1');
+                header('location:../mobile/controller.php?module='.$_GET['state']);
                 break;
         }
     }else{
