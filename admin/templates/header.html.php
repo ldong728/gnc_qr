@@ -30,17 +30,17 @@
 <aside class="lt_aside_nav content mCustomScrollbar">
     <h2><a href="index.php">起始页</a></h2>
     <ul>
+        <?php foreach($menuList as $row):?>
         <li>
             <dl class="main-menu">
-                <dt>首页管理</dt>
-<!--                --><?php //if (isset($_SESSION['pms']['index'])): ?>
-<!--                <dd style="display: --><?php //echo isset($_GET['index']) ? 'block' : 'none' ?><!--"><a href="index.php?index=1">首页编辑</a>-->
-<!--                    </dd>--><?php //endif ?>
-                <?php if (isset($_SESSION['pms']['index'])): ?>
+                <dt><?php echo $row['name']?></dt>
+
                 <dd style="display: <?php echo isset($_GET['index']) ? 'block' : 'none' ?>"><a href="index.php?categorylist=1">内容分类</a>
-                    </dd><?php endif ?>
+                    </dd>
             </dl>
         </li>
+        <?php endforeach ?>
+
         <li>
             <dl class="main-menu">
                 <dt>分组管理</dt>

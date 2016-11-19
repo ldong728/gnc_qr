@@ -98,7 +98,7 @@ if (isset($_SESSION['login'])) {
         $bbsReply = $bbsReply->fetch();
         $stdTest = pdoQuery('std_user_score_tbl', null, array('openid' => $openid), ' limit 5');
         $stdTest = $stdTest->fetchAll();
-        printView('admin/view/user_detail.html.php', '详细信息');
+        printAdminView('admin/view/user_detail.html.php', '详细信息');
 
     }
 

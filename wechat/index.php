@@ -17,6 +17,7 @@ if(isset($_GET['oauth'])&&!isset($_SESSION['openId'])){
     $oauth->getOauth();
     exit;
 }elseif(isset($_SESSION['openId'])){
+    $diract=isset($_GET['diract'])?$_GET['diract'] : 'none';
     header('location:../mobile/controller.php?module='.$diract);
 }
 mylog(getArrayInf($_GET));

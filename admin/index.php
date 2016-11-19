@@ -16,7 +16,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                     $list[] = $row;
                 }
                 if (!isset($list)) $list = array();
-                printView('admin/view/groupManage.html.php', '分组管理');
+                printAdminView('admin/view/groupManage.html.php', '分组管理');
                 exit;
             }
         } else {
@@ -45,7 +45,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
             }
             $getStr=rtrim($getStr,'&');
             $notice = pdoQuery('notice_view', null, $where, ' order by create_time desc limit ' . $page * $num . ', ' . $num);
-            printView('admin/view/notice.html.php', '通知列表');
+            printAdminView('admin/view/notice.html.php', '通知列表');
             exit;
 
         } else {
@@ -64,7 +64,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
 
             $reviewList = pdoQuery('review_view', null, $where, ' order by review_time desc limit ' . $page * $num . ', ' . $num);
             $reviewList = $reviewList->fetchAll();
-            printView('admin/view/review.html.php', '留言列表');
+            printAdminView('admin/view/review.html.php', '留言列表');
             exit;
 
         } else {
@@ -78,7 +78,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
             $num = 15;
             $page = isset($_GET['page']) ? $_GET['page'] : 0;
             $markList=pdoQuery('mark_view',null,$where, ' order by mark_time desc limit ' . $page * $num . ', ' . $num);
-            printView('admin/view/mark.html.php', '已读列表');
+            printAdminView('admin/view/mark.html.php', '已读列表');
 
             exit;
         } else {
@@ -89,7 +89,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
     if (isset($_GET['newNotice'])){
         if (isset($_SESSION['pms']['notice'])) {
             $notice=2;
-            printView('admin/view/createNews.html.php', '新建通知');
+            printAdminView('admin/view/createNews.html.php', '新建通知');
             exit;
         }else{
             echo '权限不足';
@@ -107,7 +107,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                 if ($row['id'] < 3) continue;//屏蔽星标组和黑名单
                 $glist[] = $row;
             }
-            printView('admin/view/sendNotice.html.php', '发送通知');
+            printAdminView('admin/view/sendNotice.html.php', '发送通知');
             exit;
 
         } else {
@@ -136,7 +136,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         $getStr=rtrim($getStr,'&');
         if (isset($_SESSION['pms']['news'])) {
 //            echo getArrayInf($newsList);
-            printView('admin/view/newslist.html.php', '图文列表');
+            printAdminView('admin/view/newslist.html.php', '图文列表');
             exit;
         } else {
             echo '权限不足';
@@ -145,7 +145,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
     }
     if (isset($_GET['createNews'])) {
         if (isset($_SESSION['pms']['news'])) {
-            printView('admin/view/createNews.html.php', '新建图文信息');
+            printAdminView('admin/view/createNews.html.php', '新建图文信息');
             exit;
         }
     }
@@ -171,7 +171,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                 $getStr.=$k.'='.$v.'&';
             }
             $getStr=rtrim($getStr,'&');
-            printView('admin/view/user_list.html.php', '已关注列表');
+            printAdminView('admin/view/user_list.html.php', '已关注列表');
             exit;
         } else {
             echo '权限不足';
@@ -188,7 +188,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
 //            };
 //            if (null == $review) $review = array();
 
-            printView('admin/view/review.html.php', '评价管理');
+            printAdminView('admin/view/review.html.php', '评价管理');
             exit;
         } else {
             echo '权限不足';
@@ -203,7 +203,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
 //            }
 
 
-            printView('admin/view/wechatConfig.html.php', '微信公众平台');
+            printAdminView('admin/view/wechatConfig.html.php', '微信公众平台');
             exit;
         } else {
             echo '权限不足';
@@ -215,7 +215,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
             $config = getConfig('../mobile/config/config.json');
             $remarkQuery = pdoQuery('index_remark_tbl', null, null, null);
             $frontImg = pdoQuery('ad_tbl', null, array('category' => 'banner'), null);
-            printView('admin/view/admin_index.html.php', '三北武装');
+            printAdminView('admin/view/admin_index.html.php', '三北武装');
             exit;
         } else {
             echo '权限不足';
@@ -225,7 +225,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
     if (isset($_GET['categorylist'])) {
         if (isset($_SESSION['pms']['index'])) {
             $cate = pdoQuery('category_view', null, null, null);
-            printView('admin/view/category.html.php', '三北武装');
+            printAdminView('admin/view/category.html.php', '三北武装');
             exit;
         } else {
             echo '权限不足';
@@ -253,7 +253,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                         $jmSCate[$row['f_id']]['option'][]=$row;
                     }
                 }
-                printView('admin/view/createNews.html.php','新建文章');
+                printAdminView('admin/view/createNews.html.php','新建文章');
                 exit;
             }
             if(isset($_GET['jm_cate'])){
@@ -273,7 +273,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                     }
                 }
                 if(!isset($sc))$sc=array();
-                printView('admin/view/jm_category.html.php','军民融合分类');
+                printAdminView('admin/view/jm_category.html.php','军民融合分类');
                 exit;
             }
             if(isset($_GET['jm_list'])){
@@ -307,7 +307,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                     $newsList[]=$row;
                 }
                 if(!$newsList)$newsList=array();
-                printView('admin/view/jm_list.html.php','文章列表');
+                printAdminView('admin/view/jm_list.html.php','文章列表');
                 exit;
 
             }
@@ -344,7 +344,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                     $getStr.=$k.'='.$v.'&';
                 }
                 $getStr=rtrim($getStr,'&');
-                printView('admin/view/bbs_list.html.php','社区帖子');
+                printAdminView('admin/view/bbs_list.html.php','社区帖子');
                 exit;
             }
             if(isset($_GET['topic_detail'])){
@@ -390,7 +390,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                 $type = $type->fetchAll();
             }
             if(isset($_GET['createQuestion'])){
-                printView('admin/view/std_createQuestion.html.php','创建新题');
+                printAdminView('admin/view/std_createQuestion.html.php','创建新题');
             }
             if(isset($_GET['editQuestion'])){
                 $query=pdoQuery('std_question_view',null,array('id'=>$_GET['q_id']), ' limit 4');
@@ -400,11 +400,11 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                     }
                     $inf['options'][]=array('id'=>$row['o_id'],'content'=>$row['o_content'],'correct'=>$row['correct']);
                 }
-                printView('admin/view/std_editQuestion.html.php','编辑试题');
+                printAdminView('admin/view/std_editQuestion.html.php','编辑试题');
                 exit;
             }
             if(isset($_GET['questionList'])){
-                printView('admin/view/std_questionList.html.php','试题列表');
+                printAdminView('admin/view/std_questionList.html.php','试题列表');
                 exit;
 
             }
@@ -434,7 +434,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                     if($row['id']>0&&$row['id']<100)continue;
                     $groupList[]=$row;
                 }
-                printView('admin/view/std_scoreList.html.php','成绩查询');
+                printAdminView('admin/view/std_scoreList.html.php','成绩查询');
                 exit;
 
 
@@ -461,7 +461,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                 $opList[$row['id']]['pms'][$row['pms']]['checked'] = 'checked';
             }
 //            mylog(getArrayInf($opList));
-            printView('admin/view/operator.html.php', '操作员管理');
+            printAdminView('admin/view/operator.html.php', '操作员管理');
             exit;
 
         } else {
@@ -474,7 +474,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         include 'view/login.html.php';
         exit;
     }
-    printView('admin/view/blank.html.php', '三北武装');
+    printAdminView('admin/view/blank.html.php', '三北武装');
     exit;
 } else {
     if (isset($_GET['login'])) {
@@ -485,9 +485,9 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
             $_SESSION['operator_id'] = -1;
             $pms = pdoQuery('pms_tbl', null, null, null);
             foreach ($pms as $row) {
-                $_SESSION['pms'][$row['key']] = 1;
+                $_SESSION['pms'][$row['id']] = array($row['id']=>$row['name']);
             }
-            printView('admin/view/blank.html.php', '三北武装');
+            printAdminView('admin/view/blank.html.php', '三北武装');
         } else {
             $query = pdoQuery('operator_tbl', null, array('name' => $name, 'md5' => md5($pwd)), ' limit 1');
             $op_inf = $query->fetch();
@@ -499,9 +499,9 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                 $_SESSION['operator_id'] = $op_inf['id'];
                 $pms = pdoQuery('op_pms_tbl', null, array('o_id' => $op_inf['id']), null);
                 foreach ($pms as $row) {
-                    $_SESSION['pms'][$row['pms']] = 1;
+//                    $_SESSION['pms'][$row['id']] = array($row['name'];
                 }
-                printView('admin/view/blank.html.php', '三北武装');
+                printAdminView('admin/view/blank.html.php', '三北武装');
                 exit;
             }
 
