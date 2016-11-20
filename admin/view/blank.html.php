@@ -1,6 +1,9 @@
 <section>
 
-    <div class="space"></div>
+    <div class="space">
+        <?php echo getArrayInf($_SESSION);?>
+
+    </div>
 
 
 </section>

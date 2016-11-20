@@ -7,6 +7,12 @@ session_start();
 
 if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
 
+    if(isset($_GET['menu'])&&in_array($_GET['menu'],$_SESSION['pms'])){
+            switch($_GET['sub']){
+
+            }
+        }
+
     if (isset($_GET['groupManager'])) {
         if (isset($_SESSION['pms']['group'])) {
             if (isset($_GET['groupList'])) {
@@ -215,7 +221,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
             $config = getConfig('../mobile/config/config.json');
             $remarkQuery = pdoQuery('index_remark_tbl', null, null, null);
             $frontImg = pdoQuery('ad_tbl', null, array('category' => 'banner'), null);
-            printAdminView('admin/view/admin_index.html.php', '三北武装');
+            printAdminView('admin/view/admin_index.html.php', '宫暖春');
             exit;
         } else {
             echo '权限不足';
@@ -225,7 +231,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
     if (isset($_GET['categorylist'])) {
         if (isset($_SESSION['pms']['index'])) {
             $cate = pdoQuery('category_view', null, null, null);
-            printAdminView('admin/view/category.html.php', '三北武装');
+            printAdminView('admin/view/category.html.php', '宫暖春');
             exit;
         } else {
             echo '权限不足';
@@ -474,7 +480,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         include 'view/login.html.php';
         exit;
     }
-    printAdminView('admin/view/blank.html.php', '三北武装');
+    printAdminView('admin/view/blank.html.php', '宫暖春');
     exit;
 } else {
     if (isset($_GET['login'])) {
@@ -483,11 +489,11 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         if ($_POST['adminName'] . $_POST['password'] == ADMIN . PASSWORD) {
             $_SESSION['login'] = DOMAIN;
             $_SESSION['operator_id'] = -1;
-            $pms = pdoQuery('pms_tbl', null, null, null);
-            foreach ($pms as $row) {
-                $_SESSION['pms'][$row['id']] = array($row['id']=>$row['name']);
-            }
-            printAdminView('admin/view/blank.html.php', '三北武装');
+//            $pms = pdoQuery('pms_tbl', null, null, null);
+//            foreach ($pms as $row) {
+//                $_SESSION['pms'][$row['id']] = array($row['id']=>$row['name']);
+//            }
+            printAdminView('admin/view/blank.html.php', '宫暖春');
         } else {
             $query = pdoQuery('operator_tbl', null, array('name' => $name, 'md5' => md5($pwd)), ' limit 1');
             $op_inf = $query->fetch();
@@ -497,11 +503,11 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
             } else {
                 $_SESSION['login'] = DOMAIN;
                 $_SESSION['operator_id'] = $op_inf['id'];
-                $pms = pdoQuery('op_pms_tbl', null, array('o_id' => $op_inf['id']), null);
-                foreach ($pms as $row) {
-//                    $_SESSION['pms'][$row['id']] = array($row['name'];
-                }
-                printAdminView('admin/view/blank.html.php', '三北武装');
+//                $pms = pdoQuery('op_pms_tbl', null, array('o_id' => $op_inf['id']), null);
+//                foreach ($pms as $row) {
+////                    $_SESSION['pms'][$row['id']] = array($row['name'];
+//                }
+                printAdminView('admin/view/blank.html.php', '宫暖春');
                 exit;
             }
 

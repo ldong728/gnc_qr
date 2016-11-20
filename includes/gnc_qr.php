@@ -7,22 +7,23 @@
  */
 
 function printAdminView($addr,$title='abc',$subPath='/admin'){
-    if(-1==$_SESSION['operator_id']){
-        $menuQuery=pdoQuery('pms_view',null,null,' order by f_id s_id asc');
-    }else{
-        $opQuery=pdoQuery('op_pms_tbl',array('pms_id'),array('o_id'=>$_SESSION['operator_id']),null);
-        foreach ($opQuery as $row) {
-            $pmList[]=$row['pms_id'];
+    if(!isset($_SESSION['pms'])){
+        if(-1==$_SESSION['operator_id']){
+            $menuQuery=pdoQuery('pms_view',null,null,' order by f_id,s_id asc');
+        }else{
+            $opQuery=pdoQuery('op_pms_tbl',array('pms_id'),array('o_id'=>$_SESSION['operator_id']),null);
+            foreach ($opQuery as $row) {
+                $pmList[]=$row['pms_id'];
+            }
+            $menuQuery=pdoQuery('pms_view',null,array('f_id'=>$pmList),' order by f_id,s_id asc');
         }
-        $menuQuery=pdoQuery('pms_view',null,array('f_id'=>$pmList),' order by f_id s_id asc');
-    }
-    foreach ($menuQuery as $row) {
-        if(!isset($menuList[$row['f_id']])){
-            $menuList[$row['f_id']]=array('id'=>$row['f_id'],'key'=>$row['f_key'],'name'=>$row['f_name'],'sub'=>array());
+        foreach ($menuQuery as $row) {
+            if(!isset($_SESSION['pms'][$row['f_key']])){
+                $_SESSION['pms'][$row['f_key']]=array('name'=>$row['f_name'],'sub'=>array());
+            }
+            if(isset($row['s_id']))$_SESSION['pms'][$row['f_key']]['sub'][]=array('id'=>$row['s_id'],'key'=>$row['s_key'],'name'=>$row['s_name']);
         }
-        if(isset($row['s_id']))$menuList[$row['f_id']]['sub'][]=array('id'=>$row['s_id'],'key'=>$row['s_key'],'name'=>$row['s_name']);
     }
-
 //    pdoQuery('sub_menu_tbl',null,array('parent_id'=>array()))
     $mypath= $GLOBALS['mypath'];
     include $mypath.$subPath.'/templates/header.html.php';
