@@ -35,7 +35,7 @@
             <dl class="main-menu">
                 <dt><?php echo $row['name']?></dt>
                 <?php foreach($row['sub'] as $subrow):?>
-                <dd style="display: <?php echo isset($_GET['sub'])&&$subrow['key']==$_GET['sub'] ? 'block' : 'none' ?>"><a href="index.php?menu=<?php echo $key?>&sub=<?php echo $subrow['key']?>"><?php echo $subrow['name']?></a>
+                <dd style="display: <?php echo isset($_GET['menu'])&&$_GET['menu']==$row['key'] ? 'block' : 'none' ?>"><a href="index.php?menu=<?php echo $key?>&sub=<?php echo $subrow['key']?>"><?php echo $subrow['name']?></a>
                     </dd>
                 <?php endforeach ?>
             </dl>
@@ -47,6 +47,7 @@
     $('dt').click(function () {
         $(this).nextAll('dd').slideToggle('fast');
     });
+    var pms="<?php echo $_GET['menu']?>";
 </script>
 <section class="rt_wrap content mCustomScrollbar">
     <div cla="rt_content">

@@ -2,7 +2,25 @@
 include_once '../includePackage.php';
 session_start();
 
-if (isset($_SESSION['login'])) {
+if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
+    mylog('session ok'.getArrayInf($_POST));
+    if(isset($_POST['pms'])&&array_key_exists($_POST['pms'],$_SESSION['pms'])){
+        mylog('post ok:'.getArrayInf($_POST));
+            switch($_POST['method']){
+                case 'add_dealer':
+                    mylog('reach');
+                    $parent_id=isset($_SESSION['dealer_id'])?$_SESSION['dealer_id'] : '0';
+                    pdoInsert('gd_users',array('use_phone'=>$_POST['phone'],'use_username'=>$_POST['name'],'use_password'=>md5($_POST['psw']),'use_parent_id'=>$parent_id));
+                    echo 'ok';
+                    break;
+
+
+            }
+        }else{
+        echo '无此权限';
+        exit;
+    }
+
     if (isset($_POST['reflashUsers'])) {
         include_once '../wechat/serveManager.php';
         $inf = getOpenidList();

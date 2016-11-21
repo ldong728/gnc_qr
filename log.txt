@@ -1,6 +1,34 @@
-2016.11.19.09:40:29:D:\WebTest\PhpTest\gnc_qr\mobile\controller.php28:login
-2016.11.19.09:42:58:D:\WebTest\PhpTest\gnc_qr\wechat\index.php23:{code: 0216zUPH0MzqRj2J1UOH0AjVPH06zUPQ,state: qr_book}
-2016.11.19.09:42:58:D:\WebTest\PhpTest\gnc_qr\wechat\index.php24:{oauthType: snsapi_base}
-2016.11.19.09:43:00:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT use_id FROM gd_users WHERE use_openid="oubtTtwKL6FwMGY2_NhGBcOmiBNk"  limit 1
-2016.11.19.09:43:22:D:\WebTest\PhpTest\gnc_qr\mobile\controller.php28:logingodleegodlee
-2016.11.19.09:43:22:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT use_id FROM gd_users WHERE use_username="godlee" AND use_password="godlee"  limit 1
+2016.11.21.15:56:47:D:\WebTest\PhpTest\gnc_qr\wechat\index.php23:{code: 041Jo07s0VvmJb1I1P9s06pm7s0Jo07N,state: qr_book}
+2016.11.21.15:56:47:D:\WebTest\PhpTest\gnc_qr\wechat\index.php24:{oauthType: snsapi_base}
+2016.11.21.15:56:47:D:\WebTest\PhpTest\gnc_qr\includes\gnc_qr.php92:marked
+2016.11.21.15:57:10:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php10:ajax arrive
+2016.11.21.15:57:10:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php12:sessionok
+2016.11.21.15:57:10:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php15:null
+2016.11.21.15:58:19:D:\WebTest\PhpTest\gnc_qr\wechat\index.php23:{oauth: snsapi_base,diract: qr_book}
+2016.11.21.15:58:19:D:\WebTest\PhpTest\gnc_qr\wechat\index.php24:{oauthType: snsapi_base,openId: oubtTtwKL6FwMGY2_NhGBcOmiBNk,userInf: {subscribe: 1,openid: oubtTtwKL6FwMGY2_NhGBcOmiBNk,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/icTNT8MxQgGfxPADkOREZ6hxoJSukgJnfrwHwIDFYJE8ISDpoUibjo2pkKxA64o2qYm45mKsBQNPOolibtPsVKCdg/0,subscribe_time: 1464769212,remark: ,groupid: 105,tagid_list: {0: 105}}userId: 6}
+2016.11.21.15:59:10:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php10:ajax arrive
+2016.11.21.15:59:10:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php12:sessionok
+2016.11.21.15:59:10:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php15:{"43ec2881abe29160278255ab1d3f4f7c":"百度百科","254aeaa484f0eeaf1ca5728b87f402df":"http:\/\/img.yingyonghui.com\/apk\/105468\/com.lingdong.client.android.1299758130229.apk\r\n","f5cdad658712d8ddd330db1705a26ec3":"http:\/\/upto.cnblogs.com\/","2493e029c4e64fda22e7efe37b8a970d":"http:\/\/fest.uc.cn\/autumn\/index?uc_param_str=pfnieisivecpmibifrdn&entry=pcgw#!\/share","d11618e535a1faa70fb2d9073a9d3e67":"http:\/\/weixin.qq.com\/r\/uXX79HfEK0lUh2aXnyCd"}
+2016.11.21.16:02:51:D:\WebTest\PhpTest\gnc_qr\wechat\index.php23:{code: 011KYOnQ1hYpK611BQlQ1QUWnQ1KYOne,state: qr_book}
+2016.11.21.16:02:51:D:\WebTest\PhpTest\gnc_qr\wechat\index.php24:{oauthType: snsapi_base}
+2016.11.21.16:02:52:D:\WebTest\PhpTest\gnc_qr\includes\gnc_qr.php92:marked
+2016.11.21.16:03:25:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php10:ajax arrive
+2016.11.21.16:03:25:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php12:sessionok
+2016.11.21.16:03:25:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php15:{"025ef490a1a7ae1790648f4639ae7522":"http:\/\/m.liantu.com\/","673c733d6ff88804ae9c05cfff59d394":"http:\/\/qr.jibaoku.com\/","fd9bb228db7861d9258b684053074cca":"http:\/\/weixin.qq.com\/r\/hHVVWiDEFh5phzE5nyCg","8846ede3e18f3bbfdfa5ad8c3d390df7":"http:\/\/weixin.qq.com\/r\/CHUDDGnEmlflh3hvnyAs","5444ccb38ab88c9d23d5f4a156e14408":"欢迎访问太平洋IT百科栏目！","43ec2881abe29160278255ab1d3f4f7c":"百度百科","9b2029d8405268299f27dff1db9baa34":"http:\/\/weixin.qq.com\/r\/mHWirV3ECmN1h0zOnyC8","2493e029c4e64fda22e7efe37b8a970d":"http:\/\/fest.uc.cn\/autumn\/index?uc_param_str=pfnieisivecpmibifrdn&entry=pcgw#!\/share"}
+2016.11.21.16:20:17:D:\WebTest\PhpTest\gnc_qr\wechat\index.php23:{code: 021n06PU0TEaDW1JuCMU0q9iPU0n06PS,state: qr_book}
+2016.11.21.16:20:17:D:\WebTest\PhpTest\gnc_qr\wechat\index.php24:{oauthType: snsapi_base}
+2016.11.21.16:20:18:D:\WebTest\PhpTest\gnc_qr\includes\gnc_qr.php92:marked
+2016.11.21.16:20:26:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php10:ajax arrive
+2016.11.21.16:20:26:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php12:sessionok
+2016.11.21.16:20:26:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php15:{"3ef007389e2a17064bda5ad6395c4d35":"http:\/\/weixin.qq.com\/r\/WFB_cV3E72OQh0wSnwV8"}
+2016.11.21.16:21:12:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php5:ajax
+2016.11.21.16:21:12:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php7:session ok{phone: 111,name: 111,psw: 111,pms: dealer,method: add_dealer}
+2016.11.21.16:21:12:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php9:post ok:{phone: 111,name: 111,psw: 111,pms: dealer,method: add_dealer}
+2016.11.21.16:21:12:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php12:reach
+2016.11.21.16:23:31:D:\WebTest\PhpTest\gnc_qr\wechat\index.php23:{code: 021Xu0Sb1kKFEs0VeTRb1mVIRb1Xu0S0,state: qr_book}
+2016.11.21.16:23:31:D:\WebTest\PhpTest\gnc_qr\wechat\index.php24:{oauthType: snsapi_base}
+2016.11.21.16:23:40:D:\WebTest\PhpTest\gnc_qr\mobile\controller.php28:login111111
+2016.11.21.16:23:40:D:\WebTest\PhpTest\gnc_qr\mobile\controller.php35:openid update
+2016.11.21.16:24:05:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php10:ajax arrive
+2016.11.21.16:24:05:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php12:sessionok
+2016.11.21.16:24:05:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php15:{"5663dc5d189e4d260eec9b06df9d89cf":"http:\/\/weixin.qq.com\/r\/JXWSnQrEtzTIhxv_nyAB","7f25944055201790c6cc0c88bbb362fc":"Hello Word!"}

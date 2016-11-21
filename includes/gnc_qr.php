@@ -8,18 +8,23 @@
 
 function printAdminView($addr,$title='abc',$subPath='/admin'){
     if(!isset($_SESSION['pms'])){
-        if(-1==$_SESSION['operator_id']){
-            $menuQuery=pdoQuery('pms_view',null,null,' order by f_id,s_id asc');
-        }else{
-            $opQuery=pdoQuery('op_pms_tbl',array('pms_id'),array('o_id'=>$_SESSION['operator_id']),null);
-            foreach ($opQuery as $row) {
-                $pmList[]=$row['pms_id'];
+        if(isset($_SESSION['operator_id'])){
+            if(-1==$_SESSION['operator_id']){
+                $menuQuery=pdoQuery('pms_view',null,null,' order by f_id,s_id asc');
+            }else{
+                $opQuery=pdoQuery('op_pms_tbl',array('pms_id'),array('o_id'=>$_SESSION['operator_id']),null);
+                foreach ($opQuery as $row) {
+                    $pmList[]=$row['pms_id'];
+                }
+                $menuQuery=pdoQuery('pms_view',null,array('f_id'=>$pmList),' order by f_id,s_id asc');
             }
-            $menuQuery=pdoQuery('pms_view',null,array('f_id'=>$pmList),' order by f_id,s_id asc');
+        }else{
+            $menuQuery=pdoQuery('pms_view',null,array('f_key'=>'dealer'),' order by f_id,s_id asc');
         }
+
         foreach ($menuQuery as $row) {
             if(!isset($_SESSION['pms'][$row['f_key']])){
-                $_SESSION['pms'][$row['f_key']]=array('name'=>$row['f_name'],'sub'=>array());
+                $_SESSION['pms'][$row['f_key']]=array('key'=>$row['f_key'],'name'=>$row['f_name'],'sub'=>array());
             }
             if(isset($row['s_id']))$_SESSION['pms'][$row['f_key']]['sub'][]=array('id'=>$row['s_id'],'key'=>$row['s_key'],'name'=>$row['s_name']);
         }
@@ -83,7 +88,8 @@ function getArea($pro,$city,$area){
 function isUserLogin($direct){
     if(!isset($_SESSION['userId'])){
         $query=pdoQuery('gd_users',array('use_id'),array('use_openid'=>$_SESSION['openId']),' limit 1');
-        if($userid=$query->fetch){
+        if($userid=$query->fetch()){
+            mylog('marked');
             $_SESSION['userId']=$userid['use_id'];
             return true;
         }
