@@ -1,10 +1,42 @@
 <head>
     <?php include 'templates/header.php'?>
     <!--    <link rel="stylesheet" href="stylesheet/order.css"/>-->
+    <link rel="stylesheet" href="stylesheet/user.css"/>
     <?php include_once 'templates/jssdkIncluder.php' ?>
 </head>
 
-<body>
+<body class="age_bg">
+<div class="nav_hd">
+    <a href="javascript:history.back(-1)" class="back clearfix">
+        <span class="f_l">&lt;</span>返回
+    </a>
+    <div class="title">
+        宫暖春
+    </div>
+    <a href="./" class="home">
+        <span>&lt;</span>
+    </a>
+</div>
+<div class="sub_age dealer_list"style="display: none">
+    <ul class="clearfix">
+        <?php foreach($subDealer as $row):?>
+        <li class="dealer" id="<?php echo $row['use_id']?>">
+            <div class="pic f_l"><img src="<?php echo $row['use_img']?>"></div>
+            <div class="con f_r">
+                <div class="title"><?php echo $row['use_username']?></div>
+                <div class="sn"><?php echo $row['use_phone']?></div>
+            </div>
+            <div class="clear"></div>
+        </li>
+        <?php endforeach ?>
+    </ul>
+    <div class="page_link">
+        <div class="in">
+            <span>共1页</span>
+            <span>第1页</span>
+        </div>
+    </div>
+</div>
 
 
 
@@ -12,6 +44,16 @@
 
 <script>
     var resultList={};
+    $('.dealer').click(function(){
+       var id=$(this).attr('id');
+        $.post('ajax.php',{action:'booking',touser:id,data:resultList},function(data){
+            alert('上传成功')
+            });
+    });
+</script>
+
+<script>
+
     var bactchScan={
         needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
         scanType: ["qrCode"], // 可以指定扫二维码还是一维码，默认二者都有
@@ -23,8 +65,9 @@
                     },500);
                 },
         cancel: function(res){
-            $.post('ajax.php',{action:'booking',data:resultList},function(data){
-            });
+            $('.dealer_list').show();
+//            $.post('ajax.php',{action:'booking',data:resultList},function(data){
+//            });
         }
 
     }

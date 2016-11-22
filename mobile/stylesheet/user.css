@@ -24,7 +24,7 @@
 /*==================================
 *** 经销商登录 - age_login ***
 ==================================*/
-.age_login{padding-top:170px; background:url(../images/login_ico.png) no-repeat center 40px; background-size:60px 60px; text-align:center;}
+.age_login{padding-top:170px; background:url(images/login_ico.png) no-repeat center 40px; background-size:60px 60px; text-align:center;}
 .age_login input{width:70%; border-radius:3px; padding:0 8px; margin-bottom:15px;}
 .age_login .txt{border:1px solid #ccc; height:40px;}
 .age_login .bt{height:33px; color:#fff; background-color:#501d02; border:none; font-size:16px; font-family:"宋体", Arial, sans-serif;}
@@ -43,11 +43,11 @@
 .age_pro_act{}
 .age_pro_act a{display:block; padding-left:85px; height:88px; line-height:88px; border-bottom:1px solid #f5f5f5; color:#000; font-size:24px; background-position:20px 20px;}
 .age_pro_act a span{font-size:30px; font-family:"宋体", Arial, sans-serif; color:#c7c7cc;}
-.age_pro_act a.sale{background-image:url(../images/log_ico_goo.jpg); background-repeat:no-repeat;}
-.age_pro_act a.logs{background-image:url(../images/log_ico_log.jpg); background-repeat:no-repeat;}
-.age_pro_act a.agents{background-image:url(../images/log_ico_age.jpg); background-repeat:no-repeat; border-bottom:none;}
+.age_pro_act a.sale{background-image:url(images/log_ico_goo.jpg); background-repeat:no-repeat;}
+.age_pro_act a.logs{background-image:url(images/log_ico_log.jpg); background-repeat:no-repeat;}
+.age_pro_act a.agents{background-image:url(images/log_ico_age.jpg); background-repeat:no-repeat; border-bottom:none;}
 
-.age_pro_pw{display:block; padding-left:85px; height:88px; line-height:88px;color:#000; font-size:24px; background:url(../images/log_ico_pw.jpg) no-repeat; background-position:20px 20px;}
+.age_pro_pw{display:block; padding-left:85px; height:88px; line-height:88px;color:#000; font-size:24px; background:url(images/log_ico_pw.jpg) no-repeat; background-position:20px 20px;}
 .age_pro_pw span{font-size:30px; font-family:"宋体", Arial, sans-serif; color:#c7c7cc;}
 
 .age_pro_logout{height:60px; line-height:60px; text-align:center; color:#000; font-size:24px; display:block;}

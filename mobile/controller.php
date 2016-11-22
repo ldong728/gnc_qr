@@ -12,6 +12,7 @@ if (isset($_SESSION['openId'])) {
         if (isUserLogin($_GET['module'])) {
             switch ($_GET['module']) {
                 case 'qr_book';
+                    $subDealer=pdoQuery('gd_users',null,array('use_parent_id'=>$_SESSION['userId']),'limit 20');
                     include 'view/qr_scanner.html.php';
                     break;
             }
