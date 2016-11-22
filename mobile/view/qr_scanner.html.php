@@ -46,9 +46,16 @@
     var resultList={};
     $('.dealer').click(function(){
        var id=$(this).attr('id');
-        $.post('ajax.php',{action:'booking',touser:id,data:resultList},function(data){
-            alert('上传成功')
+        if(!{}==resultList){
+            $.post('ajax.php',{action:'booking',touser:id,data:resultList},function(data){
+
+                alert('上传成功')
+
             });
+        }else{
+            alert('已确认');
+        }
+
     });
 </script>
 

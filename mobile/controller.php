@@ -15,6 +15,10 @@ if (isset($_SESSION['openId'])) {
                     $subDealer=pdoQuery('gd_users',null,array('use_parent_id'=>$_SESSION['userId']),'limit 20');
                     include 'view/qr_scanner.html.php';
                     break;
+                case 'qr_query':
+
+                    include 'view/qr_query.html.php';
+                    break;
             }
         } else {
             $diract=$_GET['module'];
