@@ -16,7 +16,6 @@ if (isset($_SESSION['openId'])) {
                     include 'view/qr_scanner.html.php';
                     break;
                 case 'qr_query':
-
                     include 'view/qr_query.html.php';
                     break;
             }
@@ -37,12 +36,11 @@ if (isset($_SESSION['openId'])) {
             mylog('openid update');
             header('location: ?module='.$_GET['diract']);
         }else{
-            $diract=$_GET['module'];
+            $diract=$_GET['diract'];
             include 'view/login.html.php';
         }
     }
     if(isset($_GET['register'])){
-
     }
 
 }

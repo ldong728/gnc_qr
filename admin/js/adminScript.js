@@ -28,6 +28,7 @@ $('.ipt-area-toggle').dblclick(function () {
     $(this).html(content)
 });
 $(document).on('change', '.ipt', function () {
+    console.log('change');
     var input = $(this);
     var value = $(this).val();
     var id = $(this).attr('id').slice('3');

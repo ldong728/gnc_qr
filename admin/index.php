@@ -6,11 +6,25 @@ session_start();
 
 
 if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
+    $num=15;
+    $getStr = '';
+
+    foreach ($_GET as $k => $v) {
+        if ($k == 'page') continue;
+        $getStr .= $k . '=' . $v . '&';
+    }
 
     if (isset($_GET['menu']) && array_key_exists($_GET['menu'], $_SESSION['pms'])) {
         switch ($_GET['sub']) {
             case 'add_dealer':
                 printAdminView('admin/view/dealer_add.html.php', '新建用户');
+                break;
+            case 'dealer_list':
+                $page=$_GET['page'];
+                $where=null;
+                if(isset($_SESSION['dealer_id']))$where=array('use_parent_id'=>$_SESSION['dealer_id']);
+                $dealerList=pdoQuery('gd_users',null,$where,' limit ' . $page * $num . ', ' .$num);
+                printAdminView('admin/view/dealer_list.html.php','经销商列表');
                 break;
         }
         exit;

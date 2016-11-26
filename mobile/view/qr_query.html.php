@@ -37,8 +37,15 @@
             $.post('ajax.php',{action:'query',data:result},function(re){
                 var value=eval('('+re+')');
                 if(0==value.errcode){
-
                     resultOut(value.data);
+                }else{
+                    if(confirm('错误：'+value.errmsg+',是否继续')){
+                        wx.scanQRCode(
+                            myScan
+                        )
+                    }else{
+                        window.close();
+                    }
                 }
             });
         },

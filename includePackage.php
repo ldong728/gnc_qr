@@ -21,6 +21,7 @@ define('APP_SECRET','40751854901cc489eddd055538224e8a');
 define('WEIXIN_ID','gh_964192c927cb');
 define('MCH_ID','now is null');
 define('KEY','now is null');
+define('SN_KEY','hahahjiubugaosuni');
 define('ADMIN','hll');
 define('PASSWORD','admin');
 define("TOKEN", "godlee");

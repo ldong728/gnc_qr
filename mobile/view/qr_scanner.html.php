@@ -43,16 +43,23 @@
 </body>
 
 <script>
+
     var resultList={};
     $('.dealer').click(function(){
        var id=$(this).attr('id');
-        if(!{}==resultList){
+        var tNumber=objLengh(resultList);
+        if(0!=tNumber){
             $.post('ajax.php',{action:'booking',touser:id,data:resultList},function(data){
-
-                alert('上传成功')
-
+                alert(data);
+//                var value=eval('('+data+')');
+//                if(null!=value.data){
+//
+//                }
+                alert('上传成功');
+                resultList={};
             });
         }else{
+            alert(resultList.toString());
             alert('已确认');
         }
 
@@ -73,8 +80,7 @@
                 },
         cancel: function(res){
             $('.dealer_list').show();
-//            $.post('ajax.php',{action:'booking',data:resultList},function(data){
-//            });
+
         }
 
     }

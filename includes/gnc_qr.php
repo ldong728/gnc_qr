@@ -99,6 +99,19 @@ function isUserLogin($direct){
         return true;
     }
 }
+function canShip($code,$userId){
+    if('0'==$userId)return true;
+    $recorder=pdoQuery('gd_qr_recorder',null,array('code'=>$code,'to_id'=>$userId),' limit 1');
+    if($recorder->fetch())return true;
+    else return false;
+}
+function snPreVerify($code){
+    $v=substr($code,0,1);
+    $data=substr($code,1);
+    $md=substr(md5($data.SN_KEY),0,1);
+    if((int)$v==(int)$md)return true;
+    else return false;
+}
 
 
 

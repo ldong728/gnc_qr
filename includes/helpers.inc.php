@@ -67,6 +67,22 @@ function mylog($str='mark'){
     }
 }
 
+function ajaxBack(array $data=null,$errcode=0,$errmsg='ok'){
+    $back=array('errcode'=>$errcode,'errmsg'=>$errcode);
+    if($data)$back[]=$data;
+    return json_encode($back);
+}
+
+//mysql格式转换
+function timeUnixToMysql($time){
+    return date('Y-m-d H:i:s', $time);
+
+}
+
+function timeMysqlToUnix($time){
+    return strtotime($time);
+}
+
 
 
 

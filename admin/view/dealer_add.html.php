@@ -1,7 +1,7 @@
 <?php
 //$mode = isset($GLOBALS['notice']) ? $GLOBALS['notice'] : 1;
 //$mode = isset($GLOBALS['mode']) ? $GLOBALS['mode'] : $mode;
-//$inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
+$inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
 //$jmCate = isset($GLOBALS['jmCate']) ? $GLOBALS['jmCate'] : array();
 //$jmSCate = isset($GLOBALS['jmSCate']) ? $GLOBALS['jmSCate'] : array();
 //$f_id=isset($GLOBALS['f_id'])?$GLOBALS['f_id'] : -1;
@@ -24,17 +24,22 @@
             <li>
                 <span class="item_name" style="display:inline-block;width:120px">手机号码:</span>
                 <input type="text" class="userinf textbox textbox_225" placeholder="请输手机号码"
-                       name="phone" <?php echo $inf ? 'value="' . $inf['use_phone'] . '"' : '' ?>/>
+                       name="use_phone" <?php echo $inf ? 'value="' . $inf['use_phone'] . '"' : '' ?>/>
+            </li>
+            <li>
+                <span class="item_name" style="display:inline-block;width:120px">微信号:</span>
+                <input type="text" class="userinf textbox textbox_225" placeholder="请输入经销商微信号"
+                       name="use_wx_id" <?php echo $inf ? 'value="' . $inf['use_real_name'] . '"' : '' ?>/>
             </li>
             <li>
                 <span class="item_name" style="display:inline-block;width:120px">用户名:</span>
-                <input type="text" class="userinf textbox textbox_225" placeholder="请输入用户名"
-                       name="name" <?php echo $inf ? 'value="' . $inf['use_real_name'] . '"' : '' ?>/>
+                <input type="text" class="userinf textbox textbox_225" placeholder="请输入经销商用户名"
+                       name="use_username" <?php echo $inf ? 'value="' . $inf['use_real_name'] . '"' : '' ?>/>
             </li>
             <li>
                 <span class="item_name" style="display:inline-block;width:120px">密码:</span>
                 <input type="text" class="userinf textbox textbox_225" placeholder="请输入密码"
-                       name="psw" <?php echo $inf ? 'value="' . $inf['use_real_name'] . '"' : '' ?>/>
+                       name="use_password" <?php echo $inf ? 'value="' . $inf['use_real_name'] . '"' : '' ?>/>
             </li>
 
 
@@ -53,13 +58,13 @@
         var data={};
         $('.userinf').each(function (k, v) {
 //            alert(v.value);
-            data[v.name]= v.value;
+            data.data[v.name]= v.value;
         });
         data['pms']=pms;
         data['method']='add_dealer';
         $.post('ajax_request.php',data,function(re){
             showToast(re);
-            alert(ra);
+//            alert(ra);
         });
     }
 

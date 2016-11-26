@@ -11,6 +11,13 @@ var gnc={
     },
     stopLoading:function(){
         $('.loading').hide();
+    },
+    objLengh:function(obj){
+        var count=0;
+        $.each(obj,function(k,v){
+            count++;
+        });
+        return count;
     }
 }
 function showToast(str){
@@ -24,4 +31,11 @@ function loading(){
 }
 function stopLoading(){
     $('.loading').hide();
+}
+function objLengh(obj){
+    var count=0;
+    $.each(obj,function(k,v){
+        count++;
+    });
+    return count;
 }

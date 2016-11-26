@@ -3,20 +3,43 @@ include_once '../includePackage.php';
 session_start();
 
 if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
-    mylog('session ok'.getArrayInf($_POST));
+
+//    mylog('session ok'.getArrayInf($_POST));
     if(isset($_POST['pms'])&&array_key_exists($_POST['pms'],$_SESSION['pms'])){
         mylog('post ok:'.getArrayInf($_POST));
-            switch($_POST['method']){
+        if(isset($_POST['method'])){
+            switch ($_POST['method']) {
                 case 'add_dealer':
                     mylog('reach');
-                    $parent_id=isset($_SESSION['dealer_id'])?$_SESSION['dealer_id'] : '0';
-                    pdoInsert('gd_users',array('use_phone'=>$_POST['phone'],'use_username'=>$_POST['name'],'use_password'=>md5($_POST['psw']),'use_parent_id'=>$parent_id));
-                    echo 'ok';
+                    foreach ($_POST['data'] as $k=>$v) {
+                        $value[$k]=$v;
+                    }
+                    $parent_id = isset($_SESSION['dealer_id']) ? $_SESSION['dealer_id'] : '0';
+                    $value['use_parent_id'];
+                    $id=pdoInsert('gd_users', $value,'ignore');
+                    if($id){
+//                        $back['id']=$id;
+                        echo ajaxBack(array('id'=>$id));
+                    }else{
+//                        $back['erro']
+                        echo ajaxBack(null,1,'记录无法保存');
+                    }
+
                     break;
-
-
             }
-        }else{
+        }
+        if (isset($_POST['alteTblVal'])) {//快速更改
+            mylog('alteTblVal');
+            $data = pdoUpdate($_POST['tbl'], array($_POST['col'] => $_POST['value']), array($_POST['index'] => $_POST['id']));
+            if($data){
+                echo ajaxBack(array('id'=>$data));
+            }else{
+                echo ajaxBack(null,1,'记录无法修改');
+            }
+            exit;
+        }
+
+    }else{
         echo '无此权限';
         exit;
     }
