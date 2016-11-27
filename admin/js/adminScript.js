@@ -40,19 +40,29 @@ $(document).on('change', '.ipt', function () {
         index = col;
         id = replace;
     }
-    $.post('ajax_request.php', {
+    var altValue={
         alteTblVal: 1,
         tbl: tbl,
         col: col,
         value: value,
         index: index,
-        id: id
-    }, function (data) {
-        if (data > 0) {
+        id: id,
+        pms:pms
+
+    };
+    //$.each(altValue,function(k,v){
+    //   console.log(k+': '+v);
+    //});
+    $.post('ajax_request.php',altValue , function (data) {
+        if(data)data=eval('('+data+')');
+        if (data.errcode == 0) {
             input.parent().text(value);
             input.remove();
         }else{
             //alert(data);
         }
     })
-})
+});
+document.on('focusout','ipt',function(){
+
+});

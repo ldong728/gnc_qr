@@ -18,6 +18,9 @@ if (isset($_SESSION['openId'])) {
                 case 'qr_query':
                     include 'view/qr_query.html.php';
                     break;
+                case 'qr_verify':
+                    include 'view/qr_verify.html.php';
+                    break;
             }
         } else {
             $diract=$_GET['module'];
@@ -27,7 +30,7 @@ if (isset($_SESSION['openId'])) {
 
     }
     if (isset($_GET['login'])) {
-        $where=array('use_username'=>$_POST['username'],'use_password'=>md5($_POST['password']));
+        $where=array('use_usephone'=>$_POST['userphone'],'use_password'=>md5($_POST['password']));
         $query=pdoQuery('gd_users',array('use_id'),$where,' limit 1');
         $inf=$query->fetch();
         if($inf){

@@ -55,7 +55,7 @@ $inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
 <script>
 
     function submit() {
-        var data={};
+        var data={data:{}};
         $('.userinf').each(function (k, v) {
 //            alert(v.value);
             data.data[v.name]= v.value;

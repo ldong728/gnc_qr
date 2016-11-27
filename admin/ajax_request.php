@@ -5,6 +5,7 @@ session_start();
 if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
 
 //    mylog('session ok'.getArrayInf($_POST));
+    mylog('ajax reached');
     if(isset($_POST['pms'])&&array_key_exists($_POST['pms'],$_SESSION['pms'])){
         mylog('post ok:'.getArrayInf($_POST));
         if(isset($_POST['method'])){
@@ -12,7 +13,11 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                 case 'add_dealer':
                     mylog('reach');
                     foreach ($_POST['data'] as $k=>$v) {
-                        $value[$k]=$v;
+                        if('use_password'==$k){
+                            $value[$k]=md5($v);
+                        }else{
+                            $value[$k]=$v;
+                        }
                     }
                     $parent_id = isset($_SESSION['dealer_id']) ? $_SESSION['dealer_id'] : '0';
                     $value['use_parent_id'];

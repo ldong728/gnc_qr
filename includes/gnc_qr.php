@@ -100,6 +100,7 @@ function isUserLogin($direct){
     }
 }
 function canShip($code,$userId){
+    if(!snPreVerify($code))return false;
     if('0'==$userId)return true;
     $recorder=pdoQuery('gd_qr_recorder',null,array('code'=>$code,'to_id'=>$userId),' limit 1');
     if($recorder->fetch())return true;

@@ -28,22 +28,43 @@ if(isset($_SESSION['openId'])) {
                 break;
             case 'query':
                 $qr=$_POST['data'];
-                $recorde=pdoQuery('qr_recorder_view',null,array('code'=>$qr),' order by update_time desc');
-                foreach ($recorde as $row) {
-                    $dealerList[]=$row['from_id'];
-                    $recodeList[]=$row;
-                }
-                if(isset($recodeList)){
-                    mylog();
-                    if(in_array($_SESSION['userId'],$dealerList)||0==$_SESSION['userId']){
-                        echo ajaxBack(array('data'=>$recodeList));
+                if(snPreVerify($qr)){//初筛，看sn是否符合生成算法要求
+                    $recorde=pdoQuery('qr_recorder_view',null,array('code'=>$qr),' order by update_time desc');
+                    foreach ($recorde as $row) {
+                        $dealerList[]=$row['from_id'];
+                        $recodeList[]=$row;
+                    }
+                    if(isset($recodeList)){//是否在数据数据记录中
+                        mylog();
+                        if(in_array($_SESSION['userId'],$dealerList)||0==$_SESSION['userId']){//是否为自己渠道发货
+                            echo ajaxBack(array('data'=>$recodeList));
+                        }else{
+                            echo ajaxBack(null,1,'无权限');
+                        }
                     }else{
-                       echo ajaxBack(null,0,'无权限');
+                        echo ajaxBack(null,2,'无记录');
                     }
                 }else{
-                   echo ajaxBack(null,0,'无记录');
+                    echo ajaxBack(null,3,'非法格式');
                 }
-//                echo json_encode($re);
+                break;
+            case 'valify':
+                $openId=$_SESSION['openId'];
+                $qr=$_POST['data'];
+                if(snPreVerify($qr)){//合法
+                    $inf=pdoQuery('gd_qr_tbl',array('verify'),array('code'=>$qr),' limit 1');
+                    if($verifyNum=$inf->fetch()){//有记录
+                        if(0==$verifyNum['verify']){//未验证
+
+                        }
+                    }else{
+
+                    }
+                }else{
+
+                }
+
+
                 break;
         }
 

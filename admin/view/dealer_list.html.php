@@ -19,9 +19,9 @@ $getStr=$GLOBALS['getStr']
         </tr>
         <?php foreach($dealerList as $row):?>
             <tr>
-                <td class="ipt-toggle" id="<?php $row['use_id']?>" data-tbl="gd_users"data-col="use_username" data-index="use_id"><?php echo $row['use_username']?></td>
-                <td class="ipt-toggle" id="<?php $row['use_id']?>" data-tbl="gd_users"data-col="use_phone" data-index="use_id"><?php echo $row['use_phone']?></td>
-                <td class="ipt-toggle" id="<?php $row['use_id']?>" data-tbl="gd_users"data-col="use_wx_id" data-index="use_id"><?php echo $row['use_wx_id']?></td>
+                <td class="ipt-toggle" id="<?php echo $row['use_id']?>" data-tbl="gd_users"data-col="use_username" data-index="use_id"><?php echo $row['use_username']?></td>
+                <td class="ipt-toggle" id="<?php echo $row['use_id']?>" data-tbl="gd_users"data-col="use_phone" data-index="use_id"><?php echo $row['use_phone']?></td>
+                <td class="ipt-toggle" id="<?php echo $row['use_id']?>" data-tbl="gd_users"data-col="use_wx_id" data-index="use_id"><?php echo $row['use_wx_id']?></td>
                 <td>**********</td>
                 <td>
 
