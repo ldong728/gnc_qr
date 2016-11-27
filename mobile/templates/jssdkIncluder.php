@@ -28,7 +28,8 @@ $signPackage = $jssdk->GetSignPackage();
             'chooseWXPay',
             'chooseCard',
             'addCard',
-            'openCard'
+            'openCard',
+            'closeWindow'
         ]
     });
 //    wx.ready(function(){

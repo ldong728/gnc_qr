@@ -107,10 +107,12 @@ function canShip($code,$userId){
     else return false;
 }
 function snPreVerify($code){
-    $v=substr($code,0,1);
+//    $v1=substr($code,0,1);
+    $v2=substr($code,1,2);
     $data=substr($code,1);
     $md=substr(md5($data.SN_KEY),0,1);
-    if((int)$v==(int)$md)return true;
+//    if($v1===$md)return true;
+    if($v2==='01')return true;
     else return false;
 }
 

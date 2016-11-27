@@ -48,23 +48,31 @@ if(isset($_SESSION['openId'])) {
                     echo ajaxBack(null,3,'非法格式');
                 }
                 break;
-            case 'valify':
+            case 'verify':
                 $openId=$_SESSION['openId'];
                 $qr=$_POST['data'];
                 if(snPreVerify($qr)){//合法
                     $inf=pdoQuery('gd_qr_tbl',array('verify'),array('code'=>$qr),' limit 1');
                     if($verifyNum=$inf->fetch()){//有记录
                         if(0==$verifyNum['verify']){//未验证
-
+                            $userVerifyCount=pdoQuery('gd_qr_verify_count_view',array('count'),array('open_id'=>$_SESSION['openId']),' limit 1');
+                            $count=$userVerifyCount->fetch();
+                            if(!$count||$count['count']<3){//发起验证的用户的验证次数
+                                pdoUpdate('gd_qr_tbl',array('verify'=>1),array('code'=>$qr));
+                                $record=pdoInsert('gd_qr_verify_recorder',array('open_id'=>$_SESSION['openId'],'code'=>$qr));
+                                echo ajaxBack(array('id'=>$record));
+                            }else{
+                                echo ajaxBack(null,1,'该用户发起验证次数超过限制，请联系管理员');
+                            }
+                        }else{
+                            echo ajaxBack(null,2,'此验证码已作废，请联系销售商');
                         }
                     }else{
-
+                        echo ajaxBack(null,3,'无销售记录');
                     }
                 }else{
-
+                    echo  ajaxBack(null,4,'非正品');
                 }
-
-
                 break;
         }
 

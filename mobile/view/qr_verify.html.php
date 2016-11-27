@@ -37,14 +37,20 @@
             $.post('ajax.php',{action:'verify',data:result},function(re){
                 var value=eval('('+re+')');
                 if(0==value.errcode){
-                    resultOut(value.data);
+                    if(confirm('您查询的该商品为正品，点击确定关闭网页')){
+                        wx.closeWindow();
+                    }else{
+                        wx.scanQRCode(
+                            myScan
+                        )
+                    }
                 }else{
                     if(confirm('错误：'+value.errmsg+',是否继续')){
                         wx.scanQRCode(
                             myScan
                         )
                     }else{
-                        window.close();
+                        wx.closeWindow();
                     }
                 }
             });
