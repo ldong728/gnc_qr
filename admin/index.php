@@ -26,6 +26,10 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
                 $dealerList=pdoQuery('gd_users',null,$where,' limit ' . $page * $num . ', ' .$num);
                 printAdminView('admin/view/dealer_list.html.php','经销商列表');
                 break;
+            case 'wx_config':
+
+                printAdminView('admin/view/wechatConfig.html.php','微信设置');
+                break;
         }
         exit;
     }

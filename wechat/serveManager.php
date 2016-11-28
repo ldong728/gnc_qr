@@ -45,6 +45,10 @@ function createButton($buttonInf){
 
     return $responInf;
 }
+function getUserButton(){
+    $json = $GLOBALS['mInterface']->getByCurl('https://api.weixin.qq.com/cgi-bin/menu/get?access_token=ACCESS_TOKEN');
+    return $json;
+}
 function getMenuInf()
 {
     $json = $GLOBALS['mInterface']->getByCurl('https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=ACCESS_TOKEN');

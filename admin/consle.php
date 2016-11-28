@@ -9,7 +9,7 @@ include_once '../includePackage.php';
 session_start();
 
 
-if (isset($_SESSION['login'])) {
+if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
     if (isset($_GET['createNews'])) {
         $id = $_POST['id'];
         $title = addslashes(trim($_POST['title']));
@@ -105,7 +105,7 @@ if (isset($_SESSION['login'])) {
     //公众号操作
     if (isset($_GET['wechat'])) {
         include_once '../wechat/serveManager.php';
-//        $re='';
+
         if (isset($_GET['createButton'])) {
             deleteButton();
             createButtonTemp();
@@ -155,9 +155,12 @@ if (isset($_SESSION['login'])) {
             exit;
         }
         if (isset($_GET['test'])) {
+            include_once '../wechat/usersdk.php';
+            echo json_encode(usersdk::getTaglist(),JSON_UNESCAPED_UNICODE);
+
 //            $data=curlTest();
-            $data = sendKFMessage('o_Luwt9OgYENChNK0bBZ4b1tl5hc', '你好');
-            echo $data;
+//            $data = sendKFMessage('o_Luwt9OgYENChNK0bBZ4b1tl5hc', '你好');
+//            echo $data;
             exit;
         }
 
@@ -166,5 +169,6 @@ if (isset($_SESSION['login'])) {
     exit;
 }
 header('location:index.php');
+
 exit;
 

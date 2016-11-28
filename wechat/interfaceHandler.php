@@ -3,9 +3,10 @@
 
 
 class interfaceHandler {
-    public $currentToken='';
-    public $gettedTime=0;
-    public $expiresIn=7200;
+    private $currentToken='';
+    private $gettedTime=0;
+    private $expiresIn=7200;
+    private static $handler;
     public function __construct($id){
         $this->weixinId=$id;
         $this->reflashAccessToken();
@@ -132,6 +133,13 @@ class interfaceHandler {
 
 //        return $data;
 
+    }
+    public static function getHandler(){
+        if(!interfaceHandler::$handler){
+            return new interfaceHandler(WEIXIN_ID);
+        }else{
+            return interfaceHandler::$handler;
+        }
     }
 
 

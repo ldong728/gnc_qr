@@ -16,9 +16,12 @@
 
 
 ////以下为测试号专用
-define('APP_ID','wx03393af10613da23');
-define('APP_SECRET','40751854901cc489eddd055538224e8a');
-define('WEIXIN_ID','gh_964192c927cb');
+//define('APP_ID','wx03393af10613da23');
+//define('APP_SECRET','40751854901cc489eddd055538224e8a');
+//以下为潮品专用
+define('APP_ID','wx7d7f24d5e486fdec');
+define('APP_SECRET','8c8caa53a8ad854c18cbb98d982e7d57');
+define('WEIXIN_ID','gh_702978e4f07c');
 define('MCH_ID','now is null');
 define('KEY','now is null');
 define('SN_KEY','hahahjiubugaosuni');
