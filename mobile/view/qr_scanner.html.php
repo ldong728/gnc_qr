@@ -79,7 +79,13 @@
                     },500);
                 },
         cancel: function(res){
-            $('.dealer_list').show();
+            var tNumber=objLengh(resultList);
+            if(tNumber>0){
+                $('.dealer_list').show();
+            }else{
+                wx.closeWindow();
+            }
+
 
         }
 
