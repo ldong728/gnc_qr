@@ -87,10 +87,10 @@ function getArea($pro,$city,$area){
 }
 function isUserLogin($direct){
     if(!isset($_SESSION['userId'])){
-        $query=pdoQuery('gd_users',array('use_id'),array('use_openid'=>$_SESSION['openId']),' limit 1');
+        $query=pdoQuery('gd_users',null,array('use_openid'=>$_SESSION['openId']),' limit 1');
         if($userid=$query->fetch()){
-            mylog('marked');
             $_SESSION['userId']=$userid['use_id'];
+            $_SESSION['user_grade']=$userid['use_grade'];
             return true;
         }
 
@@ -101,7 +101,7 @@ function isUserLogin($direct){
 }
 function canShip($code,$userId){
     if(!snPreVerify($code))return false;
-    if('0'==$userId)return true;
+    if($_SESSION['user_grade']<2)return true;
     $recorder=pdoQuery('gd_qr_recorder',null,array('code'=>$code,'to_id'=>$userId),' limit 1');
     if($recorder->fetch())return true;
     else return false;

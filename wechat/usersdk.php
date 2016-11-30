@@ -19,6 +19,7 @@ class usersdk{
         $inf=json_decode($jsonData,true);
         if(!isset($inf['nickname'])||$inf['nickname']==''){
             $inf['nickname']='游客';
+            $inf['headimgurl']='images/no_img_user.jpg';
             $inf['subscribe']=0;
             $jsonData=json_encode($inf,JSON_UNESCAPED_UNICODE);
         }

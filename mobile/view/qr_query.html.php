@@ -11,11 +11,11 @@
         <span class="f_l">&lt;</span>返回
     </a>
     <div class="title">
-        宫暖春
+        潮品贸易
     </div>
-    <a href="./" class="home">
-        <span>&lt;</span>
-    </a>
+<!--    <a href="./" class="home">-->
+<!--        <span>&lt;</span>-->
+<!--    </a>-->
 </div>
 <div class="sub_age">
     <ul class="clearfix recorder_list">
@@ -44,13 +44,15 @@
                             myScan
                         )
                     }else{
-                        window.close();
+                        wx.closeWindow();
                     }
                 }
             });
         },
         cancel: function(res){
-
+            $.post('ajax.php',{action:'clear_session'},function(re){
+                    wx.closeWindow();
+            });
         }
 
     }
@@ -66,11 +68,12 @@
         $('.recorder_list').empty();
         $.each(data,function(k,v){
             var content='<li style="width: 93%">'+
-                '<div class="pic f_l"><img src="images/no_img_user.jpg"></div>'+
+                '<div class="pic f_l" style="width: 25%"><img src="'+ v.from_img+'"></div>'+
             '<div class="con f_r">'+
             '<div class="title">时间：'+ v.update_time+'</div>'+
             '<div class="sn">发货方：'+v.from_name+'</div>'+
             '<div class="sn">收货方：'+ v.to_name+'</div>'+
+                '<div class="pic f_r" style="width: 25%"><img src="'+ v.to_img+'"></div>'+
             '</div>'+
             '<div class="clear"></div>'+
             '</li>';

@@ -24,7 +24,7 @@ if(isset($_SESSION['openId'])) {
                     }
                 }
 //                $re['data']=$data;
-                echo ajaxBack(array('data'=>$data));
+                echo ajaxBack($data);
                 break;
             case 'query':
                 $qr=$_POST['data'];
@@ -32,12 +32,12 @@ if(isset($_SESSION['openId'])) {
                     $recorde=pdoQuery('qr_recorder_view',null,array('code'=>$qr),' order by update_time desc');
                     foreach ($recorde as $row) {
                         $dealerList[]=$row['from_id'];
+                        $toDealerList[]=$row['to_id'];
                         $recodeList[]=$row;
                     }
                     if(isset($recodeList)){//是否在数据数据记录中
-                        mylog();
-                        if(in_array($_SESSION['userId'],$dealerList)||0==$_SESSION['userId']){//是否为自己渠道发货
-                            echo ajaxBack(array('data'=>$recodeList));
+                        if(in_array($_SESSION['userId'],$dealerList)||in_array($_SESSION['userId'],$toDealerList)||0==$_SESSION['userId']){//是否为自己渠道发货
+                            echo ajaxBack($recodeList);
                         }else{
                             echo ajaxBack(null,1,'无权限');
                         }
@@ -74,7 +74,12 @@ if(isset($_SESSION['openId'])) {
                     echo  ajaxBack(null,4,'非正品');
                 }
                 break;
+            case 'clear_session':
+//                session_unset();
+//                echo ajaxBack();
+                break;
         }
+        exit;
 
     }
 

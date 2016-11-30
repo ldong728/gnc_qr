@@ -63,7 +63,13 @@ $inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
         data['pms']=pms;
         data['method']='add_dealer';
         $.post('ajax_request.php',data,function(re){
-            showToast(re);
+            var data=eval('('+re+')');
+            if(data.errcode==0){
+                showToast('添加完成');
+            }else{
+                showToast(data.errmsg);
+            }
+
 //            alert(ra);
         });
     }

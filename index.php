@@ -10,6 +10,7 @@
 
 
 include_once 'includePackage.php';
-session_start();
-//pdoInsert('partner_tbl',array('p_code'=>'aaa','password'=>md5('aaa')),'update');
-header('location: console/index.php');
+echo 'ok';
+//session_start();
+////pdoInsert('partner_tbl',array('p_code'=>'aaa','password'=>md5('aaa')),'update');
+//header('location: console/index.php');

@@ -12,7 +12,7 @@ if (isset($_SESSION['openId'])) {
         if (isUserLogin($_GET['module'])) {
             switch ($_GET['module']) {
                 case 'qr_book';
-                    $subDealer = pdoQuery('gd_users', null, array('use_parent_id' => $_SESSION['userId']), 'limit 20');
+                    $subDealer = pdoQuery('gd_users', null, array('use_parent_id' => $_SESSION['userId']), null);
                     include 'view/qr_scanner.html.php';
                     break;
                 case 'qr_query':
@@ -20,6 +20,10 @@ if (isset($_SESSION['openId'])) {
                     break;
                 case 'qr_verify':
                     include 'view/qr_query.html.php';
+                    break;
+                case 'log_check':
+//                    mylog('log_check');
+                    include 'view/log_check.html.php';
                     break;
             }
             exit;
@@ -32,18 +36,19 @@ if (isset($_SESSION['openId'])) {
         include 'view/login.html.php';
         exit;
 
-
     }
     if (isset($_GET['login'])) {
-        $where = array('use_usephone' => $_POST['userphone'], 'use_password' => md5($_POST['password']));
+        $where = array('use_phone' => $_POST['userphone'], 'use_password' => md5($_POST['password']));
         $query = pdoQuery('gd_users', array('use_id'), $where, ' limit 1');
         $inf = $query->fetch();
         if ($inf) {
             include_once '../wechat/usersdk.php';
             $_SESSION['userId'] = $inf['use_id'];
-            pdoUpdate('gd_users', array('use_openid' => $_SESSION['openId']), $where);
-            $user=new usersdk($_SESSION['openID']);
+            $user=new usersdk($_SESSION['openId']);
             $user->addTag(100);//添加经销商标签
+            $userinf=$user->getUserInf();
+//            mylog(getArrayInf($userinf));
+            pdoUpdate('gd_users', array('use_openid' => $_SESSION['openId'],'use_img'=>$userinf['headimgurl']), $where);
             mylog('openid update');
             header('location: ?module=' . $_GET['diract']);
         } else {

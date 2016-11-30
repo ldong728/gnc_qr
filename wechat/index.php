@@ -20,8 +20,8 @@ if(isset($_GET['oauth'])&&!isset($_SESSION['openId'])){
     $diract=isset($_GET['diract'])?$_GET['diract'] : 'none';
     header('location:../mobile/controller.php?module='.$diract);
 }
-mylog(getArrayInf($_GET));
-mylog(getArrayInf($_SESSION));
+//mylog(getArrayInf($_GET));
+//mylog(getArrayInf($_SESSION));
 if(isset($_GET['state'])&&isset($_SESSION['oauthType'])){
 //    mylog('oauthType');
     if(isset($_GET['code'])){
@@ -30,7 +30,7 @@ if(isset($_GET['state'])&&isset($_SESSION['oauthType'])){
         if('snsapi_userinfo'==$_SESSION['oauthType']){
             //TODO 获取用户数据的操作
         }else{
-            $_SESSION['userInf']=getUnionId($_SESSION['openId']);
+//            $_SESSION['userInf']=getUnionId($_SESSION['openId']);
         }
         switch($_GET['state']){
             case 'none':
@@ -45,6 +45,7 @@ if(isset($_GET['state'])&&isset($_SESSION['oauthType'])){
 
         //TODO 无法获取openid
     }
+    exit;
 }
 
 

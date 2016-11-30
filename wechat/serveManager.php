@@ -45,6 +45,11 @@ function createButton($buttonInf){
 
     return $responInf;
 }
+function createUniButton($jsondata){
+    $response = $GLOBALS['mInterface']->postJsonByCurl('https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=ACCESS_TOKEN', $jsondata);
+    mylog('createOk'.$response);
+    return $response;
+}
 function getUserButton(){
     $json = $GLOBALS['mInterface']->getByCurl('https://api.weixin.qq.com/cgi-bin/menu/get?access_token=ACCESS_TOKEN');
     return $json;

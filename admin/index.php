@@ -519,12 +519,13 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
             $query = pdoQuery('operator_tbl', null, array('name' => $name, 'md5' => md5($pwd)), ' limit 1');
             $op_inf = $query->fetch();
             if (!$op_inf) {
-                $dealQuery=pdoQuery('gd_users',null,array('use_username'=>$name,'use_password'=>md5($pwd)),' limit 1');
+                $dealQuery=pdoQuery('gd_users',null,array('use_phone'=>$name,'use_password'=>md5($pwd)),' limit 1');
                 $dealer_inf=$dealQuery->fetch();
                     if($dealer_inf){
                         $_SESSION['login'] = DOMAIN;
                         $_SESSION['dealer_id']=$dealer_inf['use_id'];
-                        printAdminView('admin/view/blank.html.php', '宫暖春');
+                        $_SESSION['dealer_grade']=$dealer_inf['use_grade'];
+                        printAdminView('admin/view/blank.html.php', '潮品贸易');
                         exit;
                     }else{
                         include 'view/login.html.php';

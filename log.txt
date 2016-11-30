@@ -1,4 +1,1 @@
-2016.11.27.14:51:25:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
-2016.11.27.14:55:06:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
-2016.11.27.14:55:06:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php10:post ok:{alteTblVal: 1,tbl: gd_users,col: use_phone,value: 1356660373,index: use_id,id: 7,pms: dealer}
-2016.11.27.14:55:06:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php37:alteTblVal
+2016.11.29.16:04:13:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php25:log_check

@@ -19,8 +19,10 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                             $value[$k]=$v;
                         }
                     }
-                    $parent_id = isset($_SESSION['dealer_id']) ? $_SESSION['dealer_id'] : '0';
-                    $value['use_parent_id'];
+                    if(isset($_SESSION['dealer_id'])){
+                        $value['use_parent_id']=$_SESSION['dealer_id'];
+                        $value['use_grade']=$_SESSION['dealer_grade']+1;
+                    }
                     $id=pdoInsert('gd_users', $value,'ignore');
                     if($id){
 //                        $back['id']=$id;

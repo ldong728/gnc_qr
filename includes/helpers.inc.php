@@ -67,10 +67,10 @@ function mylog($str='mark'){
     }
 }
 
-function ajaxBack(array $data=null,$errcode=0,$errmsg='ok'){
+function ajaxBack($data=null,$errcode=0,$errmsg='ok'){
     $back=array('errcode'=>$errcode,'errmsg'=>$errmsg);
-    if($data)$back[]=$data;
-    return json_encode($back);
+    if($data)$back['data']=$data;
+    return json_encode($back,JSON_UNESCAPED_UNICODE);
 }
 
 //mysql格式转换
