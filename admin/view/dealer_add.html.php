@@ -2,6 +2,7 @@
 //$mode = isset($GLOBALS['notice']) ? $GLOBALS['notice'] : 1;
 //$mode = isset($GLOBALS['mode']) ? $GLOBALS['mode'] : $mode;
 $inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
+$rank= $GLOBALS['rank'];
 //$jmCate = isset($GLOBALS['jmCate']) ? $GLOBALS['jmCate'] : array();
 //$jmSCate = isset($GLOBALS['jmSCate']) ? $GLOBALS['jmSCate'] : array();
 //$f_id=isset($GLOBALS['f_id'])?$GLOBALS['f_id'] : -1;
@@ -41,6 +42,14 @@ $inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
                 <input type="text" class="userinf textbox textbox_225" placeholder="请输入密码"
                        name="use_password" <?php echo $inf ? 'value="' . $inf['use_real_name'] . '"' : '' ?>/>
             </li>
+            <li>
+                <span class="item_name" style="display:inline-block;width:120px">级别:</span>
+                <select class="select use_rank" name="use_rank">
+                    <?php foreach($rank as $row):?>
+                    <option id="<?php echo $row['rank']?>"><?php echo $row['name']?></option>
+                    <?php endforeach ?>
+                </select>
+            </li>
 
 
         </ul>
@@ -55,11 +64,12 @@ $inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
 <script>
 
     function submit() {
+
         var data={data:{}};
         $('.userinf').each(function (k, v) {
-//            alert(v.value);
             data.data[v.name]= v.value;
         });
+        data.data['use_rank']=$('.use_rank').find("option:selected").attr('id');
         data['pms']=pms;
         data['method']='add_dealer';
         $.post('ajax_request.php',data,function(re){
@@ -70,7 +80,6 @@ $inf = isset($GLOBALS['inf']) ? $GLOBALS['inf'] : false;
                 showToast(data.errmsg);
             }
 
-//            alert(ra);
         });
     }
 

@@ -4,7 +4,7 @@ include_once '../includePackage.php';
 
 $lengh=31;
 $category='02';
-$offset=0;
+$offset=800;
 if(isset($_POST['num'])){
 
     for($i=0;$i<$_POST['num'];$i++){

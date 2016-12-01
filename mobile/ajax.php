@@ -29,6 +29,7 @@ if(isset($_SESSION['openId'])) {
             case 'query':
                 $qr=$_POST['data'];
                 if(snPreVerify($qr)){//初筛，看sn是否符合生成算法要求
+//                    mylog($qr);
                     $recorde=pdoQuery('qr_recorder_view',null,array('code'=>$qr),' order by update_time desc');
                     foreach ($recorde as $row) {
                         $dealerList[]=$row['from_id'];

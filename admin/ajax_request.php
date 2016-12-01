@@ -22,6 +22,8 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                     if(isset($_SESSION['dealer_id'])){
                         $value['use_parent_id']=$_SESSION['dealer_id'];
                         $value['use_grade']=$_SESSION['dealer_grade']+1;
+                        $value['use_note']=0==$_SESSION['dealer_grade']?'pass':'audit';
+//                        $value['use_note']=0==$_SESSION['dealer_grade']?'pass':'pass';
                     }
                     $id=pdoInsert('gd_users', $value,'ignore');
                     if($id){
@@ -32,6 +34,24 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                         echo ajaxBack(null,1,'记录无法保存');
                     }
 
+                    break;
+                case 'audit':
+                    $auditId=$_POST['id'];
+                    $id=pdoUpdate('gd_users',array('use_note'=>'pass'),array('use_id'=>$auditId));
+                    if($id){
+                        echo ajaxBack();
+                    }else{
+                        ajaxBack(null,1,'操作失败');
+                    }
+                    break;
+                case 'delete_audit':
+                    $deleteId=$_POST['id'];
+                    $id=pdoDelete('gd_users',array('use_id'=>$deleteId,'use_note'=>'audit'));
+                    if($id){
+                        echo ajaxBack();
+                    }else{
+                        echo ajaxBack(null,1,'操作失败');
+                    }
                     break;
             }
         }

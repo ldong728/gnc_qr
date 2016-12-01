@@ -11,6 +11,9 @@ function loading(){
 function stopLoading(){
     $('.loading').hide();
 }
+function handleAjaxReply(func){
+
+}
 
 //例：<div class="ipt-toggle" id="row id" data-tbl="table name"data-col="col name" data-index="index col">
 $('.ipt-toggle').dblclick(function () {
@@ -62,7 +65,4 @@ $(document).on('change', '.ipt', function () {
             //alert(data);
         }
     })
-});
-document.on('focusout','ipt',function(){
-
 });

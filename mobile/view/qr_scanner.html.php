@@ -3,25 +3,55 @@
     <!--    <link rel="stylesheet" href="stylesheet/order.css"/>-->
     <link rel="stylesheet" href="stylesheet/user.css"/>
     <?php include_once 'templates/jssdkIncluder.php' ?>
+    <style>
+        .qr_content {
+            width: 80%;
+            height: 200px;
+            margin: 20px auto;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 180px;
+            text-align: center;
+            color: #78340f;
+        }
+       #total_count {
+           font-size: 45px;
+           font-weight: 800;
+       }
+        .scan_count {
+
+        }
+        .button_area {
+            width: 80%;
+            margin: 0 auto;
+            /*align-content: center;*/
+        }
+
+        .button_area button {
+            box-sizing: border-box;
+            width: 100%;
+            margin-top: 20px;
+            height: 50px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body class="age_bg">
 <div class="nav_hd">
-    <a href="javascript:history.back(-1)" class="back clearfix">
-        <span class="f_l">&lt;</span>返回
-    </a>
+<!--    <a href="javascript:history.back(-1)" class="back clearfix">-->
+<!--        <span class="f_l">&lt;</span>返回-->
+<!--    </a>-->
 
     <div class="title">
-        潮品贸易
+        ZamanGoz
     </div>
-    <a href="./" class="home">
-        <span>&lt;</span>
-    </a>
+
 </div>
 <div class="sub_age dealer_list" style="display: none">
     <ul class="clearfix">
         <?php foreach ($subDealer as $row): ?>
-            <li class="dealer" id="<?php echo $row['use_id'] ?>" style="cursor: pointer">
+            <li class="dealer" id="<?php echo $row['use_id'] ?>" data-name="<?php echo $row['use_username']?>" style="cursor: pointer">
                 <div class="pic f_l"><img src="<?php echo $row['use_img'] ?>"></div>
                 <div class="con f_r">
                     <div class="title"><?php echo $row['use_username'] ?></div>
@@ -39,13 +69,13 @@
     </div>
 </div>
 <div class="qr_list" style="display: none">
-    <div class="qr_content">
-
+    <div class="qr_content" >
+        已扫描 <span id="total_count"></span> 件
     </div>
-    <div>共<span id="total_count"></span>条记录</div>
+<!--    <div class="scan_count">共<span id="total_count"></span>条记录</div>-->
     <div class="button_area">
-        <button id="ship">发货</button>
         <button id="scan">继续扫描</button>
+        <button id="ship">发货</button>
     </div>
 
 </div>
@@ -58,18 +88,17 @@
     var resultList = {};
     $('.dealer').click(function () {
         var id = $(this).attr('id');
+        var name=$(this).data('name');
         var tNumber = objLengh(resultList);
         if (0 != tNumber) {
-            $.post('ajax.php', {action: 'booking', touser: id, data: resultList}, function (data) {
-//                alert(data);
-//                var value=eval('('+data+')');
-//                if(null!=value.data){
-//                }
-                alert('上传成功');
-                resultList = {};
-            });
+            if(confirm('确定发货给'+name+'?')){
+                $.post('ajax.php', {action: 'booking', touser: id, data: resultList}, function (data) {
+                    alert('发货成功');
+                    resultList = {};
+                });
+            }
         } else {
-            alert(resultList.toString());
+//            alert(resultList.toString());
             alert('已确认');
         }
     });
@@ -98,10 +127,10 @@
             var tNumber = objLengh(resultList);
             $('#total_count').text(tNumber);
             $('.qr_list').show();
-            $('.qr_content').empty();
+//            $('.qr_content').empty();
             $.each(resultList,function(k,v){
                 var content='<div>'+v+'</div>';
-                $('.qr_content').append(content);
+//                $('.qr_content').append(content);
             });
 
 

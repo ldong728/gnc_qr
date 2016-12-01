@@ -1,1 +1,3 @@
-2016.11.29.16:04:13:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php25:log_check
+2016.12.01.18:16:33:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
+2016.12.01.18:16:33:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php10:post ok:{pms: dealer,method: audit,id: 25}
+2016.12.01.18:16:33:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php173:UPDATE gd_users SET use_note="pass" WHERE use_id="25"

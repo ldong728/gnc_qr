@@ -17,17 +17,35 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
     if (isset($_GET['menu']) && array_key_exists($_GET['menu'], $_SESSION['pms'])) {
         switch ($_GET['sub']) {
             case 'add_dealer':
+                $rank='';
+                if(isset($_SESSION['dealer_rank'])){
+                    $rank=' where rank>'.$_SESSION['dealer_rank'];
+                }else{
+                    $rank='where rank>0';
+                }
+                $rank=pdoQuery('gd_user_rank',null,null,$rank. ' order by rank asc');
                 printAdminView('admin/view/dealer_add.html.php', '新建用户');
                 break;
             case 'dealer_list':
                 $page=$_GET['page'];
                 $where=null;
-                if(isset($_SESSION['dealer_id']))$where=array('use_parent_id'=>$_SESSION['dealer_id']);
+                $rank=0;
+                if(isset($_SESSION['dealer_id'])){
+                    $where=array('use_parent_id'=>$_SESSION['dealer_id']);
+
+                }
                 $dealerList=pdoQuery('gd_users',null,$where,' limit ' . $page * $num . ', ' .$num);
                 printAdminView('admin/view/dealer_list.html.php','经销商列表');
                 break;
+            case 'dealer_audit':
+                $page=$_GET['page'];
+                $where=null;
+                if(isset($_SESSION['dealer_id']))$where=array('f_id'=>$_SESSION['dealer_id']);
+                else $where=array('f_id'=>'0');
+                $dealerList=pdoQuery('gd_audit_view',null,$where,' and use_id is not null limit ' . $page * $num . ', ' .$num);
+                printAdminView('admin/view/dealer_audit.html.php','经销商审核');
+                break;
             case 'wx_config':
-
                 printAdminView('admin/view/wechatConfig.html.php','微信设置');
                 break;
         }
@@ -479,7 +497,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
                 if (!isset($opList[$row['id']])) {
                     $opList[$row['id']] = array(
                         'id' => $row['id'],
-                        'name' => $row['name'],
+                        'name'=> $row['name'],
                         'pwd' => $row['pwd'],
                         'pms' => $pmsList
                     );
@@ -510,6 +528,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
         if ($_POST['adminName'] . $_POST['password'] == ADMIN . PASSWORD) {
             $_SESSION['login'] = DOMAIN;
             $_SESSION['operator_id'] = -1;
+            $_SESSION['dealer_rank']=0;
 //            $pms = pdoQuery('pms_tbl', null, null, null);
 //            foreach ($pms as $row) {
 //                $_SESSION['pms'][$row['id']] = array($row['id']=>$row['name']);
@@ -525,6 +544,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
                         $_SESSION['login'] = DOMAIN;
                         $_SESSION['dealer_id']=$dealer_inf['use_id'];
                         $_SESSION['dealer_grade']=$dealer_inf['use_grade'];
+                        $_SESSION['dealer_rank']=$dealer_inf['use_rank'];
                         printAdminView('admin/view/blank.html.php', '潮品贸易');
                         exit;
                     }else{

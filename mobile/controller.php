@@ -38,7 +38,7 @@ if (isset($_SESSION['openId'])) {
 
     }
     if (isset($_GET['login'])) {
-        $where = array('use_phone' => $_POST['userphone'], 'use_password' => md5($_POST['password']));
+        $where = array('use_phone' => $_POST['userphone'], 'use_password' => md5($_POST['password']),'use_note'=>'pass');
         $query = pdoQuery('gd_users', array('use_id'), $where, ' limit 1');
         $inf = $query->fetch();
         if ($inf) {

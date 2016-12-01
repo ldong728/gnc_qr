@@ -7,15 +7,15 @@
 
 <body class="age_bg">
 <div class="nav_hd">
-    <a href="javascript:history.back(-1)" class="back clearfix">
-        <span class="f_l">&lt;</span>返回
-    </a>
+<!--    <a href="javascript:history.back(-1)" class="back clearfix">-->
+<!--        <span class="f_l">&lt;</span>返回-->
+<!--    </a>-->
     <div class="title">
-        潮品贸易
+        ZamanGoz
     </div>
-    <a href="./" class="home">
-        <span>&lt;</span>
-    </a>
+<!--    <a href="./" class="home">-->
+<!--        <span>&lt;</span>-->
+<!--    </a>-->
 </div>
 <div class="sub_age">
     <ul class="clearfix recorder_list">

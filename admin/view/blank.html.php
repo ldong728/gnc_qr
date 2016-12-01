@@ -1,7 +1,7 @@
 <section>
 
     <div class="space">
-<?php echo getArrayInf($_SESSION);?>
+<?php //echo getArrayInf($_SESSION);?>
 
     </div>
 
