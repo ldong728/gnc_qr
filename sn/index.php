@@ -3,8 +3,8 @@ include_once '../includePackage.php';
 
 
 $lengh=31;
-$category='01';
-$offset=10000;
+$category='02';
+$offset=0;
 if(isset($_POST['num'])){
 
     for($i=0;$i<$_POST['num'];$i++){
@@ -15,12 +15,17 @@ if(isset($_POST['num'])){
         $md5=md5($preSn);
         $f=substr($md5,0,1);
         $sn=$f.$n.$nonc;
-        $vr=snPreVerify($sn)? 'match': 'not match';
-        $insert[]=array('code'=>$sn);
+        if(snPreVerify($sn)){
+//        $insert[]=array('code'=>$sn);
+
         $output[$i+$offset]=$sn;
-        echo $sn.':  '.$vr.'</br>';
+        }else{
+
+        }
+
     }
-    pdoBatchInsert('gd_qr_tbl',$insert);//
+//    pdoBatchInsert('gd_qr_tbl',$insert);//
+//    echo getArrayInf($output);
     include 'view/toExcel.php';
     exit;
 }
