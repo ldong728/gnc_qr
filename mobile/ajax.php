@@ -34,6 +34,12 @@ if(isset($_SESSION['openId'])) {
                     foreach ($recorde as $row) {
                         $dealerList[]=$row['from_id'];
                         $toDealerList[]=$row['to_id'];
+                        if(-2==$row['to_id']){
+//                            mylog('to anyones');
+                            $row['to_name']='散客';
+                            $row['to_phone']='00000000000';
+                            $row['to_img']='images/no_img_user.jpg';
+                        }
                         $recodeList[]=$row;
                     }
                     if(isset($recodeList)){//是否在数据数据记录中

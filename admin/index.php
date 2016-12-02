@@ -260,7 +260,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
             $config = getConfig('../mobile/config/config.json');
             $remarkQuery = pdoQuery('index_remark_tbl', null, null, null);
             $frontImg = pdoQuery('ad_tbl', null, array('category' => 'banner'), null);
-            printAdminView('admin/view/admin_index.html.php', '宫暖春');
+            printAdminView('admin/view/admin_index.html.php', 'Zaman Goz');
             exit;
         } else {
             echo '权限不足';
@@ -270,7 +270,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
     if (isset($_GET['categorylist'])) {
         if (isset($_SESSION['pms']['index'])) {
             $cate = pdoQuery('category_view', null, null, null);
-            printAdminView('admin/view/category.html.php', '宫暖春');
+            printAdminView('admin/view/category.html.php', 'Zaman Goz');
             exit;
         } else {
             echo '权限不足';
@@ -519,7 +519,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
         include 'view/login.html.php';
         exit;
     }
-    printAdminView('admin/view/blank.html.php', '宫暖春');
+    printAdminView('admin/view/blank.html.php', 'Zaman Goz');
     exit;
 } else {
     if (isset($_GET['login'])) {
@@ -533,12 +533,12 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
 //            foreach ($pms as $row) {
 //                $_SESSION['pms'][$row['id']] = array($row['id']=>$row['name']);
 //            }
-            printAdminView('admin/view/blank.html.php', '宫暖春');
+            printAdminView('admin/view/blank.html.php', 'Zaman Goz');
         } else {
             $query = pdoQuery('operator_tbl', null, array('name' => $name, 'md5' => md5($pwd)), ' limit 1');
             $op_inf = $query->fetch();
             if (!$op_inf) {
-                $dealQuery=pdoQuery('gd_users',null,array('use_phone'=>$name,'use_password'=>md5($pwd)),' limit 1');
+                $dealQuery=pdoQuery('gd_users',null,array('use_phone'=>$name,'use_password'=>md5($pwd),'use_note'=>'pass'),' limit 1');
                 $dealer_inf=$dealQuery->fetch();
                     if($dealer_inf){
                         $_SESSION['login'] = DOMAIN;
@@ -559,7 +559,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
 //                foreach ($pms as $row) {
 ////                    $_SESSION['pms'][$row['id']] = array($row['name'];
 //                }
-                printAdminView('admin/view/blank.html.php', '宫暖春');
+                printAdminView('admin/view/blank.html.php', 'Zaman Goz');
                 exit;
             }
 

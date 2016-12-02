@@ -12,7 +12,12 @@ if (isset($_SESSION['openId'])) {
         if (isUserLogin($_GET['module'])) {
             switch ($_GET['module']) {
                 case 'qr_book';
-                    $subDealer = pdoQuery('gd_users', null, array('use_parent_id' => $_SESSION['userId']), null);
+                    $subDealerQuery = pdoQuery('gd_user_view', null, array('use_parent_id' => $_SESSION['userId']), null);
+                    foreach ($subDealerQuery as $row) {
+                        $subDealer[]=$row;
+                    }
+                    $subDealer[]=array('use_id'=>-2,'use_username'=>'散客','use_img'=>'images/no_img_user.jpg','use_phone'=>'00000000000','use_rank'=>'散客');
+
                     include 'view/qr_scanner.html.php';
                     break;
                 case 'qr_query':
@@ -25,6 +30,16 @@ if (isset($_SESSION['openId'])) {
 //                    mylog('log_check');
                     include 'view/log_check.html.php';
                     break;
+                case 'user_inf':
+                    $userInf=pdoQuery('gd_user_view',null,array('use_id'=>$_SESSION['userId']),' limit 1');
+                    $userInf=$userInf->fetch();
+                    include 'view/user_inf.html.php';
+                    break;
+                default:
+                    include_once 'moduleFunction.php';
+                    $_GET['module']();
+                    break;
+
             }
             exit;
         }
@@ -47,7 +62,7 @@ if (isset($_SESSION['openId'])) {
             $user=new usersdk($_SESSION['openId']);
             $user->addTag(100);//添加经销商标签
             $userinf=$user->getUserInf();
-//            mylog(getArrayInf($userinf));
+            mylog(getArrayInf($userinf));
             pdoUpdate('gd_users', array('use_openid' => $_SESSION['openId'],'use_img'=>$userinf['headimgurl']), $where);
             mylog('openid update');
             header('location: ?module=' . $_GET['diract']);

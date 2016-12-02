@@ -19,7 +19,7 @@
 .reg_tab li{margin-bottom:15px;}
 .reg_tab .title{font-size:22px; color:#000; line-height:30px; margin-bottom:12px; font-weight:400; display:block;}
 .reg_tab .txt{border:1px solid #ececec; border-radius:3px; width:94%; padding:0 3%; height:55px; margin-bottom:5px;}
-.reg_tab .bt{background-color:#501d02; border:none; border-radius:3px; color:#fff; font-size:17px; height:42px; font-family:"宋体", Arial, sans-serif; width:100%;}
+.reg_tab .bt{background-color:#000000; border:none; border-radius:3px; color:#fff; font-size:17px; height:42px; font-family:"宋体", Arial, sans-serif; width:100%;}
 
 /*==================================
 *** 经销商登录 - age_login ***
@@ -27,7 +27,7 @@
 .age_login{padding-top:170px; background:url(images/login_ico.png) no-repeat center 40px; background-size:60px 60px; text-align:center;}
 .age_login input{width:70%; border-radius:3px; padding:0 8px; margin-bottom:15px;}
 .age_login .txt{border:1px solid #ccc; height:40px;}
-.age_login .bt{height:33px; color:#fff; background-color:#501d02; border:none; font-size:16px; font-family:"宋体", Arial, sans-serif;}
+.age_login .bt{height:33px; color:#fff; background-color:#000000; border:none; font-size:16px; font-family:"宋体", Arial, sans-serif;}
 
 /*==================================
 *** 已登录界面 - age_pro ***
@@ -75,17 +75,17 @@
 .booking_sheet .top_box .con{width:77%;}
 .booking_sheet .top_box .con .title{font-size:30px; line-height:55px; color:#000; font-weight:400;}
 .booking_sheet .top_box .con .sn{font-size:24px; line-height:45px; color:#000;}
-.booking_sheet .top_box .ico{color:#78340f; width:20px; height:40px; font-size:36px; font-weight:bold; font-family:"宋体", Arial, sans-serif; position:absolute; right:55px; top:50%; margin-top:-20px;}
+.booking_sheet .top_box .ico{color:#000000; width:20px; height:40px; font-size:36px; font-weight:bold; font-family:"宋体", Arial, sans-serif; position:absolute; right:55px; top:50%; margin-top:-20px;}
 
 .booking_sheet .list_box{}
 .booking_sheet .list_box li{height:58px; padding:0 24px; display:block; background-color:#fff; margin-bottom:6px; overflow:hidden;}
 .booking_sheet .list_box li .title{width:60%; line-height:58px; text-align:right; color:#666; font-size:18px;}
 .booking_sheet .list_box li .price{color:#c70000; line-height:58px; font-size:18px;}
 
-.booking_sheet .bt{height:42px; width:100%; border:none; padding:0; margin:0; color:#fff; font-size:17px; font-family:"宋体", Arial, sans-serif; background-color:#501d02;}
+.booking_sheet .bt{height:42px; width:100%; border:none; padding:0; margin:0; color:#fff; font-size:17px; font-family:"宋体", Arial, sans-serif; background-color:#000000;}
 
 .booking_sheet .choose_user{margin-bottom:50px;}
-.booking_sheet .choose_user .cho_title{font-size:14px; color:#333; font-weight:bold; height:30px; line-height:30px; margin:0 3%; border-bottom:2px solid #78340f;}
+.booking_sheet .choose_user .cho_title{font-size:14px; color:#333; font-weight:bold; height:30px; line-height:30px; margin:0 3%; border-bottom:2px solid #000000;}
 .booking_sheet .choose_user a{color:#52534e;}
 
 /*==================================
@@ -97,14 +97,14 @@
 .booking_goo li .goo_con .title{color:#000; font-size:16px; display:inline-block;}
 
 .booking_goo .bt_box{text-align:center; display:block; margin-bottom:120px;}
-.booking_goo .bt_box .bt{width:20%; height:32px; line-height:32px; text-align:center; color:#fff; background-color:#78340f; margin:10px 3px 0; display:inline-block; border:0; padding:0;}
+.booking_goo .bt_box .bt{width:20%; height:32px; line-height:32px; text-align:center; color:#fff; background-color:#000000; margin:10px 3px 0; display:inline-block; border:0; padding:0;}
 
 
 /*==================================
 *** 发货记录 - order_sheet ***
 ==================================*/
 .order_sheet{}
-.order_sheet .ord_title{font-size:14px; color:#333; font-weight:bold; height:30px; line-height:30px; margin:0 3%; border-bottom:2px solid #78340f;}
+.order_sheet .ord_title{font-size:14px; color:#333; font-weight:bold; height:30px; line-height:30px; margin:0 3%; border-bottom:2px solid #000000;}
 .order_sheet li{width:43%; margin:10px 2%; padding:10px 1.5%; float:left; background-color:#fff; border-radius:5px; -webkit-box-shadow: 0px 0px 3px #909090; -moz-box-shadow: 0px 0px 3px #909090; box-shadow: 0px 0px 3px #909090;}
 .order_sheet li .goo_con{font-size:16px; color:#666; line-height:32px;}
 .order_sheet li .goo_con .title{color:#000; font-size:16px; display:inline-block;}
@@ -120,7 +120,7 @@
 .user_edit .txt{height:57px; padding:0 3%; width:94%; background-color:#fff; border:none;}
 .user_edit .area{width:30%; height:57px; margin-right:4%; border:none; padding:0;}
 .user_edit .expr{width:100%; height:57px;}
-.user_edit .bt{width:100%; height:42px; margin-top:20px; background-color:#501d02; color:#fff; font-size:17px; font-family:"宋体", Arial, sans-serif; border:none; padding:0;}
+.user_edit .bt{width:100%; height:42px; margin-top:20px; background-color:#000000; color:#fff; font-size:17px; font-family:"宋体", Arial, sans-serif; border:none; padding:0;}
 
 @media (max-width: 600px) {
 	.age_wrap{margin-bottom:35px; padding:0 21px;}

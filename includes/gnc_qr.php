@@ -102,6 +102,7 @@ function isUserLogin($direct)
         if ($userid = $query->fetch()) {
             $_SESSION['userId'] = $userid['use_id'];
             $_SESSION['user_grade'] = $userid['use_grade'];
+            $_SESSION['user_rank']=$userid['use_rank'];
             return true;
         }
 

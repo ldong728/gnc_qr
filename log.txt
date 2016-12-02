@@ -1,3 +1,13 @@
-2016.12.01.18:16:33:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
-2016.12.01.18:16:33:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php10:post ok:{pms: dealer,method: audit,id: 25}
-2016.12.01.18:16:33:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php173:UPDATE gd_users SET use_note="pass" WHERE use_id="25"
+2016.12.02.09:45:45:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM qr_recorder_view WHERE code="202756F9s5xOjuE6wLth2PZyFw1U5v6t"  order by update_time desc
+2016.12.02.09:45:45:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php38:to anyones
+2016.12.02.09:48:59:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM qr_recorder_view WHERE code="202756F9s5xOjuE6wLth2PZyFw1U5v6t"  order by update_time desc
+2016.12.02.09:49:37:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM qr_recorder_view WHERE code="202756F9s5xOjuE6wLth2PZyFw1U5v6t"  order by update_time desc
+2016.12.02.10:09:42:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM gd_users WHERE use_openid="oubtTtwKL6FwMGY2_NhGBcOmiBNk"  limit 1
+2016.12.02.10:09:46:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM qr_recorder_view WHERE code="202756F9s5xOjuE6wLth2PZyFw1U5v6t"  order by update_time desc
+2016.12.02.10:13:54:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM qr_recorder_view WHERE code="202756F9s5xOjuE6wLth2PZyFw1U5v6t"  order by update_time desc
+2016.12.02.10:57:20:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM gd_users WHERE use_openid="oubtTtwKL6FwMGY2_NhGBcOmiBNk"  limit 1
+2016.12.02.10:57:20:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM gd_user_view WHERE use_parent_id="21"
+2016.12.02.10:57:37:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM qr_recorder_view WHERE code="f017296u654DN7d6XzmkqcQJpKPKuJXn"  order by update_time desc
+2016.12.02.11:03:14:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM qr_recorder_view WHERE code="c015529k2C3XRDZbMJd3uD4ir2sv9fQ4"  order by update_time desc
+2016.12.02.13:38:03:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM gd_users WHERE use_openid="oubtTtwKL6FwMGY2_NhGBcOmiBNk"  limit 1
+2016.12.02.13:50:28:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM gd_user_view WHERE use_parent_id="21"
