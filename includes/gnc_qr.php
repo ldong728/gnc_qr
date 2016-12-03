@@ -97,7 +97,7 @@ function getArea($pro, $city, $area)
 
 function isUserLogin($direct)
 {
-    if (!isset($_SESSION['userId'])) {
+    if (!isset($_SESSION['userId'])||!isset($_SESSION['use_grade'])||!isset($_SESSION['use_rank'])) {
         $query = pdoQuery('gd_users', null, array('use_openid' => $_SESSION['openId']), ' limit 1');
         if ($userid = $query->fetch()) {
             $_SESSION['userId'] = $userid['use_id'];

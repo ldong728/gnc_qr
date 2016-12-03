@@ -39,10 +39,10 @@ if (isset($_SESSION['openId'])) {
                     include_once 'moduleFunction.php';
                     $_GET['module']();
                     break;
-
             }
             exit;
         }
+        //不需要登陆
         if('qr_verify'==$_GET['module']){
             include 'view/qr_verify.html.php';
             exit;
@@ -58,10 +58,10 @@ if (isset($_SESSION['openId'])) {
         $inf = $query->fetch();
         if ($inf) {
             include_once '../wechat/usersdk.php';
-            $_SESSION['userId'] = $inf['use_id'];
+//            $_SESSION['userId'] = $inf['use_id'];
             $user=new usersdk($_SESSION['openId']);
             $user->addTag(100);//添加经销商标签
-            $userinf=$user->getUserInf();
+            $userinf=$user->getUserWxInf();
             mylog(getArrayInf($userinf));
             pdoUpdate('gd_users', array('use_openid' => $_SESSION['openId'],'use_img'=>$userinf['headimgurl']), $where);
             mylog('openid update');

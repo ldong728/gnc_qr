@@ -275,7 +275,7 @@ function formatContent($type, $content)
     switch ($type) {
         case 'text': {
             $insertArray['content']=$content;
-                         break;
+            break;
         }
         case 'news':{
             $data=formatNewsContent($content);

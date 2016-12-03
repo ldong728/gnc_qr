@@ -12,7 +12,7 @@ class usersdk{
     public function __construct($openId){
         $this->openId=$openId;
     }
-    public function getUserInf()
+    public function getUserWxInf()
     {
         $url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=' . $this->openId . '&lang=zh_CN';
         $jsonData =interfaceHandler::getHandler()->getByCurl($url);

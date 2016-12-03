@@ -1,4 +1,4 @@
-body {color: #353535; background: #fff; font-size: 12px; font-family:"Microsoft Yahei";}
+body {color: #353535; background: #fff; font-size: 12px; font-family:"Microsoft Yahei"; -webkit-tap-highlight-color:transparent;}
 img{max-width:100%;}
 .f_l{float:left;}
 .f_r{float:right;}

@@ -24,6 +24,8 @@ define('DB_IP','localhost');
 define("DB_NAME","gd_gnc");
 define("DB_USER","gd_gnc");
 define("DB_PSW","XKDBjCtqYwh83yA9");
+define('TMP_AUDIT_REQUEST','bfSXBqUjFEDn30BictvryvPN5TgOv_V34Qs7wICIoOY');
+
 
 //以下为潮品专用
 //define('APP_ID','wx7d7f24d5e486fdec');
@@ -34,6 +36,7 @@ define("DB_PSW","XKDBjCtqYwh83yA9");
 //define("DB_NAME","wechat_boomlala520");
 //define("DB_USER","boomlala520");
 //define("DB_PSW","NqJDBMqBWj8fmHYt");
+//define('TMP_AUDIT_REQUEST','U-g0p5kKH5n8DGkZpwENSSB3ygJgWz6h_6vU_OmCf9Q');
 
 
 define('MCH_ID','now is null');
