@@ -110,11 +110,10 @@ function add_dealer($data)
     $id = pdoInsert('gd_users', $value, 'ignore');
     if ($id) {
         $auditInf = pdoQuery('gd_root_audit_view', null, array('use_id' =>$id, 'use_note' => 'audit'), ' limit 1');
-        mylog();
+        $admin=pdoQuery('gd_users',array('use_openid'),array('use_grade'=>'0','use_rank'=>'0'),' limit 1')->fetch();
         if ($auditInf = $auditInf->fetch()) {
-            mylog();
             echo ajaxBack(array('id' => $id));
-            include_once 'wechat/templateMsg.php';
+            include_once '../wechat/templateMsg.php';
             $msg = array(
                 'first' => array('新经销商加盟申请'),
                 'keyword1' => array($auditInf['rank_name'] . '经销商'),
@@ -124,7 +123,8 @@ function add_dealer($data)
             );
             $tmsg = new templateMsg();
             $tmsg->createTmplateMsg($msg);
-            $tmsg->sendTmplateMsg('oubtTtwKL6FwMGY2_NhGBcOmiBNk	',TMP_AUDIT_REQUEST,'http://'.$_SERVER['HTTP_HOST'].DOMAIN.'/wechat/?oauth=snsapi_base&diract=audit_confirm');
+            $response=$tmsg->sendTmplateMsg($admin['use_openid'],TMP_AUDIT_REQUEST,'http://'.$_SERVER['HTTP_HOST'].DOMAIN.'/wechat/?oauth=snsapi_base&diract=audit_confirm&id='.$id);
+//            mylog($response);
 //            echo ajaxBack();
         } else {
             mylog();
@@ -132,5 +132,27 @@ function add_dealer($data)
         }
     } else {
         echo ajaxBack(null, 1, '记录无法保存');
+    }
+}
+function dealer_audit($data){
+    $id=$data['id'];
+    $verify=pdoQuery('gd_users',array('use_id'),array('use_openid'=>$_SESSION['openId'],'use_grade'=>'0'),' limit 1');
+    if($verify->fetch()){
+        $update=pdoUpdate('gd_users',array('use_note'=>'pass'),array('use_id'=>$id));
+        if($update){
+            echo ajaxBack($update);
+        }else{
+            echo ajaxBack(null,1,'修改失败，请重试');
+        }
+    }
+}
+function dealer_delete($data){
+    $id=$data['id'];
+    $verify=pdoQuery('gd_users',array('use_id'),array('use_openid'=>$_SESSION['openId'],'use_grade'=>'0'),' limit 1');
+    if($verify->fetch()){
+//        $update=pdoUpdate('gd_users',array('use_note'=>'pass'),array('use_id'=>$id));
+        pdoDelete('gd_users',array('use_id'=>$id));
+        echo ajaxBack();
+
     }
 }

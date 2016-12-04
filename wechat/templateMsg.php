@@ -32,8 +32,11 @@ class templateMsg {
                 'url'=>$url,
                 'data'=>$this->msg
             );
-            mylog(json_encode($fullMsg,JSON_UNESCAPED_UNICODE));
             $response=interfaceHandler::getHandler()->postArrayByCurl('https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN',$fullMsg);
+            $back=json_decode($response,true);
+            if($back['errcode']!=0){
+                mylog($response);
+            }
             return $response;
         }
     }

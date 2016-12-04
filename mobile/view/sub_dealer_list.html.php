@@ -78,14 +78,14 @@
         $('.txt').each(function (k, v) {
             data.data[v.id]= v.value;
         });
-        data.data['use_rank']=$('.use_rank').find("option:selected").attr('id');
+        data.data['use_rank']=$('#use_rank').find("option:selected").val();
         data['action']='add_dealer';
         $.post('ajax.php',data,function(re){
             var data=eval('('+re+')');
             if(data.errcode==0){
                 location.reload(true);
             }else{
-                showToast(data.errmsg);
+//                showToast(data.errmsg);
             }
 
         });

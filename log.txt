@@ -1,6 +1,1 @@
-2016.12.03.16:33:14:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php110:mark
-2016.12.03.16:33:14:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php113:mark
-2016.12.03.16:33:14:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM gd_root_audit_view WHERE use_id="34" AND use_audit="audit"  limit 1
-2016.12.03.16:35:59:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php75:query:SELECT *  FROM gd_root_audit_view WHERE use_id="35" AND use_note="audit"  limit 1
-2016.12.03.16:35:59:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php113:mark
-2016.12.03.16:35:59:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php115:mark
+2016.12.04.20:54:14:D:\WebTest\PhpTest\gnc_qr\mobile\ajax.php126:{"errcode":0,"errmsg":"ok","msgid":408057291}
