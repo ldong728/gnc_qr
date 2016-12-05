@@ -11,7 +11,6 @@
 <!--        <span class="f_l">&lt;</span>返回-->
 <!--    </a>-->
     <div class="title">
-        ZamanGoz
     </div>
 <!--    <a href="./" class="home">-->
 <!--        <span>&lt;</span>-->

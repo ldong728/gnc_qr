@@ -25,6 +25,7 @@ define("DB_NAME","gd_gnc");
 define("DB_USER","gd_gnc");
 define("DB_PSW","XKDBjCtqYwh83yA9");
 define('TMP_AUDIT_REQUEST','bfSXBqUjFEDn30BictvryvPN5TgOv_V34Qs7wICIoOY');
+define('TMP_AUDIT_PASS_NOTICE','TvLf1Hy0uW3-h7ph2HgkevrSIhAegc5xFgsZ-3Lmdx4');
 
 
 //以下为潮品专用
@@ -37,7 +38,7 @@ define('TMP_AUDIT_REQUEST','bfSXBqUjFEDn30BictvryvPN5TgOv_V34Qs7wICIoOY');
 //define("DB_USER","boomlala520");
 //define("DB_PSW","NqJDBMqBWj8fmHYt");
 //define('TMP_AUDIT_REQUEST','U-g0p5kKH5n8DGkZpwENSSB3ygJgWz6h_6vU_OmCf9Q');
-
+//define('TMP_AUDIT_PASS_NOTICE','_e-ylg-Ag6zzl1i9CkI8LVSeHIz2rDQvhL9wWavI3NY');
 
 define('MCH_ID','now is null');
 define('KEY','now is null');

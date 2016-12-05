@@ -8,6 +8,7 @@ function sub_dealer_list(){
 
 }
 function audit_confirm(){
+    mylog(getArrayInf($_GET));
     $id=$_GET['id'];
     $verify=pdoQuery('gd_users',array('use_id'),array('use_openid'=>$_SESSION['openId'],'use_grade'=>'0'),' limit 1');
     if($verify->fetch()){
@@ -15,11 +16,17 @@ function audit_confirm(){
         $list=array();
         $inf=pdoQuery('gd_root_audit_view',null,array('use_note'=>'audit'),null);
         foreach ($inf as $row) {
-            if($id=$row['use_id'])$userInf=$row;
+            if($id==$row['use_id'])$userInf=$row;
             else$list[]=$row;
         }
-        include 'view/dealer_audit.html.php';
-        exit;
+        $userStatus=count($userInf);
+        if($userStatus==0&&count($list)==0){
+            header('location: controller.php?module=user_inf');
+        }else{
+            include 'view/dealer_audit.html.php';
+            exit;
+        }
+
 
     }
     echo "audit ok";

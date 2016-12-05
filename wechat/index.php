@@ -11,13 +11,14 @@ session_start();
 
 if(isset($_GET['oauth'])&&!isset($_SESSION['openId'])){
     //getparam:oauth&diract
-    $diract=isset($_GET['diract'])?$_GET['diract'] : 'none';
+    $diract=urlencode(str_replace('diract=','',strchr($_SERVER['QUERY_STRING'],'diract=')));//保存diract参数后的所有参数并传递
+    if($diract=='')$diract='none';
     $oauth=new oauth($_GET['oauth'],$diract);
     $_SESSION['oauthType']=$_GET['oauth'];
     $oauth->getOauth();
     exit;
 }elseif(isset($_SESSION['openId'])){
-    $diract=isset($_GET['diract'])?$_GET['diract'] : 'none';
+    $diract=str_replace('diract=','',strchr($_SERVER['QUERY_STRING'],'diract='));
     header('location:../mobile/controller.php?module='.$diract);
 }
 //mylog(getArrayInf($_GET));
@@ -38,7 +39,8 @@ if(isset($_GET['state'])&&isset($_SESSION['oauthType'])){
                 exit;
                 break;
             default:
-                header('location:../mobile/controller.php?module='.$_GET['state']);
+//                mylog(urldecode($_GET['state']));
+                header('location:../mobile/controller.php?module='.urldecode($_GET['state']));
                 break;
         }
     }else{

@@ -7,7 +7,6 @@
 <body class="age_bg">
 <div class="nav_hd">
     <div class="title">
-        Zaman Goz
     </div>
     <a href="./" class="home">
         <span></span>

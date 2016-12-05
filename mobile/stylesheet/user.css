@@ -61,7 +61,7 @@
 .sub_age li .pic img{width:100%; border-radius:3px;}
 .sub_age li .con{width:62%;}
 .sub_age li .con .title{font-size:20px; color:#000; line-height:32px; font-weight:400;}
-.sub_age li .con .sn{font-size:18px; line-height:30px;}
+.sub_age li .con .sn{font-size:18px; line-height:30px;color: #000}
 
 /*==================================
 *** 发货 - 代理 - booking_sheet ***
@@ -151,7 +151,7 @@
 	
 	/*** 下级代理 - sub_age ***/
 	.sub_age li .con .title{font-size:16px; line-height:26px;}
-	.sub_age li .con .sn{font-size:14px; line-height:24px;}
+	.sub_age li .con .sn{font-size:14px; line-height:24px;color: #000}
 	
 	/*** 密码修改 - user_edit ***/
 	.user_edit .tilte{font-size:18px; line-height:44px;}
@@ -201,7 +201,7 @@
 	.sub_age li .pic{width:30%;}
 	.sub_age li .con{width:65%;}
 	.sub_age li .con .title{font-size:14px; line-height:22px;}
-	.sub_age li .con .sn{font-size:12px; line-height:20px;}
+	.sub_age li .con .sn{font-size:12px; line-height:20px;color: #000}
 	
 	/*** 密码修改 - user_edit ***/
 	.user_edit .tilte{font-size:14px; line-height:34px;}

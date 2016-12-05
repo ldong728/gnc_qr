@@ -3,8 +3,8 @@
 
 function normalReply($weixin, $msg)
 {
-    mylog('nomal reply');
-    sendCardByKfMessage($msg['from'],'pubtTtxxhsxjGKHHuEWnrXVdpvcg');
+//    mylog('nomal reply');
+//    sendCardByKfMessage($msg['from'],'pubtTtxxhsxjGKHHuEWnrXVdpvcg');
 //    if ($msg['MsgType'] == 'voice') {
 //        sendKFMessage($msg['FromUserName'], '已为您接入人工客服，请稍候');
 //        $weixin->toKFMsg();

@@ -118,6 +118,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
             $button2sub1 = array('name' => '防伪验证', 'type' => 'view', 'url' => $url . 'qr_verify');
 //            $button2sub2 = array('name' => '渠道回溯', 'type' => 'view', 'url' => $url . 'qr_query');
             $button2sub3 = array('name' => '发货扫描', 'type' => 'view', 'url' => $url . 'qr_book');
+//            $button3=array('name'=>'个人中心','type'=>'view','url'=>$url.'user_inf');
 //            $button2sub4 = array('name' => '我要参赛', 'type' => 'view', 'url' =>'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/Detail_32.php?single_id=10314&C_id=413&fromuser=null&wxref=mp.weixin.qq.com');
 //            $button2sub5 = array('name' => '我要投票', 'type' => 'click', 'key' =>'wsy_413_16759');
 //            $button3sub1 = array('name' => '联系我们', 'type' => 'view', 'url' => 'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/contact.html?fromuser=null&wxref=mp.weixin.qq.com');
@@ -136,25 +137,10 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
         }
         if (isset($_GET['createUniButton'])) {
             $url = 'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=';
-            $button1sub1 = array('name' => '微官网', 'type' => 'view', 'url' => 'http://admin88.winjubao.com/weixinpl/weixin_inter/menu_index.php?customer_id=413');
-            $button1sub2 = array('name' => '品牌介绍', 'type' => 'view', 'url' =>'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/about.html?fromuser=null&wxref=mp.weixin.qq.com');
-            $button1sub3 = array('name' => '时尚态度', 'type' => 'view', 'url' =>'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/Detail_32.php?single_id=10288&C_id=413&fromuser=null&wxref=mp.weixin.qq.com');
-            $button1sub4 = array('name' => '细节展示', 'type' => 'view', 'url' => 'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/diy413_4922.html?fromuser=null&wxref=mp.weixin.qq.com');
-//            $button1sub5 = array('name' => '军人荣誉', 'type' => 'view_limited', 'media_id' => 'mpDQKIcMlKu6mqA_Pa4i18ID0dTlEGSifZhS1Y9XWXk');
-//            $button2sub1 = array('name' => '防伪验证', 'type' => 'view', 'url' => $url . 'qr_verify');
-            $button2sub2 = array('name' => '渠道回溯', 'type' => 'view', 'url' => $url . 'qr_query');
-            $button2sub3 = array('name' => '标记发货', 'type' => 'view', 'url' => $url . 'qr_book');
-//            $button2sub4 = array('name' => '我要参赛', 'type' => 'view', 'url' =>'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/Detail_32.php?single_id=10314&C_id=413&fromuser=null&wxref=mp.weixin.qq.com');
-//            $button2sub5 = array('name' => '我要投票', 'type' => 'click', 'key' =>'wsy_413_16759');
-            $button3sub1 = array('name' => '联系我们', 'type' => 'view', 'url' => 'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/contact.html?fromuser=null&wxref=mp.weixin.qq.com');
-            $button3sub2 = array('name' => '意见反馈', 'type' => 'view', 'url' =>'http://admin88.winjubao.com/weixinpl/liuyan/show_liuyan.php?customer_id=413&fromuser=null&wxref=mp.weixin.qq.com');
-//            $button3sub3 = array('name' => '买家秀展', 'type' => 'view', 'url' =>'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/diy413_4923.html?fromuser=null&wxref=mp.weixin.qq.com');
-//            $button3sub4 = array('name' => '每月一课', 'type' => 'view', 'url' => $url . '&cate=4');
-//            $button3sub5 = array('name' => '每月一课', 'type' => 'view', 'url' => $url . '&cate=4');
-            $button1 = array('name' => '关于我们', 'sub_button' => array($button1sub1, $button1sub2, $button1sub3, $button1sub4));
-            $button2 = array('name' => '功能菜单', 'sub_button' => array($button2sub2, $button2sub3));
-            $button3 = array('name' => '联系我们', 'sub_button' => array($button3sub1, $button3sub2));
-            $mainButton = array('button' => array($button1, $button2, $button3), 'matchrule' => array('tag_id' => 100));
+            $button2sub1 = array('name' => '防伪验证', 'type' => 'view', 'url' => $url . 'qr_verify');
+            $button2sub3 = array('name' => '发货扫描', 'type' => 'view', 'url' => $url . 'qr_book');
+            $button3=array('name'=>'个人中心','type'=>'view','url'=>$url.'user_inf');
+            $mainButton = array('button' => array($button2sub3, $button2sub1, $button3), 'matchrule' => array('tag_id' => 100));
 
 //            $mainButton = array('button' => array($button1, $button2, $button3));
             $jsondata = json_encode($mainButton, JSON_UNESCAPED_UNICODE);

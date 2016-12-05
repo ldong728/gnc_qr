@@ -16,7 +16,7 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                         if('use_password'==$k){
                             $value[$k]=md5($v);
                         }else{
-                            $value[$k]=$v;
+                            $value[$k]=addslashes($v);
                         }
                     }
                     if(isset($_SESSION['dealer_id'])){

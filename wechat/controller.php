@@ -21,7 +21,7 @@ $eventList=array
     'subscribe'
 
 );
-mylog(getArrayInf($msg));
+//mylog(getArrayInf($msg));
 if(in_array($msg['MsgType'],array('text','voice','img'))){
 //    mylog('inmsgType');
     normalReply($weixin,$msg);

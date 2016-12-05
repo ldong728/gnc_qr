@@ -1,5 +1,6 @@
 <head>
     <?php include 'templates/header.php' ?>
+    <link rel="stylesheet" href="stylesheet/common.css"/>
     <link rel="stylesheet" href="stylesheet/mobile-index-swiper.min.css"/>
     <link rel="stylesheet" href="stylesheet/myswiper.css"/>
     <script src="../js/swiper.min.js"></script>
@@ -8,6 +9,10 @@
 <body>
 <div class="wrap">
     <?php include_once 'templates/jssdkIncluder.php'?>
+    <div class="title"
+
+
+
     <script>
         var url='<?php echo $url ?>';
         var tltitle='<?php echo $config['timeLineTitle']?>';

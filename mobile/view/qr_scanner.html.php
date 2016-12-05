@@ -44,7 +44,6 @@
 <!--    </a>-->
 
     <div class="title">
-        ZamanGoz
     </div>
 
 </div>

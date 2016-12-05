@@ -100,7 +100,7 @@ function add_dealer($data)
         if ('use_password' == $k) {
             $value[$k] = md5($v);
         } else {
-            $value[$k] = $v;
+            $value[$k] = addslashes($v);
         }
     }
     $value['use_parent_id'] = $_SESSION['userId'];
@@ -109,49 +109,62 @@ function add_dealer($data)
     $value['use_note'] = 0 == $_SESSION['user_grade'] ? 'pass' : 'audit';
     $id = pdoInsert('gd_users', $value, 'ignore');
     if ($id) {
-        $auditInf = pdoQuery('gd_root_audit_view', null, array('use_id' =>$id, 'use_note' => 'audit'), ' limit 1');
-        $admin=pdoQuery('gd_users',array('use_openid'),array('use_grade'=>'0','use_rank'=>'0'),' limit 1')->fetch();
-        if ($auditInf = $auditInf->fetch()) {
-            echo ajaxBack(array('id' => $id));
-            include_once '../wechat/templateMsg.php';
-            $msg = array(
-                'first' => array('新经销商加盟申请'),
-                'keyword1' => array($auditInf['rank_name'] . '经销商'),
-                'keyword2' => array($auditInf['use_username']),
-                'keyword3' => array(timeUnixToMysql(time())),
-                'remark' => array('由' . $auditInf['f_name'] . '推荐')
-            );
-            $tmsg = new templateMsg();
-            $tmsg->createTmplateMsg($msg);
-            $response=$tmsg->sendTmplateMsg($admin['use_openid'],TMP_AUDIT_REQUEST,'http://'.$_SERVER['HTTP_HOST'].DOMAIN.'/wechat/?oauth=snsapi_base&diract=audit_confirm&id='.$id);
-//            mylog($response);
-//            echo ajaxBack();
-        } else {
-            mylog();
-            echo ajaxBack(null, 2, '记录无法保存');
+        echo ajaxBack(array('id' => $id));
+        if ('audit' == $value['use_note']) {
+            $auditInf = pdoQuery('gd_root_audit_view', null, array('use_id' => $id, 'use_note' => 'audit'), ' limit 1');
+            if ($auditInf = $auditInf->fetch()) {
+                $admin = pdoQuery('gd_users', array('use_openid'), array('use_grade' => '0', 'use_rank' => '0'), ' limit 1')->fetch();
+                include_once '../wechat/templateMsg.php';
+                $msg = array(
+                    'first' => array('新经销商加盟申请'),
+                    'keyword1' => array($auditInf['rank_name'] . '经销商'),
+                    'keyword2' => array($auditInf['use_username']),
+                    'keyword3' => array(timeUnixToMysql(time())),
+                    'remark' => array('由' . $auditInf['f_name'] . '推荐')
+                );
+                $tmsg = new templateMsg();
+                $tmsg->createTmplateMsg($msg);
+//                mylog('http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=audit_confirm&id=' . $id);
+                $response = $tmsg->sendTmplateMsg($admin['use_openid'], TMP_AUDIT_REQUEST, 'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=audit_confirm&id='.$id);
+            }
         }
     } else {
         echo ajaxBack(null, 1, '记录无法保存');
     }
 }
-function dealer_audit($data){
-    $id=$data['id'];
-    $verify=pdoQuery('gd_users',array('use_id'),array('use_openid'=>$_SESSION['openId'],'use_grade'=>'0'),' limit 1');
-    if($verify->fetch()){
-        $update=pdoUpdate('gd_users',array('use_note'=>'pass'),array('use_id'=>$id));
-        if($update){
+
+function dealer_audit($data)
+{
+    $id = $data['id'];
+    $verify = pdoQuery('gd_users', array('use_id'), array('use_openid' => $_SESSION['openId'], 'use_grade' => '0'), ' limit 1');
+    if ($verify->fetch()) {
+        $update = pdoUpdate('gd_users', array('use_note' => 'pass'), array('use_id' => $id));
+        if ($update) {
             echo ajaxBack($update);
-        }else{
-            echo ajaxBack(null,1,'修改失败，请重试');
+//            include_once '../wechat/templateMsg.php';
+//            $msg = array(
+//                'first' => array('您提交的经销商申请已批复'),
+//                'keyword1' => array('admin'),
+//                'keyword2' => array('通过'),
+//                'keyword3' => array(timeUnixToMysql(time())),
+//                'remark' => array('由' . $auditInf['f_name'] . '推荐')
+//            );
+//            $tmsg = new templateMsg();
+//            $tmsg->createTmplateMsg($msg);
+//            $response = $tmsg->sendTmplateMsg($admin['use_openid'], TMP_AUDIT_REQUEST, 'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=audit_confirm&id=' . $id);
+        } else {
+            echo ajaxBack(null, 1, '修改失败，请重试');
         }
     }
 }
-function dealer_delete($data){
-    $id=$data['id'];
-    $verify=pdoQuery('gd_users',array('use_id'),array('use_openid'=>$_SESSION['openId'],'use_grade'=>'0'),' limit 1');
-    if($verify->fetch()){
+
+function dealer_delete($data)
+{
+    $id = $data['id'];
+    $verify = pdoQuery('gd_users', array('use_id'), array('use_openid' => $_SESSION['openId'], 'use_grade' => '0'), ' limit 1');
+    if ($verify->fetch()) {
 //        $update=pdoUpdate('gd_users',array('use_note'=>'pass'),array('use_id'=>$id));
-        pdoDelete('gd_users',array('use_id'=>$id));
+        pdoDelete('gd_users', array('use_id' => $id));
         echo ajaxBack();
 
     }
