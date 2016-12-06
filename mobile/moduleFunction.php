@@ -26,11 +26,24 @@ function audit_confirm(){
             include 'view/dealer_audit.html.php';
             exit;
         }
-
-
     }
     echo "audit ok";
     exit;
+}
+
+function index(){
+    $channelList=pdoQuery('gd_channel',null,array('cha_show'=>'1'),' limit 6');
+    include 'view/index.html.php';
+}
+function customer_photo(){
+    $cha_id=$_GET['cha_id'];
+
+    $article=pdoQuery('gd_article',null,array('art_channel_id'=>$cha_id),null);
+
+    include 'view/customer_photo.html.php';
+}
+function about(){
+
 }
 
 function alter_password(){

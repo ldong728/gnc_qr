@@ -38,12 +38,16 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
                 printAdminView('admin/view/dealer_list.html.php','经销商列表');
                 break;
             case 'dealer_audit':
-                $page=$_GET['page'];
-                $where=null;
-                if(isset($_SESSION['dealer_id']))$where=array('f_id'=>$_SESSION['dealer_id']);
-                else $where=array('f_id'=>'0');
-                $dealerList=pdoQuery('gd_audit_view',null,$where,' and use_id is not null limit ' . $page * $num . ', ' .$num);
-                printAdminView('admin/view/dealer_audit.html.php','经销商审核');
+                if(!isset($_SESSION['dealer_id'])||$_SESSION['dealer_grade']==0){
+                    $page=$_GET['page'];
+                    $where=null;
+//                    if(isset($_SESSION['dealer_id']))$where=array('f_id'=>$_SESSION['dealer_id']);
+//                    else $where=array('f_id'=>'0');
+                    $dealerList=pdoQuery('gd_audit_view',null,$where,' and use_id is not null limit ' . $page * $num . ', ' .$num);
+                    printAdminView('admin/view/dealer_audit.html.php','经销商审核');
+                }else{
+                    printAdminView('admin/view/blank.html.php','首页');
+                }
                 break;
             case 'wx_config':
                 printAdminView('admin/view/wechatConfig.html.php','微信设置');

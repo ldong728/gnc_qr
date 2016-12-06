@@ -9,8 +9,10 @@
 <body>
 <div class="wrap">
     <?php include_once 'templates/jssdkIncluder.php'?>
-    <div class="title"
-
+    <div class="title"></div>
+    <?php foreach($channelList as $row):?>
+        <a href="?channel=<?php echo $row['cha_code']?>&cha_id=<?php echo $row['cha_id']?>"><?php echo $row['cha_name']?></a>
+    <?php endforeach ?>
 
 
     <script>
@@ -59,11 +61,7 @@
 
 
     <div class="toast"></div>
-    <div class="sdp-inf-header"></div>
-
-
 </div>
-<?php include_once 'templates/foot.php' ?>
 <script>
     var swiper = new Swiper('#ad-swiper', {
         pagination: '#ad-pagination',

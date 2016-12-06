@@ -52,6 +52,7 @@ if (isset($_SESSION['openId'])) {
         exit;
 
     }
+
     if (isset($_GET['login'])) {
         $where = array('use_phone' => $_POST['userphone'], 'use_password' => md5($_POST['password']),'use_note'=>'pass');
         $query = pdoQuery('gd_users', array('use_id'), $where, ' limit 1');
@@ -75,5 +76,10 @@ if (isset($_SESSION['openId'])) {
 
     }
 
+}
+if(isset($_GET['channel'])){
+    include_once 'moduleFunction.php';
+    $_GET['channel']();
+    exit;
 }
 
