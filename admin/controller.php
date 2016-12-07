@@ -8,100 +8,27 @@
 include_once '../includePackage.php';
 session_start();
 
-
 if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
-    if (isset($_GET['createNews'])) {
-        $id = $_POST['id'];
-        $title = addslashes(trim($_POST['title']));
-        $digest = addslashes(trim($_POST['digest']));
-        $title_img = isset($_POST['title_img']) ? $_POST['title_img'] : 'img/0.jpg';
-        $content = addslashes($_POST['content']);
-        if ($title != '' && $content != '') {
-            switch ($_GET['createNews']) {
-                case '1': {//创建图文
-                    $value = array('title' => $title, 'digest' => $digest, 'title_img' => $title_img, 'content' => $content, 'source' => 'local', 'media_id' => 'local' . time() . rand(100, 999), 'create_time' => time());
-                    if ($id > 0) $value['id'] = $id;
-                    pdoInsert('news_tbl', $value, 'update');
-                    header('location:index.php?newslist=1');
-                    exit;
-                    break;
-                }
-                case '2': {//创建通知
-                    $sendNow = $_POST['sendNow'];
-                    $value = array('title' => $title, 'intro' => $digest, 'title_img' => $title_img, 'inf' => $content, 'create_time' => time());
-                    if ($id > 0) $value['id'] = $id;
-                    $notice_id = pdoInsert('notice_tbl', $value, 'update');
-                    if ($sendNow == '0') {
-                        header('location:index.php?newslist=1');
-                    } else {
-                        header('location:index.php?sendNotice=' . $notice_id . '&notice_id=' . $notice_id);
-                    }
-                    exit;
-                    break;
-                }
-                case '3': {
-                    $cate = $_POST['jm_cate'] ? $_POST['jm_cate'] : -1;
-                    $value = array('category' => $cate, 'title' => $title, 'title_img' => $title_img, 'content' => $content, 'create_time' => time());
-                    if ($id > 0) $value['id'] = $id;
-//                              mylog(json_encode($value));
-//                              mylog($id);
-                    pdoInsert('jm_news_tbl', $value, 'update');
-                    header('location:index.php?jm=1&jm_list=1');
-                    exit;
-                    break;
-
-                }
+    if (isset($_GET['menu']) && array_key_exists($_GET['menu'], $_SESSION['pms'])) {
+//        echo 'ok';
+        if(isset($_GET['edit_article'])){
+//            echo  'ok';
+            $articleId=$_GET['edit_article'];
+            if($articleId){
+                $articleInf=pdoQuery('gd_article',null,array('art_id'=>$articleId),' limit 1');
+                $articleInf=$articleInf->fetch();
+            }else{
+//                echo 'ok';
+//                switch($_GET['sub']){
+//                    default:
+//                        break;
+//                }
             }
-
-
-        } else {
-            header('location:index.php?newslist=1');
+//            alert('ok');
+            printAdminView('admin/view/editor.html.php','编辑');
             exit;
         }
-        exit;
-
     }
-    if (isset($_GET['getNotice'])) {//在预览框架中显示
-        $css = '<style type="text/css">'
-            . 'img {max-width:100%;}'
-            . '</style>';
-
-        $noticeId = $_GET['getNotice'];
-        if ($noticeId == -1) {
-            echo '预览';
-            exit;
-        }
-        $notice = pdoQuery('notice_tbl', array('inf'), array('id' => $noticeId), ' limit 1');
-        $notice = $notice->fetch();
-        echo $css;
-        echo $notice['inf'];
-        exit;
-    }
-    if (isset($_GET['userdetail'])) {
-        $openid = $_GET['userdetail'];
-        $userinf = getUserInf($openid);
-        $groupid = $userinf['groupid'];
-        $markquery = pdoQuery('user_mark_view', null, array('openid' => $openid), null);
-        $markStr = '';
-        foreach ($markquery as $row) {
-            $markStr .= ($row['notice_id'] . ',');
-            $markList[] = $row;
-        }
-        if (isset($markList)) $markList = array();
-        $markStr = rtrim($markStr, ',');
-        $str = $markStr != '' ? ' and id not in(' . $markStr . ')' : '';
-        $unmarkQuery = pdoQuery('notice_tbl', array('title', 'create_time'), array('situation' => 1, 'groupid' => $groupid), $str);
-        $unmarkList = $unmarkQuery->fetchAll();
-        $bbsTopic = pdoQuery('bbs_topic_tbl', array('count(*) as count'), array('open_id' => $openid), ' limit 1');
-        $bbsTopic = $bbsTopic->fetch();
-        $bbsReply = pdoQuery('bbs_reply_tbl', array('count(*) as count'), array('openid' => $openid), 'limit 1');
-        $bbsReply = $bbsReply->fetch();
-        $stdTest = pdoQuery('std_user_score_tbl', null, array('openid' => $openid), ' limit 5');
-        $stdTest = $stdTest->fetchAll();
-        printAdminView('admin/view/user_detail.html.php', '详细信息');
-
-    }
-
     //公众号操作
     if (isset($_GET['wechat'])) {
         include_once '../wechat/serveManager.php';

@@ -36,7 +36,7 @@
     </div>
 </div>
 <div id="main">
-    <div id="left">
+    <div id="left" style="height: 100%">
         <ul>
             <li class="sys_lang">
                 <select onchange="change_lang(this.value)">
@@ -45,10 +45,10 @@
             </li>
             <?php foreach($_SESSION['pms'] as $key=>$row):?>
                 <li>
-                    <a><?php echo $row['name']?></a>
-                    <ul>
+                    <a class="main_menu"><?php echo $row['name']?></a>
+                    <ul class="sub_menu" style="display: <?php echo isset($_GET['menu'])&&$_GET['menu']==$row['key'] ? 'block' : 'none' ?>">
                         <?php foreach($row['sub'] as $subrow):?>
-                            <li style="display: <?php echo isset($_GET['menu'])&&$_GET['menu']==$row['key'] ? 'block' : 'none' ?>">
+                            <li >
                                 <a href="index.php?menu=<?php echo $key?>&sub=<?php echo $subrow['key']?>"><?php echo $subrow['name']?></a>
                             </li>
                         <?php endforeach ?>
@@ -57,32 +57,22 @@
             <?php endforeach ?>
         </ul>
     </div>
-    <div id="right">
+    <script>
+        $('.main_menu').click(function () {
+            $(this).next('ul').slideToggle('fast');
 
-<!--    </div>-->
-<!---->
-<!--</div>-->
+        });
+    </script>
+    <div id="right" style="height: 100%">
+        <div class="m_title">
+            <div class="m_local f_l"><a href="?">首页</a><?php echo isset($_GET['menu'])? '&gt;<a href="?menu='.$_GET['menu'].'">'.$_SESSION['pms'][$_GET['menu']]['name'].'</a>':''?>
+            <?php echo isset($_GET['sub'])? '&gt;<a href="?menu='.$_GET['menu'].'&sub='.$_GET['sub'].'">'.$_SESSION['pms'][$_GET['menu']]['sub'][$_GET['sub']]['name'].'</a>' : ''?>
+               </div>
+            <div class="m_time f_r">服务器时间：<?php echo timeUnixToMysql(time())?></div>
+            </div>
 
-<!--<aside class="lt_aside_nav content mCustomScrollbar">-->
-<!--    <h2><a href="index.php">起始页</a></h2>-->
-<!--    <ul>-->
-<!--        --><?php //foreach($_SESSION['pms'] as $key=>$row):?>
-<!--        <li>-->
-<!--            <dl class="main-menu">-->
-<!--                <dt>--><?php //echo $row['name']?><!--</dt>-->
-<!--                --><?php //foreach($row['sub'] as $subrow):?>
-<!--                <dd style="display: --><?php //echo isset($_GET['menu'])&&$_GET['menu']==$row['key'] ? 'block' : 'none' ?><!--"><a href="index.php?menu=--><?php //echo $key?><!--&sub=--><?php //echo $subrow['key']?><!--">--><?php //echo $subrow['name']?><!--</a>-->
-<!--                    </dd>-->
-<!--                --><?php //endforeach ?>
-<!--            </dl>-->
-<!--        </li>-->
-<!--        --><?php //endforeach ?>
-<!--    </ul>-->
-<!--</aside>-->
-<!--<script>-->
-<!--    $('dt').click(function () {-->
-<!--        $(this).nextAll('dd').slideToggle('fast');-->
-<!--    });-->
-<!--    var pms="--><?php //echo $_GET['menu']?>//";
+
+
+
 
 

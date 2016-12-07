@@ -5,9 +5,7 @@
 </body>
 <script>
     var width=document.body.clientWidth;
-    var height=document.body.clientHeight;
-    alert(width);
-    alert(height);
+    var height=document.documentElement.clientHeight;
     $('#main').css('height',height-80);
 
 </script>

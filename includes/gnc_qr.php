@@ -27,7 +27,7 @@ function printAdminView($addr, $title = 'abc', $subPath = '/admin')
             if (!isset($_SESSION['pms'][$row['f_key']])) {
                 $_SESSION['pms'][$row['f_key']] = array('key' => $row['f_key'], 'name' => $row['f_name'], 'sub' => array());
             }
-            if (isset($row['s_id'])) $_SESSION['pms'][$row['f_key']]['sub'][] = array('id' => $row['s_id'], 'key' => $row['s_key'], 'name' => $row['s_name']);
+            if (isset($row['s_id'])) $_SESSION['pms'][$row['f_key']]['sub'][$row['s_key']] = array('id' => $row['s_id'], 'key' => $row['s_key'], 'name' => $row['s_name']);
         }
     }
 //    pdoQuery('sub_menu_tbl',null,array('parent_id'=>array()))
