@@ -107,7 +107,7 @@ function add_dealer($data)
     $value['use_grade'] = $_SESSION['user_grade'] + 1;
     $value['use_reg_time'] = time();
     $value['use_note'] = 0 == $_SESSION['user_grade'] ? 'pass' : 'audit';
-    $id = pdoInsert('gd_users', $value, 'ignore');
+    $id = pdoInsert('gd_users', $value, 'ignore' );
     if ($id) {
         echo ajaxBack(array('id' => $id));
         if ('audit' == $value['use_note']) {

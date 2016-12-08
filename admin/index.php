@@ -119,7 +119,8 @@ function about(){
     header('location: controller.php?get_editor='.$articleId['art_id'].'&'.$getStr);
 }
 function customer_photo(){
-
+    global $getStr;
+    $list=pdoQuery('gd_article_view',array('art_id','art_img'),array())
 }
 function goods(){
 

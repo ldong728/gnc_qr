@@ -5,4 +5,4 @@
         <span></span>
     </a>
 </div>
-<div style="position: relative;width: 100%;height: 38px"/>
+<div style="position: relative;width: 100%;height: 38px"></div>
