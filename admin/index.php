@@ -115,8 +115,8 @@ function about(){
     global $getStr;
     $articleInf=pdoQuery('gd_article_view',array('art_id'),array('cha_code'=>$_GET['sub']),' limit 1');
     $articleId=$articleInf->fetch();
-    if(!$articleId)$articleId=0;
-    header('location: controller.php?edit_article='.$articleId.'&'.$getStr);
+    if(!$articleId)$articleId['art_id']=0;
+    header('location: controller.php?get_editor='.$articleId['art_id'].'&'.$getStr);
 }
 function customer_photo(){
 

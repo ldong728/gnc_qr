@@ -33,6 +33,7 @@ function audit_confirm(){
 
 function index(){
     $channelList=pdoQuery('gd_channel',null,array('cha_show'=>'1'),' limit 6');
+    $channelList=$channelList->fetchAll();
     include 'view/index.html.php';
 }
 function customer_photo(){
@@ -42,8 +43,15 @@ function customer_photo(){
 
     include 'view/customer_photo.html.php';
 }
-function about(){
 
+function about(){
+    $cha_id=$_GET['cha_id'];
+    $aboutInf=pdoQuery('gd_article_view',null,array('art_channel_id'=>$cha_id), ' limit 1');
+    $aboutInf=$aboutInf->fetch();
+    include 'view/about.html.php';
+
+
+//    echo '跳转到这里';
 }
 
 function alter_password(){

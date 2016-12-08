@@ -11,20 +11,29 @@ session_start();
 if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
     if (isset($_GET['menu']) && array_key_exists($_GET['menu'], $_SESSION['pms'])) {
 //        echo 'ok';
-        if(isset($_GET['edit_article'])){
+        if(isset($_GET['get_editor'])){
 //            echo  'ok';
-            $articleId=$_GET['edit_article'];
+            $articleId=$_GET['get_editor'];
             if($articleId){
                 $articleInf=pdoQuery('gd_article',null,array('art_id'=>$articleId),' limit 1');
                 $articleInf=$articleInf->fetch();
             }else{
-//                echo 'ok';
-//                switch($_GET['sub']){
-//                    default:
-//                        break;
-//                }
+                $articleInf=null;
             }
 //            alert('ok');
+            printAdminView('admin/view/editor.html.php','编辑');
+            exit;
+        }
+        if(isset($_GET['edit_article'])){
+            mylog('get get:'.getArrayInf($_GET));
+            mylog('get post'.getArrayInf($_POST));
+            foreach ($_POST as $k => $v) {
+                $value[$k]=addslashes($v);
+            }
+
+            $id=pdoInsert('gd_article',$value,'update');
+            $value['art_id']=$id;
+            $articleInf=$value;
             printAdminView('admin/view/editor.html.php','编辑');
             exit;
         }

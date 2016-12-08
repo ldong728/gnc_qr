@@ -7,7 +7,6 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
 //    mylog('session ok'.getArrayInf($_POST));
     mylog('ajax reached');
     if(isset($_POST['pms'])&&array_key_exists($_POST['pms'],$_SESSION['pms'])){
-        mylog('post ok:'.getArrayInf($_POST));
         if(isset($_POST['method'])){
             switch ($_POST['method']) {
                 case 'add_dealer':
@@ -53,6 +52,9 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
                         echo ajaxBack(null,1,'操作失败');
                     }
                     break;
+                default:
+                    $_POST['method']();
+                    break;
             }
         }
         if (isset($_POST['alteTblVal'])) {//快速更改
@@ -70,6 +72,9 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         echo '无此权限';
         exit;
     }
+
+
+
 
     if (isset($_POST['reflashUsers'])) {
         include_once '../wechat/serveManager.php';
@@ -104,7 +109,6 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         exit;
 
     }
-
     if (isset($_POST['groupQr'])) {
         $group_id = $_POST['group_id'];
         $url = 'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/index.php?share=' . $group_id;
@@ -436,5 +440,11 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         echo $content['content'];
         exit;
     }
+}
+function get_article(){
+    $id=$_POST['id'];
+    $text=pdoQuery('gd_article',array('art_text'),array('art_id'=>$id),' limit 1');
+    $text=$text->fetch();
+    echo ajaxBack($text['art_text']);
 }
 ?>

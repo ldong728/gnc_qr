@@ -9,38 +9,46 @@ global $articleInf;
 ?>
 
 
+
 <script src="js/ajaxfileupload.js"></script>
 <div class="block">
     <div class="head" style="width: 98%;"><span><?php echo $_SESSION['pms'][$_GET['menu']]['sub'][$_GET['sub']]['name']?></span></div>
     <div class="main">
-        <form id="form_add_goods" method="post" action="?/goods/index.html">
-            <input name="cmd" type="hidden" value="add_or_edit_goods">
+        <form id="form_add_goods" method="post" action="controller.php?menu=<?php echo $_GET['menu']?>&edit_article=1">
+<!--            <input name="cmd" type="hidden" value="add_or_edit_goods">-->
+            <?php echo $articleInf? '<input type="hidden" name="art_id" value="'.$articleInf['art_id'].'">' : ''?>
             <table class="table">
                 <tbody>
                 <tr >
                     <td width="120px">标题：</td>
-                    <td><input name="goo_title" type="text" class="text" maxlength="200" value=""></td>
+                    <td><input name="art_title" type="text" class="text" maxlength="200" <?php echo $articleInf? 'value="'.$articleInf['art_title'].'"':''?>></td>
                 </tr>
                 <tr>
                     <td>图片</td>
                     <td>
                         <span id="show_pic_1"></span>
-                        <img class="uploadImg" id="title_demo" style="max-width: 70px;height: auto;display: <?php echo $articleInf ? 'block':'none'?>" <?php echo $articleInf ? 'src="../'.$articleInf['art_img'].'"':''?>/>
-                        <input type="file" id="title-img-up" name="title-img-up" style="display: none">
-                        <input type="hidden" name="title_img" id="title_name" <?php echo $articleInf? 'value="'.$articleInf['title_img'].'"':''?>/>
-                        &nbsp;&nbsp;&nbsp;推荐尺寸：700 * 460
+                        <label class="uploadImg blank" <?php echo $articleInf ?'style="display:none"': 'style="display:inline-block"'?>>
+                            <span>插入图片</span>
+                        </label>
+                        <img class="uploadImg" id="title_demo" style="padding: 0; max-width: 70px;height: auto;display: <?php echo $articleInf ? 'block':'none'?>" <?php echo $articleInf ? 'src="../'.$articleInf['art_img'].'"':''?>/>
+
+                        <input type="hidden" name="art_img" id="title_name" <?php echo $articleInf? 'value="'.$articleInf['art_img'].'"':''?>/>
+                        &nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>
                 <tr>
 
-                    <td>产品描述：</td>
+                    <td>正文：</td>
                     <td>
-                        <div class="editor">
-                            <script type="text/javascript">
-                                var ue = UE.getEditor('editor');
-                            </script>
-                            <!-- GOODUO -->
-                        </div>
+                        <script id="container" name="art_text" type="text/plain"></script>
+                        <!-- 配置文件 -->
+                        <script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
+                        <!-- 编辑器源码文件 -->
+                        <script type="text/javascript" src="../ueditor/ueditor.all.js"></script>
+                        <!-- 实例化编辑器 -->
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('container');
+                        </script>
                     </td>
                 </tr>
                 <tr>
@@ -53,11 +61,8 @@ global $articleInf;
                 </tbody></table>
         </form>
     </div>
+    <input type="file" id="title-img-up" name="title-img-up" style="display: none">
 </div>
-
-                    <label class="uploadImg blank" <?php echo $articleInf ?'style="display:none"': 'style="display:inline-block"'?>>
-                        <span>插入图片</span>
-                    </label>
 
 <script>
     $(document).on('click', '.uploadImg', function () {
@@ -116,4 +121,17 @@ global $articleInf;
         $('#sendNow').val(1);
         $('form').submit();
     });
+</script>
+<script>
+    ue.ready(function(){
+        var id=<?php echo $articleInf['art_id']? $articleInf['art_id']:'false' ?>;
+        if(id){
+            $.post('ajax_request.php',{pms:pms,method:'get_article',id:id},function(data){
+                var re=eval('('+data+')')
+                if(0==re.errcode){
+                    ue.setContent(re.data);
+                }
+            })
+        }
+    })
 </script>

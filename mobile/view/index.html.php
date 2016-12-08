@@ -1,18 +1,31 @@
 <head>
     <?php include 'templates/header.php' ?>
-    <link rel="stylesheet" href="stylesheet/common.css"/>
+    <link rel="stylesheet" href="stylesheet/index_temp.css"/>
     <link rel="stylesheet" href="stylesheet/mobile-index-swiper.min.css"/>
     <link rel="stylesheet" href="stylesheet/myswiper.css"/>
     <script src="../js/swiper.min.js"></script>
 </head>
 
 <body>
+<?php include 'templates/nav.php'?>
+<?php include_once 'templates/jssdkIncluder.php'?>
 <div class="wrap">
-    <?php include_once 'templates/jssdkIncluder.php'?>
-    <div class="title"></div>
-    <?php foreach($channelList as $row):?>
-        <a href="?channel=<?php echo $row['cha_code']?>&cha_id=<?php echo $row['cha_id']?>"><?php echo $row['cha_name']?></a>
-    <?php endforeach ?>
+    <div class="img">
+        <a target="_blank" href="../xiong.jpg">
+            <img src="../image/bc6cd3e37ccbf3396740a11ccc03dc37.png" alt="Ballade" width="100%" height="100%">
+        </a>
+    </div>
+    <div class="table ">
+        <?php for($i=0;$i<3;$i++):?>
+            <a href="?channel=<?php echo $channelList[$i]['cha_code']?>&cha_id=<?php echo $channelList[$i]['cha_id']?>" class="visited"><div class="table_1 border_size1"><?php echo $channelList[$i]['cha_name']?></div></a>
+        <?php endfor ?>
+        </div>
+    <div class="table ">
+        <?php for($i=3;$i<6;$i++):?>
+            <a href="?channel=<?php echo $channelList[$i]['cha_code']?>&cha_id=<?php echo $channelList[$i]['cha_id']?>" class="visited"><div class="table_1 border_size1"><?php echo $channelList[$i]['cha_name']?></div></a>
+        <?php endfor ?>
+    </div>
+
 
 
     <script>

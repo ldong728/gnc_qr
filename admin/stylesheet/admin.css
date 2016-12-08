@@ -51,7 +51,7 @@ h1,h2,h3,h4,h5{padding:0; margin:0;}
 .header{height:80px; width:100%; background-color:#30719B; overflow:hidden;}
 #main{margin-bottom:3px; background-color:#fff; overflow:hidden;}
 #left{float:left;width:17%;background:#363739;padding-bottom:36px;box-sizing: border-box;overflow-y: auto}
-#right{float:right; overflow:hidden;position: relative;width: 81%;box-sizing: border-box;}
+#right{float:right; overflow:hidden;position: relative;width: 83%;box-sizing: border-box;overflow-y: auto}
 #core{overflow:auto;}
 
 /* 头部 - header */

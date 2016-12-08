@@ -15,6 +15,9 @@
     </style>
 
 </head>
+<script>
+    var pms="<?php echo $_GET['menu']?>";
+</script>
 
 
 
