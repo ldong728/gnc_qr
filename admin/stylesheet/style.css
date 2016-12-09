@@ -331,10 +331,6 @@ table button{
     display: inline;
     font-size: 0.7em;
 }
-table input{
-    display: inline;
-    width: 60%;
-}
 table div.delete{
     /*display: inline-block;*/
     float: right;

@@ -137,10 +137,11 @@ function dealer_audit($data)
 {
     $id = $data['id'];
     $verify = pdoQuery('gd_users', array('use_id'), array('use_openid' => $_SESSION['openId'], 'use_grade' => '0'), ' limit 1');
-    if ($verify->fetch()) {
+    if ($adminId=$verify->fetch()) {
         $update = pdoUpdate('gd_users', array('use_note' => 'pass'), array('use_id' => $id));
         if ($update) {
             echo ajaxBack($update);
+            pdoInsert('gd_audit_recorder',array('userid'=>$id,'admin_id'=>$adminId['use_id'],'audit_time'=>time()));
 //            include_once '../wechat/templateMsg.php';
 //            $msg = array(
 //                'first' => array('您提交的经销商申请已批复'),

@@ -1,5 +1,6 @@
-2016.12.08.15:36:45:D:\WebTest\PhpTest\gnc_qr\admin\controller.php28:get get:{menu: channel,edit_article: 21}
-2016.12.08.15:36:45:D:\WebTest\PhpTest\gnc_qr\admin\controller.php29:get post{art_id: ,art_title: 关于公司的一切,art_img: image/bc6cd3e37ccbf3396740a11ccc03dc37.png,art_text: <p>这里写你的初始化内容</p>}
-2016.12.08.15:36:45:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
-2016.12.08.15:37:51:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
-2016.12.08.15:37:55:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
+2016.12.09.14:57:25:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
+2016.12.09.14:57:25:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE 
+2016.12.09.14:58:50:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php8:ajax reached
+2016.12.09.14:58:50:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE 
+2016.12.09.15:00:43:D:\WebTest\PhpTest\gnc_qr\admin\ajax_request.php9:{deleteTblVal: 1,tbl: gd_article,index: art_id,id: ,pms: channel}
+2016.12.09.15:00:43:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE 

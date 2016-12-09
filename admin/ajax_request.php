@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
 
 //    mylog('session ok'.getArrayInf($_POST));
-    mylog('ajax reached');
+//    mylog('ajax reached');
     if(isset($_POST['pms'])&&array_key_exists($_POST['pms'],$_SESSION['pms'])){
         if(isset($_POST['method'])){
             switch ($_POST['method']) {
@@ -58,11 +58,20 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
             }
         }
         if (isset($_POST['alteTblVal'])) {//快速更改
-            mylog('alteTblVal');
             $data = pdoUpdate($_POST['tbl'], array($_POST['col'] => $_POST['value']), array($_POST['index'] => $_POST['id']));
             if($data){
                 echo ajaxBack(array('id'=>$data));
             }else{
+                echo ajaxBack(null,1,'记录无法修改');
+            }
+            exit;
+        }
+        if (isset($_POST['deleteTblVal'])) {//快速删除
+            try{
+                pdoDelete($_POST['tbl'], array($_POST['index'] => $_POST['id']), ' limit 1');
+                                echo ajaxBack(array('id'=>$data));
+
+            }catch(PDOException $e){
                 echo ajaxBack(null,1,'记录无法修改');
             }
             exit;

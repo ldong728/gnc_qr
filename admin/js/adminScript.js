@@ -14,6 +14,42 @@ function stopLoading(){
 function handleAjaxReply(func){
 
 }
+function altTable(tablename,colname,colvalue,indexname,indexvalue,success){
+    var altValue={
+        alteTblVal: 1,
+        tbl: tablename,
+        col: colname,
+        value: colvalue,
+        index: indexname,
+        id: indexvalue,
+        pms:pms
+    };
+    $.post('ajax_request.php',altValue , function (data) {
+        if(data)data=eval('('+data+')');
+        if (data.errcode == 0) {
+           success();
+        }else{
+          return false;
+        }
+    })
+}
+function deleteRecord(tablename,indexname,indexvalue,success){
+    var deleteValue={
+        deleteTblVal: 1,
+        tbl: tablename,
+        index: indexname,
+        id: indexvalue,
+        pms:pms
+    };
+    $.post('ajax_request.php',deleteValue , function (data) {
+        if(data)data=eval('('+data+')');
+        if (data.errcode == 0) {
+            success();
+        }else{
+            return false;
+        }
+    })
+}
 
 //例：<div class="ipt-toggle" id="row id" data-tbl="table name"data-col="col name" data-index="index col">
 $('.ipt-toggle').dblclick(function () {
@@ -43,26 +79,27 @@ $(document).on('change', '.ipt', function () {
         index = col;
         id = replace;
     }
-    var altValue={
-        alteTblVal: 1,
-        tbl: tbl,
-        col: col,
-        value: value,
-        index: index,
-        id: id,
-        pms:pms
-
-    };
-    //$.each(altValue,function(k,v){
-    //   console.log(k+': '+v);
-    //});
-    $.post('ajax_request.php',altValue , function (data) {
-        if(data)data=eval('('+data+')');
-        if (data.errcode == 0) {
-            input.parent().text(value);
-            input.remove();
-        }else{
-            //alert(data);
-        }
+    altTable(tbl,col,value,index,id,function(){
+        input.parent().text(value);
+        input.remove();
     })
+
+
+    //var altValue={
+    //    alteTblVal: 1,
+    //    tbl: tbl,
+    //    col: col,
+    //    value: value,
+    //    index: index,
+    //    id: id,
+    //    pms:pms
+    //};
+    //$.post('ajax_request.php',altValue , function (data) {
+    //    if(data)data=eval('('+data+')');
+    //    if (data.errcode == 0) {
+    //        input.parent().text(value);
+    //        input.remove();
+    //    }else{
+    //    }
+    //})
 });

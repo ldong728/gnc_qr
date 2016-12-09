@@ -9,7 +9,7 @@ global $articleInf;
     <div class="head" style="width: 98%;"><span><?php echo $_SESSION['pms'][$_GET['menu']]['sub'][$_GET['sub']]['name']?></span></div>
     <div class="main">
         <form id="form_add_goods" method="post" action="controller.php?menu=<?php echo $_GET['menu']?>&sub=<?php echo $_GET['sub']?>&edit_article=1&rediract=<?php echo $_GET['rediract']?>">
-<!--            <input name="cmd" type="hidden" value="add_or_edit_goods">-->
+            <!--            <input name="cmd" type="hidden" value="add_or_edit_goods">-->
             <?php echo $articleInf? '<input type="hidden" name="art_id" value="'.$articleInf['art_id'].'">' : ''?>
             <?php echo $_GET['cha_id'] ? '<input type="hidden" name="art_channel_id" value="'.$_GET['cha_id'].'">' : ''?>
             <?php echo $_GET['cat_id'] ? '<input type="hidden" name="art_cat_id" value="'.$_GET['cat_id'].'">' : ''?>
@@ -23,12 +23,14 @@ global $articleInf;
                     <td>图片</td>
                     <td>
                         <span id="show_pic_1"></span>
+                        <img class="uploadImg" id="title_demo" style="padding: 0; max-width: 70px;height: auto;display: <?php echo $articleInf ? 'block':'none'?>" <?php echo $articleInf ? 'src="../'.$articleInf['art_img'].'"':''?>/>
+
                         <label class="uploadImg blank" <?php echo $articleInf ?'style="display:none"': 'style="display:inline-block"'?>>
                             <span>插入图片</span>
                         </label>
                         <img class="uploadImg" id="title_demo" style="padding: 0; max-width: 70px;height: auto;display: <?php echo $articleInf ? 'block':'none'?>" <?php echo $articleInf ? 'src="../'.$articleInf['art_img'].'"':''?>/>
 
-                        <input type="hidden" name="art_img" id="title_name" <?php echo $articleInf? 'value="'.$articleInf['art_img'].'"':''?>/>
+                        <input type="hidden" name="art_more_img" id="title_name" <?php echo $articleInf? 'value="'.$articleInf['art_more_img'].'"':''?>/>
                         &nbsp;&nbsp;&nbsp;
                     </td>
                 </tr>

@@ -10,9 +10,11 @@ session_start();
 
 if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
     if (isset($_GET['menu']) && array_key_exists($_GET['menu'], $_SESSION['pms'])) {
-//        echo 'ok';
         if(isset($_GET['get_editor'])){
-//            echo  'ok';
+            $channel = pdoQuery('gd_channel',array('cha_id'),array('cha_code'=>$_GET['sub']),' limit 1');
+            if($channelId=$channel->fetch()){
+                $_GET['cha_id']=$channelId['cha_id'];
+            }
             $articleId=$_GET['get_editor'];
             if($articleId){
                 $articleInf=pdoQuery('gd_article',null,array('art_id'=>$articleId),' limit 1');
@@ -24,16 +26,37 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
             printAdminView('admin/view/editor.html.php','编辑');
             exit;
         }
+        if(isset($_GET['get_editor'])){
+            $channel = pdoQuery('gd_channel',array('cha_id'),array('cha_code'=>$_GET['sub']),' limit 1');
+            if($channelId=$channel->fetch()){
+                $_GET['cha_id']=$channelId['cha_id'];
+            }
+            $articleId=$_GET['get_editor'];
+            if($articleId){
+                $articleInf=pdoQuery('gd_article',null,array('art_id'=>$articleId),' limit 1');
+                $articleInf=$articleInf->fetch();
+            }else{
+                $articleInf=null;
+            }
+//            alert('ok');
+            printAdminView('admin/view/goods_editor.html.php','编辑');
+            exit;
+        }
         if(isset($_GET['edit_article'])){
             mylog('get get:'.getArrayInf($_GET));
             mylog('get post'.getArrayInf($_POST));
             foreach ($_POST as $k => $v) {
                 $value[$k]=addslashes($v);
             }
-
+            $value['art_add_time']=time();
             $id=pdoInsert('gd_article',$value,'update');
             $value['art_id']=$id;
             $articleInf=$value;
+            if($_GET['rediract']){
+                mylog('header to');
+                header('location: index.php?menu='.$_GET['menu'].'&sub='.$_GET['sub']);
+                exit;
+            }
             printAdminView('admin/view/editor.html.php','编辑');
             exit;
         }

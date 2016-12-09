@@ -3,6 +3,7 @@
 include_once '../includePackage.php';
 include_once '../wechat/serveManager.php';
 session_start();
+$page=isset($_GET['page'])? $_GET['page'] : 0;
 $num=15;
 $getStr = '';
 foreach ($_GET as $k => $v) {
@@ -120,8 +121,25 @@ function about(){
 }
 function customer_photo(){
     global $getStr;
-    $list=pdoQuery('gd_article_view',array('art_id','art_img'),array())
+    global $page;
+    global $num;
+    global $list;
+    global $count;
+    $list=pdoQuery('gd_article_view',array('art_id','art_img','art_title','art_show','art_index'),array('cha_code'=>$_GET['sub']), ' order by art_add_time desc,art_index asc limit ' . $page * $num . ', ' .$num);
+    $list=$list->fetchAll();
+    $count=pdoQuery('gd_article_view',array('count(*) as count'),array('cha_code'=>$_GET['sub']),null);
+    $count=$count->fetch()['count'];
+    printAdminView('admin/view/customer_photo_list.html.php');
 }
 function goods(){
-
+    global $getStr;
+    global $page;
+    global $num;
+    global $list;
+    global $count;
+    $list=pdoQuery('gd_article_view',array('art_id','art_img','art_title','art_show','art_index'),array('cha_code'=>$_GET['sub']), ' order by art_add_time desc,art_index asc limit ' . $page * $num . ', ' .$num);
+    $list=$list->fetchAll();
+    $count=pdoQuery('gd_article_view',array('count(*) as count'),array('cha_code'=>$_GET['sub']),null);
+    $count=$count->fetch()['count'];
+    printAdminView('admin/view/goods_list.html.php');
 }
