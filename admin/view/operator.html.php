@@ -23,7 +23,7 @@ $pmsCount = count($pmsList);
             <tr>
                 <td><input type="text" class="alt-name textbox" id="name<?php echo $row['id'] ?>" value="<?php echo $row['name'] ?>" style="width: 70px"></td>
                 <td><input type="text" class="alt-pwd textbox" id="pwd<?php echo $row['id'] ?>" value="<?php echo $row['pwd'] ?>" style="width: 70px"></td>
-                <?php foreach ($row['pms'] as $r): ?>
+                <?php foreach ($pmsList as $k=>$v): ?>
                     <td>
                         <input type="checkbox" class="pms-alt" id="<?php echo $row['id'] ?>"
                                value="<?php echo $r['value'] ?>"<?php echo isset($r['checked']) ? 'checked="checked"' : '' ?>>

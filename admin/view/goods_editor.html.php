@@ -1,5 +1,5 @@
 <?php
-global $articleInf;
+global $articleInf,$imgList;
 ?>
 
 
@@ -23,12 +23,12 @@ global $articleInf;
                     <td>图片</td>
                     <td>
                         <span id="show_pic_1"></span>
-                        <img class="uploadImg" id="title_demo" style="padding: 0; max-width: 70px;height: auto;display: <?php echo $articleInf ? 'block':'none'?>" <?php echo $articleInf ? 'src="../'.$articleInf['art_img'].'"':''?>/>
-
-                        <label class="uploadImg blank" <?php echo $articleInf ?'style="display:none"': 'style="display:inline-block"'?>>
+                        <?php foreach($imgList as $imgrow):?>
+                            <a href="#"class="delete-img"id=""><img src="../<?php echo $imgrow?>" style="padding: 0; max-width: 70px;height: auto"/></a>
+                        <?php endforeach ?>
+                        <label class="uploadImg blank" style="display: inline-block">
                             <span>插入图片</span>
                         </label>
-                        <img class="uploadImg" id="title_demo" style="padding: 0; max-width: 70px;height: auto;display: <?php echo $articleInf ? 'block':'none'?>" <?php echo $articleInf ? 'src="../'.$articleInf['art_img'].'"':''?>/>
 
                         <input type="hidden" name="art_more_img" id="title_name" <?php echo $articleInf? 'value="'.$articleInf['art_more_img'].'"':''?>/>
                         &nbsp;&nbsp;&nbsp;
@@ -74,12 +74,12 @@ global $articleInf;
             dataType: 'json', //返回值类型 一般设置为json
             success: function (v, status) {
                 if ('SUCCESS' == v.state) {
-//                                var content = '<a href="#"class="delete-front-img"id="'+ v.id+'"><img src="../'+ v.url+'"/></a>';
-//                                $('.front-img-upload').before(content);
-                    $('#title_demo').attr('src', '../' + v.url);
-                    $('#title_demo').fadeIn('fast');
-                    $('.blank').hide();
-                    $('#title_name').val(v.url);
+                                var content = '<a href="#"class="delete-img"id="'+ v.id+'"><img src="../'+ v.url+'" style="padding: 0; max-width: 70px;height: auto"/></a>';
+                                $('.uploadImg').before(content);
+//                    $('#title_demo').attr('src', '../' + v.url);
+//                    $('#title_demo').fadeIn('fast');
+//                    $('.blank').hide();
+                    $('#title_name').val($('#title_name').val()+','+v.url);
                 } else {
                     showToast(v.state);
                 }
@@ -95,7 +95,6 @@ global $articleInf;
     $('.send').hide();
     ue.ready(function(){
         $('.send').show();
-        var mode=<?php echo $mode ?>;
         var id=<?php echo $articleInf['id']? $articleInf['id']:'false' ?>;
         if(id){
             $.post('ajax_request.php',{getNews:1,id:id,mode:mode},function(data){

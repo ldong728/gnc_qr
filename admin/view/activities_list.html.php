@@ -5,20 +5,20 @@ global $page,$num,$list,$count,$getStr;
 <div class="main">
     <table class="table sheet">
         <tbody><tr class="h">
-            <td>名称</td>
             <td>图片</td>
+            <td>名称</td>
             <td>显示</td>
             <td>优先级</td>
             <td width="150px">操作</td>
         </tr>
         <?php foreach($list as $row):?>
             <tr>
+                <td><img src="../<?php echo $row['art_img']?>" style="width: 90px"> </td>
                 <td class="ipt-toggle" id="<?php echo $row['art_id']?>" data-tbl="gd_article"data-col="art_title" data-index="art_id"><?php echo $row['art_title']?></td>
-                <td><img src="../<?php echo explode(',',$row['art_more_img'])[0]?>" style="width: 90px"> </td>
                 <td><input class="show_switch" id="show<?php echo $row['art_id']?>" type="checkbox" <?php echo $row['art_show']? 'checked':''?>></td>
                 <td class="ipt-toggle" id="<?php echo $row['art_id']?>" data-tbl="gd_article"data-col="art_index" data-index="art_id"><?php echo $row['art_index']?></td>
                 <td>
-                    <a href="controller.php?<?php echo $getStr?>&get_goods_editor=<?php echo $row['art_id']?>&rediract=1">[修改]</a>
+                    <a href="controller.php?<?php echo $getStr?>&get_editor=<?php echo $row['art_id']?>&rediract=1">[修改]</a>
                     <a class="delete" id="dele<?php echo $row['art_id']?>">[删除]</a>
                 </td>
             </tr>
@@ -41,7 +41,7 @@ global $page,$num,$list,$count,$getStr;
         <tr>
             <td colspan="5">
                 <div class="page_link">
-                    <input type="button" id="add_photo" value="添加产品">
+                    <input type="button" id="add_photo" value="添加">
                 </div>
                 <!-- GOODUO -->
             </td>
@@ -55,17 +55,17 @@ global $page,$num,$list,$count,$getStr;
         var show=$(this).prop('checked')?1:0;
         altTable('gd_article','art_show',show,'art_id',id,function(){
         });
-    });
-    $('#jump').click(function() {
-        var page = $('#page').val() - 1;
-        if (page > -1) {
-            location.href = url + '&page=' + page;
-        } else {
+    })
+    $('#jump').click(function(){
+        var page= $('#page').val()-1;
+        if(page>-1){
+            location.href=url+'&page='+page;
+        }else{
             alert('页数错误')
         }
     });
     $('#add_photo').click(function(){
-        location.href='controller.php'+url+'&get_goods_editor=0&rediract=1';
+        location.href='controller.php'+url+'&get_editor=0&rediract=1';
     });
     $('.delete').click(function(){
 

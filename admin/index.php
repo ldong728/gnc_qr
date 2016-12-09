@@ -112,6 +112,26 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
     include 'view/login.html.php';
     exit;
 }
+function operator(){
+    global $pmsList,$opList;
+    $pms=pdoQuery('pms_tbl',null,null,null);
+    foreach ($pms as $row) {
+        $pmsList[$row['id']]=$row;
+    }
+
+    $op=pdoQuery('op_pms_view',null,null,null);
+    foreach ($op as $row) {
+        if(!isset($opList[$row['id']])){
+            $opList[$row['id']]=$row;
+            $opList[$row['id']]['pms']=$pmsList;
+        }
+        $opList[$row['id']]['pms'][$row['pms_id']]['checked']='checked';
+    }
+    mylog(getArrayInf($opList));
+    printAdminView('admin/view/operator.html.php','操作员管理');
+
+
+}
 function about(){
     global $getStr;
     $articleInf=pdoQuery('gd_article_view',array('art_id'),array('cha_code'=>$_GET['sub']),' limit 1');
@@ -137,9 +157,27 @@ function goods(){
     global $num;
     global $list;
     global $count;
-    $list=pdoQuery('gd_article_view',array('art_id','art_img','art_title','art_show','art_index'),array('cha_code'=>$_GET['sub']), ' order by art_add_time desc,art_index asc limit ' . $page * $num . ', ' .$num);
+    $list=pdoQuery('gd_article_view',array('art_id','art_more_img','art_title','art_show','art_index'),array('cha_code'=>$_GET['sub']), ' order by art_add_time desc,art_index asc limit ' . $page * $num . ', ' .$num);
     $list=$list->fetchAll();
     $count=pdoQuery('gd_article_view',array('count(*) as count'),array('cha_code'=>$_GET['sub']),null);
     $count=$count->fetch()['count'];
     printAdminView('admin/view/goods_list.html.php');
+}
+function activities(){
+    global $getStr;
+    global $page;
+    global $num;
+    global $list;
+    global $count;
+    $list=pdoQuery('gd_article_view',array('art_id','art_img','art_title','art_show','art_index'),array('cha_code'=>$_GET['sub']), ' order by art_add_time desc,art_index asc limit ' . $page * $num . ', ' .$num);
+    $list=$list->fetchAll();
+    $count=pdoQuery('gd_article_view',array('count(*) as count'),array('cha_code'=>$_GET['sub']),null);
+    $count=$count->fetch()['count'];
+    printAdminView('admin/view/activities_list.html.php');
+}
+function goods_verify(){
+    printAdminView('admin/view/blank.html.php');
+}
+function dealer_verify(){
+    printAdminView('admin/view/blank.html.php');
 }
