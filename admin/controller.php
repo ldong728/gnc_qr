@@ -45,6 +45,25 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
             printAdminView('admin/view/goods_editor.html.php','编辑');
             exit;
         }
+        if(isset($_GET['get_activities_editor'])){
+            $channel = pdoQuery('gd_channel',array('cha_id'),array('cha_code'=>$_GET['sub']),' limit 1');
+            if($channelId=$channel->fetch()){
+                $_GET['cha_id']=$channelId['cha_id'];
+            }
+            $articleId=$_GET['get_activities_editor'];
+            if($articleId){
+                $articleInf=pdoQuery('gd_article',null,array('art_id'=>$articleId),' limit 1');
+                $articleInf=$articleInf->fetch();
+                $imgList=explode(',',$articleInf['art_more_img']);
+                if(!$imgList)$imgList=array();
+            }else{
+                $articleInf=null;
+                $imgList=array();
+            }
+//            alert('ok');
+            printAdminView('admin/view/activities_edit.html.php','编辑');
+            exit;
+        }
         if(isset($_GET['edit_article'])){
             mylog('get get:'.getArrayInf($_GET));
             mylog('get post'.getArrayInf($_POST));

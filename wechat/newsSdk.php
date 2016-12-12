@@ -12,7 +12,7 @@ class newsSdk {
 
     }
 
-    function getMediaList($type, $offset)
+    public static function getMediaList($type, $offset)
     {
         $request = array('type' => $type, 'offset' => $offset, 'count' => 20);
         $json = interfaceHandler::getHandler()->postArrayByCurl('https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=ACCESS_TOKEN', $request);

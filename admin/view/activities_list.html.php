@@ -18,7 +18,7 @@ global $page,$num,$list,$count,$getStr;
                 <td><input class="show_switch" id="show<?php echo $row['art_id']?>" type="checkbox" <?php echo $row['art_show']? 'checked':''?>></td>
                 <td class="ipt-toggle" id="<?php echo $row['art_id']?>" data-tbl="gd_article"data-col="art_index" data-index="art_id"><?php echo $row['art_index']?></td>
                 <td>
-                    <a href="controller.php?<?php echo $getStr?>&get_editor=<?php echo $row['art_id']?>&rediract=1">[修改]</a>
+                    <a href="controller.php?<?php echo $getStr?>&get_activities_editor=<?php echo $row['art_id']?>&rediract=1">[修改]</a>
                     <a class="delete" id="dele<?php echo $row['art_id']?>">[删除]</a>
                 </td>
             </tr>

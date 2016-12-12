@@ -19,12 +19,13 @@
         </div>
         <img src="../<?php echo $row['art_img']?>">
         <div class="intro">
-            这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要这是摘要
+            <?php echo $row['art_short_text']?>
         </div>
+        <a href="?channel=activty_detail&id=<?php echo $row['art_id']?>">
         <div class="link">
             <span>阅读原文</span>
         </div>
-
+        </a>
 
     </div>
     <?php endforeach ?>
