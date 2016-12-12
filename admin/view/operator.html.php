@@ -5,28 +5,25 @@ $pmsList = $GLOBALS['pmsList'];
 $pmsCount = count($pmsList);
 ?>
 
-<section>
-    <div class="page_title">
-        <h2>操作员管理</h2>
-    </div>
-    <table class="table">
+<div class="main">
+    <table class="table sheet">
         <tr>
-            <th>操作员</th>
-            <th>密码</th>
+            <td>操作员</td>
+            <td>密码</td>
             <?php foreach ($pmsList as $row): ?>
-                <th>
+                <td>
                     <?php echo $row['name'] ?>
-                </th>
+                </td>
             <?php endforeach ?>
         </tr>
         <?php foreach ($opList as $row): ?>
             <tr>
                 <td><input type="text" class="alt-name textbox" id="name<?php echo $row['id'] ?>" value="<?php echo $row['name'] ?>" style="width: 70px"></td>
                 <td><input type="text" class="alt-pwd textbox" id="pwd<?php echo $row['id'] ?>" value="<?php echo $row['pwd'] ?>" style="width: 70px"></td>
-                <?php foreach ($pmsList as $k=>$v): ?>
+                <?php foreach ($row['pms'] as $k=>$v): ?>
                     <td>
                         <input type="checkbox" class="pms-alt" id="<?php echo $row['id'] ?>"
-                               value="<?php echo $r['value'] ?>"<?php echo isset($r['checked']) ? 'checked="checked"' : '' ?>>
+                               value="<?php echo $k ?>"<?php echo isset($v['checked']) ? 'checked="checked"' : '' ?>>
                     </td>
                 <?php endforeach ?>
             </tr>
@@ -47,7 +44,7 @@ $pmsCount = count($pmsList);
 
 
     </table>
-</section>
+</div>
 
 
 <script>
@@ -55,40 +52,40 @@ $pmsCount = count($pmsList);
         var stu = $(this).prop('checked');
         var id = $(this).attr('id');
         var pms = $(this).val();
-        $.post('ajax_request.php', {operator: 1, altPms: pms, id: id, stu: stu}, function (data) {
-            if (data == 'ok') {
-                showToast('权限已修改')
-            }
-        });
+//        alert(pms);
+        if(stu){
+            addRecord('op_pms_tbl',{o_id:id,pms_id:pms},'update',function(){
+                showToast('更改完成');
+            });
+        }else{
+            deleteRecord('op_pms_tbl',{o_id:id,pms_id:pms})
+        }
+
     });
     $('.alt-name').change(function () {
         var id = $(this).attr('id').slice(4);
         var name = $(this).val();
-        $.post('ajax_request.php', {operator: 1, altName: name, id: id}, function (data) {
-            if (data == 'ok') {
-                showToast('名称已修改');
-            }
-        });
+        altTable('operator_tbl','name',name,'id',id,function(){
+            showToast('更改完成');
+        })
     });
     $('.alt-pwd').change(function () {
         var id = $(this).attr('id').slice(3);
         var pwd = $(this).val();
-        $.post('ajax_request.php', {operator: 1, altPwd: pwd, id: id}, function (data) {
-            if (data == 'ok') {
-                showToast('密码已修改');
-            }
-        });
+        altTable('operator_tbl','pwd',pwd,'id',id,function(){
+            showToast('更改完成');
+        })
     });
     $('.op-add-btn').click(function () {
         var name = $('.new-name').val();
         var pwd = $('.new-pwd').val();
-        if (name != '' && pwd != '') {
-            $.post('ajax_request.php', {operator: 1, new: name, pwd: pwd}, function (data) {
-                if (data == 'ok') {
-                    window.location = "index.php?operator=1";
-                }
-            });
+        if(name&&pwd){
+            var creatorId=<?php echo $_SESSION['operator_id']?>;
+            addRecord('operator_tbl',{name:name,pwd:pwd,creator:creatorId},'update',function(){
+                location.reload(true);
+            })
         }
+
     })
 
 </script>

@@ -1,7 +1,7 @@
 <div class="nav_hd">
     <div class="title">
     </div>
-    <a href="../wechat/?oauth=snsapi_base&diract=index" class="home">
+    <a href="<?php echo  'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/mobile/?channel=index'?>" class="home">
         <span></span>
     </a>
 </div>

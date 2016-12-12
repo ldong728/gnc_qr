@@ -18,18 +18,19 @@ $signPackage = $jssdk->GetSignPackage();
         signature: '<?php echo $signPackage["signature"];?>',
         jsApiList: [
             'hideMenuItems',
-            'chooseImage',
-            'uploadImage',
+//            'chooseImage',
+//            'uploadImage',
             'scanQRCode',
 //            'getLocation',
 //            'openLocation',
             'onMenuShareTimeline',
             'onMenuShareAppMessage',
-            'chooseWXPay',
-            'chooseCard',
-            'addCard',
-            'openCard',
-            'closeWindow'
+//            'chooseWXPay',
+//            'chooseCard',
+//            'addCard',
+//            'openCard',
+            'closeWindow',
+            'previewImage'
         ]
     });
 //    wx.ready(function(){

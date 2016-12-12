@@ -70,7 +70,7 @@ global $page,$num,$list,$count,$getStr;
     $('.delete').click(function(){
 
        var id=this.id.slice(4);
-        deleteRecord('gd_article','art_id',id,function(){
+        deleteRecord('gd_article',{art_id:id},function(){
             location.reload(true);
         })
     });

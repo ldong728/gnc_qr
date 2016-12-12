@@ -68,9 +68,18 @@ if (isset($_SESSION['login'])&&DOMAIN==$_SESSION['login']) {
         }
         if (isset($_POST['deleteTblVal'])) {//快速删除
             try{
-                pdoDelete($_POST['tbl'], array($_POST['index'] => $_POST['id']), ' limit 1');
-                                echo ajaxBack(array('id'=>$data));
+                pdoDelete($_POST['tbl'], $_POST['value'], ' limit 1');
+                                echo ajaxBack();
 
+            }catch(PDOException $e){
+                echo ajaxBack(null,1,'记录无法修改');
+            }
+            exit;
+        }
+        if (isset($_POST['addTblVal'])) {//快速插入
+            try{
+                $id=pdoInsert($_POST['tbl'], $_POST['value'], $_POST['onDuplicte']);
+                echo ajaxBack(array('id'=>$id));
             }catch(PDOException $e){
                 echo ajaxBack(null,1,'记录无法修改');
             }

@@ -109,7 +109,7 @@
                             if($self.attr("style_external")!=null&&$self.attr("style_external").trim()!=''){
 	                            $self.attr("style",$self.attr("style_external")); 
 	                        }else{
-	                            $self.attr("style",'width:200px; height:200px; margin:0 auto; display:block;'); 
+	                            $self.attr("style",'width:100%; margin:0 auto; display:block;');
 	                        }
                         } else {
                             $self.css("background-image", "url('" + original + "')");
@@ -136,7 +136,7 @@
 					   if($self.attr("style_external")!=null&&$self.attr("style_external").trim()!=''){
                            $self.attr("style",$self.attr("style_external")); 
                        }else{
-                           $self.attr("style",'width:200px; height:200px; margin:0 auto; display:block;'); 
+                           $self.attr("style",'width:100%; margin:0 auto; display:block;');
                        }
 					   $self.unbind('error');
 					}).attr("src", $self.attr("data-" + settings.data_attribute));

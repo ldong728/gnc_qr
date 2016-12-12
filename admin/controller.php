@@ -36,9 +36,10 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
                 $articleInf=pdoQuery('gd_article',null,array('art_id'=>$articleId),' limit 1');
                 $articleInf=$articleInf->fetch();
                 $imgList=explode(',',$articleInf['art_more_img']);
-                mylog(getArrayInf($imgList));
+                if(!$imgList)$imgList=array();
             }else{
                 $articleInf=null;
+                $imgList=array();
             }
 //            alert('ok');
             printAdminView('admin/view/goods_editor.html.php','编辑');

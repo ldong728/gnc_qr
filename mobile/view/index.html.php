@@ -1,8 +1,6 @@
 <head>
     <?php include 'templates/header.php' ?>
-    <link rel="stylesheet" href="stylesheet/index_temp.css"/>
-    <link rel="stylesheet" href="stylesheet/mobile-index-swiper.min.css"/>
-    <link rel="stylesheet" href="stylesheet/myswiper.css"/>
+    <link rel="stylesheet" href="stylesheet/index_temp.css?v=<?php echo rand(10,9999)?>"/>
     <script src="../js/swiper.min.js"></script>
 </head>
 
@@ -11,9 +9,7 @@
 <?php include_once 'templates/jssdkIncluder.php'?>
 <div class="wrap">
     <div class="img">
-        <a target="_blank" href="../xiong.jpg">
-            <img src="../image/bc6cd3e37ccbf3396740a11ccc03dc37.png" alt="Ballade" width="100%" height="100%">
-        </a>
+            <img src="../<?php echo $article['art_img']?>" alt="Ballade" width="100%" height="100%">
     </div>
     <div class="table ">
         <?php for($i=0;$i<3;$i++):?>

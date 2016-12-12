@@ -5,15 +5,7 @@
 </head>
 
 <body class="age_bg">
-<div class="nav_hd">
-    <div class="title">
-    </div>
-    <a href="" class="home">
-        <span></span>
-    </a>
-</div>
-<!-- GOODUO -->
-
+<?php include 'templates/nav.php'?>
 <div class="age_wrap age_pro_title">
     <div class="pic f_l">
         <img src="<?php echo $userInf['use_img']?>">

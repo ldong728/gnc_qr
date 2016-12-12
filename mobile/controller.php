@@ -17,7 +17,6 @@ if (isset($_SESSION['openId'])) {
                         $subDealer[]=$row;
                     }
                     $subDealer[]=array('use_id'=>-2,'use_username'=>'散客','use_img'=>'images/no_img_user.jpg','use_phone'=>'00000000000','use_rank'=>'散客');
-
                     include 'view/qr_scanner.html.php';
                     break;
                 case 'qr_query':
@@ -31,7 +30,11 @@ if (isset($_SESSION['openId'])) {
                     include 'view/log_check.html.php';
                     break;
                 case 'user_inf':
-                    $userInf=pdoQuery('gd_user_view',null,array('use_id'=>$_SESSION['userId']),' limit 1');
+                    if(isset($_GET['user_id'])){
+                        $userInf=pdoQuery('gd_user_view',null,array('use_id'=>$_GET['user_id']),' limit 1');
+                    }else{
+                        $userInf=pdoQuery('gd_user_view',null,array('use_id'=>$_SESSION['userId']),' limit 1');
+                    }
                     $userInf=$userInf->fetch();
                     include 'view/user_inf.html.php';
                     break;
@@ -82,4 +85,5 @@ if(isset($_GET['channel'])){
     $_GET['channel']();
     exit;
 }
-
+header('location: http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=index');
+exit;

@@ -33,15 +33,23 @@ function audit_confirm(){
 
 function index(){
     $channelList=pdoQuery('gd_channel',null,array('cha_show'=>'1'),' limit 6');
+    $article=pdoQuery('gd_article',array('art_img'),array('art_channel_id'=>-1),' limit 1');
+    $article=$article->fetch();
     $channelList=$channelList->fetchAll();
     include 'view/index.html.php';
 }
 function customer_photo(){
     $cha_id=$_GET['cha_id'];
 
-    $article=pdoQuery('gd_article',null,array('art_channel_id'=>$cha_id),null);
-
+    $article=pdoQuery('gd_article',array('art_id','art_img'),array('art_channel_id'=>$cha_id,'art_show'=>'1'),' order by art_index desc');
+    $article=$article->fetchAll();
     include 'view/customer_photo.html.php';
+}
+function goods(){
+    $goodsInf=pdoQuery('gd_article',null,array('art_channel_id'=>$_GET['cha_id']),'order by art_index desc limit 1');
+    $goodsInf=$goodsInf->fetch();
+    $imgList=explode(',',$goodsInf['art_more_img']);
+    include 'view/goods.html.php';
 }
 
 function about(){
@@ -52,6 +60,35 @@ function about(){
 
 
 //    echo '跳转到这里';
+}
+function activities(){
+//    $cha_id=$_GET['cha_id'];
+//    $activities=pdoQuery('gd_article_view',null,array('art_channel_id'=>$cha_id),null);
+//    $activities=$activities->fetchAll();
+    $news = getMediaList('news', 0, $newsNum - $localNum);
+    foreach ($news['item'] as $row) {
+        $media_id = $row['media_id'];
+        $title_img = 'img/' . $media_id . '.jpg';
+        $title = $row['content']['news_item'][0]['title'];
+        $digest = $row['content']['news_item'][0]['digest'];
+        $content = $row['content']['news_item'][0]['content'];
+        $url = $row['content']['news_item'][0]['url'];
+        $create_time = $row['content']['update_time'];
+        if (!file_exists('../' . $title_img)) {
+            $img = getFromUrl($row['content']['news_item'][0]['thumb_url']);
+            file_put_contents('../' . $title_img, $img);
+        }
+        $value[] = array('media_id' => $media_id, 'title' => addslashes($title), 'digest' => addslashes($digest), 'title_img' => $title_img, 'content' => addslashes($content), 'url' => $url, 'create_time' => $create_time);
+//                pdoInsert('news_tbl',array('media_id'=>$media_id,'title'=>addslashes($title),'digest'=>addslashes($digest),'title_img'=>$title_img,'content'=>addslashes($content),'url'=>$url,'create_time'=>$create_time),'ignore');
+    }
+    include 'view/activities.html.php';
+
+}
+function goods_verify(){
+    header('location: '.'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=qr_verify');
+}
+function dealer_verify(){
+    header('location: '.'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=user_inf');
 }
 
 function alter_password(){

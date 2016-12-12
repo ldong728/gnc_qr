@@ -5,13 +5,7 @@
 </head>
 
 <body class="age_bg">
-<div class="nav_hd">
-    <div class="title">
-    </div>
-    <a href="./" class="home">
-        <span></span>
-    </a>
-</div>
+<?php include 'templates/nav.php'?>
 <!-- GOODUO -->
 <div class="age_wrap">
     <div class="reg_tab" id="reg_login" style="display: none">
@@ -68,7 +62,7 @@
         </ul>
     </div>
 
-    <a class="age_pro_logout add_sub">添加下级代理</a>
+    <a class="age_pro_logout add_sub"<?php echo $_GET['p_id']!=$_SESSION['userId'] ? 'style="display:none"':''?>>添加下级代理</a>
 </div>
 <script>
     function submit() {
@@ -97,6 +91,7 @@
 <div class="sub_age">
     <ul class="clearfix">
         <?php foreach($subList as $row):?>
+            <a href="?module=user_inf&user_id=<?php echo $row['use_id']?>">
         <li>
             <div class="pic f_l"><img src="<?php echo $row['use_img']?>"></div>
             <div class="con f_r">
@@ -105,6 +100,7 @@
             </div>
             <div class="clear"></div>
         </li>
+            </a>
         <?php endforeach ?>
     </ul>
     <div class="page_link">

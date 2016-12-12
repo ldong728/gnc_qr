@@ -1,18 +1,26 @@
 <head>
     <?php include 'templates/header.php' ?>
-    <link rel="stylesheet" href="stylesheet/user.css?t="<?php echo rand(1000,9999)?>"/>
+    <link rel="stylesheet" href="stylesheet/channel.css?t=<?php echo rand(1000,9999)?>"/>
     <!--    --><?php //include_once 'templates/jssdkIncluder.php' ?>
 </head>
 
-<body class="age_bg">
-<div class="nav_hd">
-    <div class="title">
+<body>
+<?php include 'templates/nav.php'?>
+<div class="wrap about_wrap">
+    <div class="channel_name">
+        公司简介
     </div>
-    <a href="" class="home">
-        <span></span>
-    </a>
+    <div class="img_container">
+        <img src="../<?php echo $aboutInf['art_img']?>">
+    </div>
+    <div class="content_container">
+        <?php echo $aboutInf['art_text']?>
+    </div>
+
+
+
 </div>
-<?php echo $aboutInf['art_text']?>
+
 
 </body>
 

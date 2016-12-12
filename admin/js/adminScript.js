@@ -27,24 +27,40 @@ function altTable(tablename,colname,colvalue,indexname,indexvalue,success){
     $.post('ajax_request.php',altValue , function (data) {
         if(data)data=eval('('+data+')');
         if (data.errcode == 0) {
-           success();
+           success(data);
         }else{
           return false;
         }
     })
 }
-function deleteRecord(tablename,indexname,indexvalue,success){
+function deleteRecord(tablename,value,success){
     var deleteValue={
         deleteTblVal: 1,
         tbl: tablename,
-        index: indexname,
-        id: indexvalue,
+        value:value,
         pms:pms
     };
     $.post('ajax_request.php',deleteValue , function (data) {
         if(data)data=eval('('+data+')');
         if (data.errcode == 0) {
-            success();
+            success(data);
+        }else{
+            return false;
+        }
+    })
+}
+function addRecord(tablename,value,onDuplicate,success){
+    var insertValue={
+        addTblVal:1,
+        tbl:tablename,
+        pms:pms,
+        value:value,
+        onDuplicte:onDuplicate
+    }
+    $.post('ajax_request.php',insertValue , function (data) {
+        if(data)data=eval('('+data+')');
+        if (data.errcode == 0) {
+            success(data);
         }else{
             return false;
         }

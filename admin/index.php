@@ -121,15 +121,23 @@ function operator(){
 
     $op=pdoQuery('op_pms_view',null,null,null);
     foreach ($op as $row) {
+
         if(!isset($opList[$row['id']])){
             $opList[$row['id']]=$row;
             $opList[$row['id']]['pms']=$pmsList;
         }
-        $opList[$row['id']]['pms'][$row['pms_id']]['checked']='checked';
+        if($row['pms_id'])$opList[$row['id']]['pms'][$row['pms_id']]['checked']='checked';
     }
-    mylog(getArrayInf($opList));
+//    mylog(getArrayInf($opList));
     printAdminView('admin/view/operator.html.php','操作员管理');
 
+
+}
+function index_config(){
+    global $getStr;
+    $articleInf=pdoQuery('gd_article',array('art_id'),array('art_channel_id'=>-1),' limit 1');
+    $articleId=$articleInf->fetch();
+    header('location: controller.php?get_editor='.$articleId['art_id'].'&'.$getStr);
 
 }
 function about(){

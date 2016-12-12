@@ -1,3 +1,5 @@
+@import url("reset.css");
+
 body {color: #353535; background: #fff; font-size: 12px; font-family:"Microsoft Yahei"; -webkit-tap-highlight-color:transparent;}
 
 img{max-width:100%;}
@@ -51,7 +53,7 @@ img{max-width:100%;}
 /*==================================
 *** 顶部菜单 - nav_hd ***
 ==================================*/
-.nav_hd{width:100%; height:75px; background-color:#000000; margin-bottom:10px; position:fixed; overflow:hidden}
+.nav_hd{width:100%; height:75px; background-color:#000000; margin-bottom:10px; position:fixed; overflow:hidden;z-index: 999;top: 0}
 .nav_hd .title{display:block; padding:0 110px; height:75px; line-height:75px; color:#fff; font-size:36px; font-family:"黑体", Arial, sans-serif; text-align:center;background: url(images/logo.png) no-repeat;background-size: 30% 60%;
     background-position: center;}
 .nav_hd .back{width:86px; padding-left:24px; height:75px; line-height:75px; display:block; color:#fff; font-size:24px; position:absolute; left:0; top:0;}
