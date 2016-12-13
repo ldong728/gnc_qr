@@ -5,7 +5,11 @@
 </head>
 
 <body>
-<?php include 'templates/nav.php'?>
+<div class="nav_hd">
+    <div class="title">
+    </div>
+</div>
+<div style="position: relative;width: 100%;height: 38px"></div>
 <?php include_once 'templates/jssdkIncluder.php'?>
 <div class="wrap">
     <div class="img">

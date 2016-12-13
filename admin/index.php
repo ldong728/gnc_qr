@@ -186,6 +186,7 @@ function activities(){
     printAdminView('admin/view/activities_list.html.php');
 }
 function goods_verify(){
+
     printAdminView('admin/view/blank.html.php');
 }
 function dealer_verify(){
