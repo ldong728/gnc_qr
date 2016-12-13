@@ -1,65 +1,51 @@
-2016.12.09.20:23:51:D:\WebTest\PhpTest\gnc_qr\admin\controller.php39:{0: ,1: image/9250247a0132aedb79c06cb40821baaf.jpg,2: image/6d948c0431ea3dc43c9d35552484becc.jpg,3: image/130b615a8420f3e4673bf476ff775c8f.jpg}
-2016.12.09.20:28:14:D:\WebTest\PhpTest\gnc_qr\admin\controller.php39:{0: image/9250247a0132aedb79c06cb40821baaf.jpg,1: image/6d948c0431ea3dc43c9d35552484becc.jpg,2: image/130b615a8420f3e4673bf476ff775c8f.jpg}
-2016.12.09.20:42:57:D:\WebTest\PhpTest\gnc_qr\admin\controller.php39:{0: image/9250247a0132aedb79c06cb40821baaf.jpg,1: image/6d948c0431ea3dc43c9d35552484becc.jpg,2: image/130b615a8420f3e4673bf476ff775c8f.jpg}
-2016.12.09.20:45:52:D:\WebTest\PhpTest\gnc_qr\admin\controller.php39:{0: image/9250247a0132aedb79c06cb40821baaf.jpg,1: image/6d948c0431ea3dc43c9d35552484becc.jpg,2: image/130b615a8420f3e4673bf476ff775c8f.jpg}
-2016.12.09.20:53:10:D:\WebTest\PhpTest\gnc_qr\admin\controller.php39:{0: image/9250247a0132aedb79c06cb40821baaf.jpg,1: image/6d948c0431ea3dc43c9d35552484becc.jpg,2: image/130b615a8420f3e4673bf476ff775c8f.jpg}
-2016.12.09.20:53:21:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: goods,edit_article: 1,rediract: 1}
-2016.12.09.20:53:21:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_id: 41,art_channel_id: 3,art_title: 测试一下啦,art_more_img: image/9250247a0132aedb79c06cb40821baaf.jpg,image/6d948c0431ea3dc43c9d35552484becc.jpg,image/130b615a8420f3e4673bf476ff775c8f.jpg,image/9e648842e2aca7d7f6bf45442a7807b8.jpg,art_text: <p>哈哈哈</p>}
-2016.12.09.20:53:21:D:\WebTest\PhpTest\gnc_qr\admin\controller.php59:header to
-2016.12.09.20:53:23:D:\WebTest\PhpTest\gnc_qr\admin\controller.php39:{0: image/9250247a0132aedb79c06cb40821baaf.jpg,1: image/6d948c0431ea3dc43c9d35552484becc.jpg,2: image/130b615a8420f3e4673bf476ff775c8f.jpg,3: image/9e648842e2aca7d7f6bf45442a7807b8.jpg}
-2016.12.09.22:03:09:D:\WebTest\PhpTest\gnc_qr\ueditor\php\action_upload.php68:{"state":"SUCCESS","url":"\/gnc_qr\/image\/20161209\/1481292189783909.jpg","title":"1481292189783909.jpg","original":"20160808053910822.jpg","type":".jpg","size":132744}
-2016.12.09.22:03:23:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: activities,edit_article: 1,rediract: 1}
-2016.12.09.22:03:23:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_channel_id: 12,art_title: 公司活动,art_img: image/1f0c715a88dd7205bf3b28492a5a22ec.jpg,art_text: <p>测试测试测试<img src="/gnc_qr/image/20161209/1481292189783909.jpg" title="1481292189783909.jpg" alt="20160808053910822.jpg" width="230" height="223"/></p>}
-2016.12.09.22:03:23:D:\WebTest\PhpTest\gnc_qr\admin\controller.php59:header to
-2016.12.09.22:04:09:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE art_id="42" limit 1
-2016.12.10.00:31:08:D:\WebTest\PhpTest\gnc_qr\admin\index.php130:{1: {pms_id: 18,0: 18,id: 1,1: 1,name: test,2: test,pwd: abc,3: abc,create_time: 2016-12-10 00:24:08,4: 2016-12-10 00:24:08,creator: admin,5: admin,md5: ,6: ,pms: {1: {id: 1,0: 1,key: index,1: index,name: 首页设置,2: 首页设置,remark: ,3: }8: {id: 8,0: 8,key: wechat,1: wechat,name: 公众号设置,2: 公众号设置,remark: ,3: }9: {id: 9,0: 9,key: system,1: system,name: 系统管理,2: 系统管理,remark: ,3: }10: {id: 10,0: 10,key: user,1: user,name: 用户管理,2: 用户管理,remark: ,3: }17: {id: 17,0: 17,key: dealer,1: dealer,name: 经销商管理,2: 经销商管理,remark: ,3: }18: {id: 18,0: 18,key: channel,1: channel,name: 栏目管理,2: 栏目管理,remark: ,3: ,checked: checked}}}}
-2016.12.10.00:31:25:D:\WebTest\PhpTest\gnc_qr\admin\index.php130:{1: {pms_id: 18,0: 18,id: 1,1: 1,name: test,2: test,pwd: abc,3: abc,create_time: 2016-12-10 00:24:08,4: 2016-12-10 00:24:08,creator: admin,5: admin,md5: ,6: ,pms: {1: {id: 1,0: 1,key: index,1: index,name: 首页设置,2: 首页设置,remark: ,3: }8: {id: 8,0: 8,key: wechat,1: wechat,name: 公众号设置,2: 公众号设置,remark: ,3: }9: {id: 9,0: 9,key: system,1: system,name: 系统管理,2: 系统管理,remark: ,3: }10: {id: 10,0: 10,key: user,1: user,name: 用户管理,2: 用户管理,remark: ,3: }17: {id: 17,0: 17,key: dealer,1: dealer,name: 经销商管理,2: 经销商管理,remark: ,3: }18: {id: 18,0: 18,key: channel,1: channel,name: 栏目管理,2: 栏目管理,remark: ,3: ,checked: checked}}}}
-2016.12.10.08:44:53:D:\WebTest\PhpTest\gnc_qr\admin\index.php130:{1: {pms_id: 18,0: 18,id: 1,1: 1,name: test,2: test,pwd: abc,3: abc,create_time: 2016-12-10 00:24:08,4: 2016-12-10 00:24:08,creator: admin,5: admin,md5: ,6: ,pms: {1: {id: 1,0: 1,key: index,1: index,name: 首页设置,2: 首页设置,remark: ,3: }8: {id: 8,0: 8,key: wechat,1: wechat,name: 公众号设置,2: 公众号设置,remark: ,3: }9: {id: 9,0: 9,key: system,1: system,name: 系统管理,2: 系统管理,remark: ,3: }10: {id: 10,0: 10,key: user,1: user,name: 用户管理,2: 用户管理,remark: ,3: }17: {id: 17,0: 17,key: dealer,1: dealer,name: 经销商管理,2: 经销商管理,remark: ,3: }18: {id: 18,0: 18,key: channel,1: channel,name: 栏目管理,2: 栏目管理,remark: ,3: ,checked: checked}}}}
-2016.12.10.08:46:35:D:\WebTest\PhpTest\gnc_qr\admin\index.php130:{1: {pms_id: 18,0: 18,id: 1,1: 1,name: test,2: test,pwd: abc,3: abc,create_time: 2016-12-10 00:24:08,4: 2016-12-10 00:24:08,creator: admin,5: admin,md5: ,6: ,pms: {1: {id: 1,0: 1,key: index,1: index,name: 首页设置,2: 首页设置,remark: ,3: }8: {id: 8,0: 8,key: wechat,1: wechat,name: 公众号设置,2: 公众号设置,remark: ,3: }9: {id: 9,0: 9,key: system,1: system,name: 系统管理,2: 系统管理,remark: ,3: }10: {id: 10,0: 10,key: user,1: user,name: 用户管理,2: 用户管理,remark: ,3: }17: {id: 17,0: 17,key: dealer,1: dealer,name: 经销商管理,2: 经销商管理,remark: ,3: }18: {id: 18,0: 18,key: channel,1: channel,name: 栏目管理,2: 栏目管理,remark: ,3: ,checked: checked}}}}
-2016.12.10.08:57:21:D:\WebTest\PhpTest\gnc_qr\admin\index.php130:{1: {pms_id: 18,0: 18,id: 1,1: 1,name: test,2: test,pwd: abc,3: abc,create_time: 2016-12-10 00:24:08,4: 2016-12-10 00:24:08,creator: admin,5: admin,md5: ,6: ,pms: {1: {id: 1,0: 1,key: index,1: index,name: 首页设置,2: 首页设置,remark: ,3: }8: {id: 8,0: 8,key: wechat,1: wechat,name: 公众号设置,2: 公众号设置,remark: ,3: }9: {id: 9,0: 9,key: system,1: system,name: 系统管理,2: 系统管理,remark: ,3: }10: {id: 10,0: 10,key: user,1: user,name: 用户管理,2: 用户管理,remark: ,3: }17: {id: 17,0: 17,key: dealer,1: dealer,name: 经销商管理,2: 经销商管理,remark: ,3: }18: {id: 18,0: 18,key: channel,1: channel,name: 栏目管理,2: 栏目管理,remark: ,3: ,checked: checked}}}}
-2016.12.10.09:00:30:D:\WebTest\PhpTest\gnc_qr\admin\index.php130:{1: {pms_id: 18,0: 18,id: 1,1: 1,name: test,2: test,pwd: abc,3: abc,create_time: 2016-12-10 00:24:08,4: 2016-12-10 00:24:08,creator: admin,5: admin,md5: ,6: ,pms: {1: {id: 1,0: 1,key: index,1: index,name: 首页设置,2: 首页设置,remark: ,3: }8: {id: 8,0: 8,key: wechat,1: wechat,name: 公众号设置,2: 公众号设置,remark: ,3: }9: {id: 9,0: 9,key: system,1: system,name: 系统管理,2: 系统管理,remark: ,3: }10: {id: 10,0: 10,key: user,1: user,name: 用户管理,2: 用户管理,remark: ,3: }17: {id: 17,0: 17,key: dealer,1: dealer,name: 经销商管理,2: 经销商管理,remark: ,3: }18: {id: 18,0: 18,key: channel,1: channel,name: 栏目管理,2: 栏目管理,remark: ,3: ,checked: checked}}}}
-2016.12.10.09:03:15:D:\WebTest\PhpTest\gnc_qr\admin\index.php130:{1: {pms_id: 18,0: 18,id: 1,1: 1,name: test,2: test,pwd: abc,3: abc,create_time: 2016-12-10 00:24:08,4: 2016-12-10 00:24:08,creator: admin,5: admin,md5: ,6: ,pms: {1: {id: 1,0: 1,key: index,1: index,name: 首页设置,2: 首页设置,remark: ,3: }8: {id: 8,0: 8,key: wechat,1: wechat,name: 公众号设置,2: 公众号设置,remark: ,3: }9: {id: 9,0: 9,key: system,1: system,name: 系统管理,2: 系统管理,remark: ,3: }10: {id: 10,0: 10,key: user,1: user,name: 用户管理,2: 用户管理,remark: ,3: }17: {id: 17,0: 17,key: dealer,1: dealer,name: 经销商管理,2: 经销商管理,remark: ,3: }18: {id: 18,0: 18,key: channel,1: channel,name: 栏目管理,2: 栏目管理,remark: ,3: ,checked: checked}}}}
-2016.12.10.10:20:02:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE  limit 1
-2016.12.10.10:21:50:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="1" AND pms_id="18" limit 1
-2016.12.10.10:26:49:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="1" AND pms_id="18" limit 1
-2016.12.10.11:05:37:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="5" AND pms_id="1" limit 1
-2016.12.10.11:05:38:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="5" AND pms_id="8" limit 1
-2016.12.10.11:05:39:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="5" AND pms_id="9" limit 1
-2016.12.10.11:05:40:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="5" AND pms_id="10" limit 1
-2016.12.10.11:05:42:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="5" AND pms_id="17" limit 1
-2016.12.10.11:05:43:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="5" AND pms_id="18" limit 1
-2016.12.10.11:05:46:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="3" AND pms_id="8" limit 1
-2016.12.10.11:05:47:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="4" AND pms_id="10" limit 1
-2016.12.10.11:05:48:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="2" AND pms_id="10" limit 1
-2016.12.10.11:05:48:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="3" AND pms_id="18" limit 1
-2016.12.10.11:05:49:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from op_pms_tbl WHERE o_id="1" AND pms_id="17" limit 1
-2016.12.10.11:11:19:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE art_id="38" limit 1
-2016.12.10.11:11:20:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE art_id="37" limit 1
-2016.12.10.11:11:41:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: customer_photo,edit_article: 1,rediract: 1}
-2016.12.10.11:11:41:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_channel_id: 2,art_title: ,art_img: image/1a549f82e2ba9f6b7a9f6a473e143759.jpg}
-2016.12.10.11:11:41:D:\WebTest\PhpTest\gnc_qr\admin\controller.php59:header to
-2016.12.10.11:11:48:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: customer_photo,edit_article: 1,rediract: 1}
-2016.12.10.11:11:48:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_channel_id: 2,art_title: ,art_img: image/dcf6ebd21f7a6ec12338af962649b5a4.jpg}
-2016.12.10.11:11:48:D:\WebTest\PhpTest\gnc_qr\admin\controller.php59:header to
-2016.12.10.11:11:56:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: customer_photo,edit_article: 1,rediract: 1}
-2016.12.10.11:11:56:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_channel_id: 2,art_title: ,art_img: image/7d18db7f9acf73f8d2c9ea8f8a291e66.jpg}
-2016.12.10.11:11:56:D:\WebTest\PhpTest\gnc_qr\admin\controller.php59:header to
-2016.12.10.11:12:06:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: customer_photo,edit_article: 1,rediract: 1}
-2016.12.10.11:12:06:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_channel_id: 2,art_title: ,art_img: image/935ea85617b1cc6bf864003873693b63.jpg}
-2016.12.10.11:12:06:D:\WebTest\PhpTest\gnc_qr\admin\controller.php59:header to
-2016.12.10.11:13:48:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: customer_photo,edit_article: 1,rediract: 1}
-2016.12.10.11:13:48:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_channel_id: 2,art_title: ,art_img: image/b299df717476add866e557dcddbbab9a.jpg}
-2016.12.10.11:13:48:D:\WebTest\PhpTest\gnc_qr\admin\controller.php59:header to
-2016.12.10.11:18:18:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: index,sub: index_config,edit_article: 1,rediract: }
-2016.12.10.11:18:18:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_id: 43,art_title: ,art_img: image/eefa8e41fffcf13e09cc5094ebcc0fbf.jpg}
-2016.12.10.11:24:16:D:\WebTest\PhpTest\gnc_qr\wechat\index.php42:index
-2016.12.10.11:27:17:D:\WebTest\PhpTest\gnc_qr\wechat\index.php42:index
-2016.12.10.12:46:23:D:\WebTest\PhpTest\gnc_qr\wechat\index.php42:index
-2016.12.10.14:05:32:D:\WebTest\PhpTest\gnc_qr\wechat\index.php42:index
-2016.12.10.14:45:33:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: about,edit_article: 1,rediract: }
-2016.12.10.14:45:33:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_id: 21,art_channel_id: 1,art_title: 关于公司的一切,art_img: image/bc6cd3e37ccbf3396740a11ccc03dc37.png,art_text: <p><img src="/gnc_qr/image/3553ab583eec1fe2b76a49637f7d614a.jpg" alt="3553ab583eec1fe2b76a49637f7d614a.jpg" width="324" height="434"/></p><p>图片测试</p>}
-2016.12.10.14:47:15:D:\WebTest\PhpTest\gnc_qr\admin\controller.php48:get get:{menu: channel,sub: about,edit_article: 1,rediract: }
-2016.12.10.14:47:15:D:\WebTest\PhpTest\gnc_qr\admin\controller.php49:get post{art_id: 21,art_title: 关于公司的一切,art_img: image/bc6cd3e37ccbf3396740a11ccc03dc37.png,art_text: <p><img src="/gnc_qr/image/0786f2d280ecb54cd0f0185be2d070c9.jpg" alt="0786f2d280ecb54cd0f0185be2d070c9.jpg"/></p><p>图片测试</p>}
-2016.12.10.15:07:06:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE art_id="20" limit 1
-2016.12.10.15:07:07:D:\WebTest\PhpTest\gnc_qr\includes\db.inc.php210:DELETE from gd_article WHERE art_id="1" limit 1
-2016.12.10.15:07:10:D:\WebTest\PhpTest\gnc_qr\admin\controller.php39:{0: image/9250247a0132aedb79c06cb40821baaf.jpg,1: image/6d948c0431ea3dc43c9d35552484becc.jpg,2: image/130b615a8420f3e4673bf476ff775c8f.jpg,3: image/9e648842e2aca7d7f6bf45442a7807b8.jpg}
+2016.12.01.15:27:10:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:d02441waMQeQHAGvUUE7o50qBQ2Lddzs
+2016.12.01.15:32:25:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:d02441waMQeQHAGvUUE7o50qBQ2Lddzs
+2016.12.01.17:14:16:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php8:ajax reached
+2016.12.01.17:14:16:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php10:post ok:{data: {use_phone: 123,use_wx_id: 123,use_username: 123,use_password: 123,use_rank: 4}pms: dealer,method: add_dealer}
+2016.12.01.17:14:16:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php14:reach
+2016.12.01.18:25:15:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php8:ajax reached
+2016.12.01.18:25:15:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php10:post ok:{data: {use_phone: 456,use_wx_id: 456,use_username: 456,use_password: 456,use_rank: 3}pms: dealer,method: add_dealer}
+2016.12.01.18:25:15:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php14:reach
+2016.12.01.18:25:52:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php8:ajax reached
+2016.12.01.18:25:52:D:\wwwroot\wechat\wwwroot\boomlala520\admin\ajax_request.php10:post ok:{pms: dealer,method: audit,id: 19}
+2016.12.01.18:26:50:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:102378c5uj3wD3r5tKjAPx8uEglg2ytz
+2016.12.01.18:53:38:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php52:openid update
+2016.12.01.18:55:38:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:802871LuX5GLPDfV5cEi885FFosUlbuT
+2016.12.01.18:55:42:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:802871LuX5GLPDfV5cEi885FFosUlbuT
+2016.12.01.18:55:44:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:802871LuX5GLPDfV5cEi885FFosUlbuT
+2016.12.01.18:55:47:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:802871LuX5GLPDfV5cEi885FFosUlbuT
+2016.12.01.18:58:51:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:802871LuX5GLPDfV5cEi885FFosUlbuT
+2016.12.01.18:58:55:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:802871LuX5GLPDfV5cEi885FFosUlbuT
+2016.12.01.19:05:10:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\ajax.php32:802821ORd4r2AqYPrBye8FvtKAGmb2Kf
+2016.12.02.16:56:45:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php55:{subscribe: 1,openid: oAW_NsyAKKEOew2EOATifmrQ_Efk,nickname: simon-zz,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/ajNVdqHZLLAsIDaE26ydUcicibcLqAOcyeLJlo3DFvJwMAJWAvS3ibyqOd79pBqxlSlNwU2593a9mBoAdwk3kWfQw/0,subscribe_time: 1480668971,remark: ,groupid: 100,tagid_list: {0: 100}}
+2016.12.02.16:56:45:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php57:openid update
+2016.12.02.17:07:15:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php55:{subscribe: 1,openid: oAW_Ns2205MOnzHPSOUr92oPEpko,nickname: 阿秦💓（溢萱创始人）,sex: 2,language: zh_CN,city: 朝阳,province: 北京,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/CyAxzCHQfibtYiagBlMPDBiaSTaBVZ8kfcRucZqjwwOoicjLmatHyxiasLKRxPiaJDnqia47wCibd7Pw3KiamLVkFW9KqVicwX1noIxcfs/0,subscribe_time: 1480669618,remark: ,groupid: 100,tagid_list: {0: 100}}
+2016.12.02.17:07:15:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php57:openid update
+2016.12.02.17:25:32:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php55:{subscribe: 1,openid: oAW_Ns5VqcKWCS7P_5NW2BoxC3hU,nickname: 岑大大,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/Q3auHgzwzM43oj1kiaGqAnlhowJna9wFGXQwpsxXGIiaD0DCcNibTsiciaIcztmEicd0keibJMMqNfP8ExL6DWE9avqUQ/0,subscribe_time: 1480670181,remark: ,groupid: 100,tagid_list: {0: 100}}
+2016.12.02.17:25:32:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php57:openid update
+2016.12.02.18:46:04:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php55:{subscribe: 1,openid: oAW_Ns6o6g-_Eh2kKbQ400iyAPvA,nickname: K3Y-1,sex: 2,language: zh_CN,city: 杭州,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/jHDmnprzpFzrad5icJzMLibRyAAt0Ez0EREVA6fN3XdXTzDnG7YVNhZ09iczG07wXQfa2pxz7Zx2hoicQkgic2lk2puyN0EdAc96R/0,subscribe_time: 1480670510,remark: ,groupid: 100,tagid_list: {0: 100}}
+2016.12.02.18:46:04:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php57:openid update
+2016.12.04.14:15:58:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php55:{subscribe: 1,openid: oAW_Ns6huSTZAg_lENVhjW6rxAQw,nickname: 阿秦财务☺️,sex: 2,language: zh_CN,city: ,province: ,country: 挪威,headimgurl: http://wx.qlogo.cn/mmopen/BfWiaiaNewUwsS6g7r91QAiciaNpUK5XSmKpE4t99eURsWF3WtMmOad6Wu8wGEqkRcRJrmE64oWfbawnGPnRU6eR7K9TQPGMUK23/0,subscribe_time: 1480832133,remark: ,groupid: 100,tagid_list: {0: 100}}
+2016.12.04.14:15:58:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php57:openid update
+2016.12.05.09:54:16:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\controller.php24:{from: oAW_Ns0-MlfFmbac2FlKfIItGe3w,me: gh_702978e4f07c,content: 测试,ToUserName: gh_702978e4f07c,FromUserName: oAW_Ns0-MlfFmbac2FlKfIItGe3w,CreateTime: 1480902855,MsgType: text,Content: 测试,MsgId: 6360429331271664370}
+2016.12.05.09:54:16:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\reply.php6:nomal reply
+2016.12.05.09:54:16:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\serveManager.php140:send message
+2016.12.05.09:54:40:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\controller.php24:{from: oAW_Ns0-MlfFmbac2FlKfIItGe3w,me: gh_702978e4f07c,content: 测试,ToUserName: gh_702978e4f07c,FromUserName: oAW_Ns0-MlfFmbac2FlKfIItGe3w,CreateTime: 1480902879,MsgType: text,Content: 测试,MsgId: 6360429434350879489}
+2016.12.05.09:54:40:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\reply.php6:nomal reply
+2016.12.05.09:54:40:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\serveManager.php140:send message
+2016.12.05.10:08:48:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\serveManager.php50:createOk{"errcode":65303,"errmsg":"there is no selfmenu, please create selfmenu first hint: [XP7kra0728vr19]"}
+2016.12.05.10:10:02:D:\wwwroot\wechat\wwwroot\boomlala520\wechat\serveManager.php50:createOk{"menuid":493634659}
+2016.12.05.10:12:46:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php65:{subscribe: 1,openid: oAW_Ns0-MlfFmbac2FlKfIItGe3w,nickname: Don Li,sex: 1,language: zh_CN,city: 宁波,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/uI5pczeERTYwAu3Bmyicmm5ypZCx7h79M2ib3CtkB6VicngdQAcricIicJ2DGEfYzflFPjicNWkGry9RqibxuqnrhghFQ/0,subscribe_time: 1479878442,remark: ,groupid: 100,tagid_list: {0: 100}}
+2016.12.05.10:12:46:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php67:openid update
+2016.12.07.17:38:21:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 23}
+2016.12.08.16:12:28:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 24}
+2016.12.08.16:12:33:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 22}
+2016.12.08.16:12:35:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 24}
+2016.12.08.16:12:37:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 23}
+2016.12.08.16:12:40:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 24}
+2016.12.08.16:12:43:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 22}
+2016.12.08.16:12:45:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 24}
+2016.12.09.14:14:05:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 24}
+2016.12.09.14:14:21:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\moduleFunction.php11:{module: audit_confirm,id: 23}
+2016.12.12.16:59:19:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php65:{subscribe: 1,openid: oAW_NsyyJt8MwObunm3lQSiKacsM,nickname: Csy🐰,sex: 2,language: zh_CN,city: 杭州,province: 浙江,country: 中国,headimgurl: http://wx.qlogo.cn/mmopen/CyAxzCHQfibtYiagBlMPDBiaf19VyPwDpfLlWwibrm70NKGbZMQmQEUvWYiaibshCJXxicmWY04ibeqBX9YIavlcLjG5X5y3mUADTibIG/0,subscribe_time: 1481532910,remark: ,groupid: 100,tagid_list: {0: 100}}
+2016.12.12.16:59:19:D:\wwwroot\wechat\wwwroot\boomlala520\mobile\controller.php67:openid update

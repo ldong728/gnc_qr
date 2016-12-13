@@ -41,12 +41,12 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
                 printAdminView('admin/view/dealer_list.html.php','经销商列表');
                 break;
             case 'dealer_audit':
-                if(!isset($_SESSION['dealer_id'])||$_SESSION['dealer_grade']==0){
+                if($_SESSION['dealer_grade']===0){
                     $page=$_GET['page'];
                     $where=null;
 //                    if(isset($_SESSION['dealer_id']))$where=array('f_id'=>$_SESSION['dealer_id']);
 //                    else $where=array('f_id'=>'0');
-                    $dealerList=pdoQuery('gd_audit_view',null,$where,' and use_id is not null limit ' . $page * $num . ', ' .$num);
+                    $dealerList=pdoQuery('gd_audit_view',null,null,' limit ' . $page * $num . ', ' .$num);
                     printAdminView('admin/view/dealer_audit.html.php','经销商审核');
                 }else{
                     printAdminView('admin/view/blank.html.php','首页');
@@ -177,10 +177,12 @@ function activities(){
     global $num;
     global $list;
     global $count;
+    global $source;
     $list=pdoQuery('gd_article_view',array('art_id','art_img','art_title','art_show','art_index'),array('cha_code'=>$_GET['sub']), ' order by art_add_time desc,art_index asc limit ' . $page * $num . ', ' .$num);
     $list=$list->fetchAll();
     $count=pdoQuery('gd_article_view',array('count(*) as count'),array('cha_code'=>$_GET['sub']),null);
     $count=$count->fetch()['count'];
+    $source=getConfig('../config/mainConfig.json')['activity_source'];
     printAdminView('admin/view/activities_list.html.php');
 }
 function goods_verify(){

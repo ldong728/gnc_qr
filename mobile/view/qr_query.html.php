@@ -6,16 +6,7 @@
 </head>
 
 <body class="age_bg">
-<div class="nav_hd">
-<!--    <a href="javascript:history.back(-1)" class="back clearfix">-->
-<!--        <span class="f_l">&lt;</span>返回-->
-<!--    </a>-->
-    <div class="title">
-    </div>
-<!--    <a href="./" class="home">-->
-<!--        <span>&lt;</span>-->
-<!--    </a>-->
-</div>
+<?php include 'templates/nav.php'?>
 <div class="sub_age">
     <ul class="clearfix recorder_list">
     </ul>

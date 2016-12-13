@@ -82,6 +82,17 @@ function timeUnixToMysql($time){
 function timeMysqlToUnix($time){
     return strtotime($time);
 }
+function getConfig($path)
+{
+    $data = file_get_contents($path);
+    return json_decode($data, true);
+}
+
+function saveConfig($path, array $config)
+{
+    $data = json_encode($config);
+    file_put_contents($path, $data);
+}
 
 
 

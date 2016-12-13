@@ -62,25 +62,31 @@ function about(){
 //    echo '跳转到这里';
 }
 function activities(){
-    $cha_id=$_GET['cha_id'];
-    $activities=pdoQuery('gd_article_view',null,array('art_channel_id'=>$cha_id),null);
-    $activities=$activities->fetchAll();
-//    $news = getMediaList('news', 0, $newsNum - $localNum);
-//    foreach ($news['item'] as $row) {
-//        $media_id = $row['media_id'];
-//        $title_img = 'img/' . $media_id . '.jpg';
-//        $title = $row['content']['news_item'][0]['title'];
-//        $digest = $row['content']['news_item'][0]['digest'];
-//        $content = $row['content']['news_item'][0]['content'];
-//        $url = $row['content']['news_item'][0]['url'];
-//        $create_time = $row['content']['update_time'];
-//        if (!file_exists('../' . $title_img)) {
-//            $img = getFromUrl($row['content']['news_item'][0]['thumb_url']);
-//            file_put_contents('../' . $title_img, $img);
-//        }
-//        $value[] = array('media_id' => $media_id, 'title' => addslashes($title), 'digest' => addslashes($digest), 'title_img' => $title_img, 'content' => addslashes($content), 'url' => $url, 'create_time' => $create_time);
-//    }
-    include 'view/activities.html.php';
+    $source=getConfig('../config/mainConfig.json')['activity_source'];
+    if($source){
+        $getedTime=getConfig('config/time.json');
+        if(time()-$getedTime['activities']>3600*24*7){
+            include_once '../wechat/newsSdk.php';
+            $news=new newsSdk();
+            $activities=$news->getNewsList(0,20);
+            ob_start();
+            include 'view/activities.html.php';
+            $content=ob_get_contents();
+            file_put_contents('view/activities_static.html',$content);
+            ob_end_clean();
+            $getedTime['activities']=time();
+            saveConfig('config/time.json',$getedTime);
+        }
+        include'view/activities_static.html';
+    }else{
+        $cha_id=$_GET['cha_id'];
+        $activities=pdoQuery('gd_article_view',null,array('art_channel_id'=>$cha_id),null);
+        $activities=$activities->fetchAll();
+        include 'view/activities.html.php';
+    }
+
+
+
 
 }
 function goods_verify(){

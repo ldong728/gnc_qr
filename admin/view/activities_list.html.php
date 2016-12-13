@@ -1,5 +1,5 @@
 <?php
-global $page,$num,$list,$count,$getStr;
+global $page,$num,$list,$count,$getStr,$source;
 ?>
 
 <div class="main">
@@ -47,6 +47,16 @@ global $page,$num,$list,$count,$getStr;
             </td>
         </tr>
         </tbody></table>
+
+</div>
+<div class="block">
+    <div class="head" style="width: 98%"><span>其他功能</span></div>
+    <table class="table">
+        <tr>
+            <td width="200">从公众号后台获取</td>
+            <td width="200"><input class="source" type="checkbox"<?php echo $source?'checked="checked"':''?>></td>
+        </tr>
+    </table>
 </div>
 <script>
     var url='?'+'<?php echo $getStr?>';
@@ -73,6 +83,12 @@ global $page,$num,$list,$count,$getStr;
         deleteRecord('gd_article',{art_id:id},function(){
             location.reload(true);
         })
+    });
+    $('.source').change(function(){
+        var fromWx=$(this).prop('checked')?1:0;
+        altConfig('mainConfig','activity_source',fromWx,function(){
+
+        });
     });
 
 

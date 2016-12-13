@@ -207,7 +207,7 @@ function pdoDelete($tableName,array $where,$str=''){
 
     }
     $sql=$sql.$str;
-    mylog($sql);
+//    mylog($sql);
     try {
         $GLOBALS['pdo']->exec($sql);
         return $GLOBALS['pdo']->lastInsertId();

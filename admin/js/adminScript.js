@@ -66,6 +66,23 @@ function addRecord(tablename,value,onDuplicate,success){
         }
     })
 }
+function altConfig(name,key,value,success){
+    var conValue={
+        altConfig:1,
+        name:name,
+        key:key,
+        value:value,
+        pms:pms
+    }
+    $.post('ajax_request.php',conValue , function (data) {
+        if(data)data=eval('('+data+')');
+        if (data.errcode == 0) {
+            success(data);
+        }else{
+            return false;
+        }
+    })
+}
 
 //例：<div class="ipt-toggle" id="row id" data-tbl="table name"data-col="col name" data-index="index col">
 $('.ipt-toggle').dblclick(function () {
