@@ -157,6 +157,7 @@ class interfaceHandler
         curl_close($ch);
         $dataArray = json_decode($data, true);
         if (40001 == $dataArray['errcode']) {
+            mylog('token time error');
             if ($this->tryCount < 4) {
                 mylog($this->tryCount);
                 $this->tryCount++;

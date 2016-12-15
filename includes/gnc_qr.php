@@ -97,12 +97,12 @@ function getArea($pro, $city, $area)
 
 function isUserLogin($direct)
 {
-    if (!isset($_SESSION['userId'])||!isset($_SESSION['use_grade'])||!isset($_SESSION['use_rank'])) {
+    if (!isset($_SESSION['userId']) || !isset($_SESSION['use_grade']) || !isset($_SESSION['use_rank'])) {
         $query = pdoQuery('gd_users', null, array('use_openid' => $_SESSION['openId']), ' limit 1');
         if ($userid = $query->fetch()) {
             $_SESSION['userId'] = $userid['use_id'];
             $_SESSION['user_grade'] = $userid['use_grade'];
-            $_SESSION['user_rank']=$userid['use_rank'];
+            $_SESSION['user_rank'] = $userid['use_rank'];
             return true;
         }
 
@@ -121,7 +121,7 @@ function canShip($code, $userId)
     else return false;
 }
 
-function snPreVerify($code)
+function snPreVerify_order($code)
 {
     $v1 = substr($code, 0, 1);
     $v2 = substr($code, 1, 2);
@@ -131,6 +131,41 @@ function snPreVerify($code)
     if ($v2 === '01') return true;
     elseif ($v1 === $md) return true;
     else return false;
+}
+
+function snPreVerify($code)
+{
+    $length = strlen($code);
+    if (16 == $length || 32 == $length) {
+        $version = substr($code, 1, 2);
+        $vf = $code[0];
+        switch ($version) {
+            case '01':
+                return $version;
+            case '02':
+                $data = substr($code, 1);
+                $md = substr(md5($data . SN_KEY), 0, 1);
+                if ($vf === $md) return $version;
+                else return false;
+            case '03':
+                $ve = $code[$length - 1];
+                $data = substr($code,1,14);
+                $md = md5($data . SN_KEY);
+                if ($vf == $md[0] && $ve == $md[31]){
+                    if(16==$length){
+                        return $version;
+                    }else{
+                        $vbf=$code['16'];
+                        if($vbf==md5(substr($code,17,14).SN_KEY)[0])return $version;
+                        else return false;
+                    }
+                }
+                else return false;
+            default:
+                return false;
+        }
+    }
+    return false;
 }
 
 

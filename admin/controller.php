@@ -97,6 +97,7 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
 //            $button1sub3 = array('name' => '时尚态度', 'type' => 'view', 'url' =>'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/Detail_32.php?single_id=10288&C_id=413&fromuser=null&wxref=mp.weixin.qq.com');
 //            $button1sub4 = array('name' => '细节展示', 'type' => 'view', 'url' => 'http://admin88.winjubao.com/weixin/plat/app/Html/413/953692/diy413_4922.html?fromuser=null&wxref=mp.weixin.qq.com');
 //            $button2sub3 = array('name' => '经销商入口', 'type' => 'view', 'url'=>$url . 'log_check');
+            $button1=array('name' => '微官网', 'type' => 'view', 'url' => 'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/mobile/controller.php?channel=index');
             $button2sub1 = array('name' => '防伪验证', 'type' => 'view', 'url' => $url . 'qr_verify');
 //            $button2sub2 = array('name' => '渠道回溯', 'type' => 'view', 'url' => $url . 'qr_query');
             $button2sub3 = array('name' => '发货扫描', 'type' => 'view', 'url' => $url . 'qr_book');
@@ -112,17 +113,19 @@ if (isset($_SESSION['login']) && DOMAIN == $_SESSION['login']) {
 //            $button2 = array('name' => '功能菜单', 'sub_button' => array($button2sub1, $button2sub3));
 //            $button3 = array('name' => '联系我们', 'sub_button' => array($button3sub1, $button3sub2));
 //            $mainButton = array('button' => array($button1, $button2, $button3), 'matchrule' => array('group_id' => $row['id']));
-            $mainButton = array('button' => array($button2sub3, $button2sub1));
+            $mainButton = array('button' => array($button1,$button2sub3, $button2sub1));
             $jsondata = json_encode($mainButton, JSON_UNESCAPED_UNICODE);
             echo createButton($jsondata);
             exit;
         }
         if (isset($_GET['createUniButton'])) {
             $url = 'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/wechat/?oauth=snsapi_base&diract=';
+            $button1=array('name' => '微官网', 'type' => 'view', 'url' => 'http://' . $_SERVER['HTTP_HOST'] . DOMAIN . '/mobile/controller.php?channel=index');
             $button2sub1 = array('name' => '防伪验证', 'type' => 'view', 'url' => $url . 'qr_verify');
             $button2sub3 = array('name' => '发货扫描', 'type' => 'view', 'url' => $url . 'qr_book');
             $button3=array('name'=>'个人中心','type'=>'view','url'=>$url.'user_inf');
-            $mainButton = array('button' => array($button2sub3, $button2sub1, $button3), 'matchrule' => array('tag_id' => 100));
+            $button2 = array('name' => '个人中心', 'sub_button' => array($button1, $button3));
+            $mainButton = array('button' => array($button2sub3, $button2sub1, $button2), 'matchrule' => array('tag_id' => 100));
 
 //            $mainButton = array('button' => array($button1, $button2, $button3));
             $jsondata = json_encode($mainButton, JSON_UNESCAPED_UNICODE);

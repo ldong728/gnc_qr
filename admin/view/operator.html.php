@@ -46,7 +46,7 @@ $pmsCount = count($pmsList);
     </table>
 </div>
 
-
+<!--<script src="../../js/md5.js"></script>-->
 <script>
     $('.pms-alt').change(function () {
         var stu = $(this).prop('checked');
@@ -81,7 +81,7 @@ $pmsCount = count($pmsList);
         var pwd = $('.new-pwd').val();
         if(name&&pwd){
             var creatorId=<?php echo $_SESSION['operator_id']?>;
-            addRecord('operator_tbl',{name:name,pwd:pwd,creator:creatorId},'update',function(){
+            addRecord('operator_tbl',{name:name,pwd:pwd,creator:creatorId,md5:hex_md5(pwd)},'update',function(){
                 location.reload(true);
             })
         }

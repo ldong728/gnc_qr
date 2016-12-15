@@ -28,9 +28,11 @@ if (isset($_SESSION['openId'])) {
                 break;
             case 'query':
                 $qr = $_POST['data'];
-                if (snPreVerify($qr)) {//初筛，看sn是否符合生成算法要求
+                if ($version=snPreVerify($qr)) {//初筛，看sn是否符合生成算法要求
 //                    mylog($qr);
-                    $recorde = pdoQuery('qr_recorder_view', null, array('code' => $qr), ' order by update_time desc');
+                    $exWhere= '03'==$version? ' or code="'.substr($qr,0,16).'"':'';
+
+                    $recorde = pdoQuery('qr_recorder_view', null, array('code' => $qr), $exWhere.' order by update_time desc');
                     foreach ($recorde as $row) {
                         $dealerList[] = $row['from_id'];
                         $toDealerList[] = $row['to_id'];

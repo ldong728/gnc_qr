@@ -16,10 +16,10 @@
     $button=$GLOBALS['button'];
 ?>
 
-<section>
-    <div class="page_title">
-        <h2><strong>公众号按钮设置</strong></h2>
-    </div>
+<!--<section>-->
+<!--    <div class="page_title">-->
+<!--        <h2><strong>公众号按钮设置</strong></h2>-->
+<!--    </div>-->
 <!--    --><?php //foreach($button['button'] as $row):?>
 <!--    <section>-->
 <!--        <input type="text" class="textbox" value="--><?php //echo $row['name']?><!--">-->
@@ -39,9 +39,9 @@
 <!--    </section>-->
 <!--    --><?php //endforeach ?>
 
-    <button class="link_btn altmenu">提交修改</button>
-
-</section>
+<!--    <button class="link_btn altmenu">提交修改</button>-->
+<!---->
+<!--</section>-->
 
 <!--<script>-->
 <!--    $.each($button,function(k,v){-->
@@ -56,9 +56,9 @@
     <div class="module-title">
         测试块
     </div>
-    <a href="consle.php?wechat=1&getMenuInf=1">获取按钮信息</a>
-    <a href="consle.php?wechat=1&createUniButton=1">创建个性化按钮</a>
-    <a href="consle.php?wechat=1&createButton=1">初始化按钮</a>
-    <a href="consle.php?wechat=1&test=1">测试按钮</a>
+    <a href="controller.php?wechat=1&getMenuInf=1">获取按钮信息</a>
+    <a href="controller.php?wechat=1&createUniButton=1">创建个性化按钮</a>
+    <a href="controller.php?wechat=1&createButton=1">初始化按钮</a>
+    <a href="controller.php?wechat=1&test=1">测试按钮</a>
 <!--    <a href=""-->
 </div>
